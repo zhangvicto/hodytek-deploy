@@ -1,4 +1,5 @@
-import { Footer, Menu } from "../page"
+import Footer from '../footer';
+import Menu from '../menu';
 
 export default function Page() {
     return (
