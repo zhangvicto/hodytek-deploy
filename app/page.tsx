@@ -23,7 +23,7 @@ export default function Home() {
 export function Menu() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-  const toggleNav = () => {
+  function toggleNav() {
     setIsNavOpen(!isNavOpen);
   };
 
