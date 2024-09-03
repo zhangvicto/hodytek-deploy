@@ -52,7 +52,7 @@ const ContactForm = () => {
       <h2 className="text-2xl font-bold mb-4">How Can We Help?</h2>
       <form className="gform space-y-4" onSubmit={handleSubmit}>
         <div>
-          <p className="mb-4">We'd love to hear from you! Please fill out the form below, and we'll get back to you as soon as possible.</p>
+          <p className="mb-4">We&apos;d love to hear from you! Please fill out the form below, and we&apos;ll get back to you as soon as possible.</p>
           <label htmlFor="name" className="block text-sm font-medium text-sky-700">Name *</label>
           <input
             id="name"
