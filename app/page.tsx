@@ -15,7 +15,6 @@ export default function Home() {
       <Carousel />
       <AboutUs />
       <WhyUs />
-      {/* <ProductHighlight /> */}
       <ContactForm />
       <Footer />
     </main>
@@ -37,24 +36,22 @@ function AboutUs() {
 
 function WhyUs() {
   return (
-    <div className="p-2 flex items-center bg-sky-900">
-      <div className="p-10 lg:p-20">
+    <div className="flex items-center justify-center  bg-sky-900 mb-10 p-10">
+      {/* <div className="p-10 lg:p-20">
         <Image src={`/images/carousel1.jpg`} alt="Why Us Image 1" width="200" height="100" />
         <Image src={`/images/carousel2.png`} alt="Why Us Image 2" width="200" height="100" />
-      </div>
-      <div className="text-white flex">
-        <p className="text-3xl lg:text-4xl font-bold">Why Us</p>
-        <div>Global Reach with Local Expertise</div>
-        <div>Strategic Offshore Connections</div>
-        <div>Comprehensive Support with Technical Excellence</div>
-        <Link className="btn bg-white text-sky-900 p-3 m-5" href="/product">Browse Our Products</Link>
+      </div> */}
+      <div className="text-white text-center my-5">
+        <p className="text-3xl lg:text-4xl font-bold">What We Offer</p>
+        <div className="grid grid-cols-3 items-center p-5 mb-5">
+          <div className="border-r p-5 h-full">Global Reach with Local Expertise</div>
+          <div  className="border-r p-5 h-full">Strategic Offshore Connections</div>
+          <div className="p-5 h-full">Comprehensive Support with Technical Excellence</div>
+        </div>
+
+        <Link className="btn bg-white text-sky-900 p-3 m-5 hover:" href="/product">Browse Our Products</Link>
+        <Link className="btn bg-white text-sky-900 p-3 m-5 hover:" href="#form">Contact Us</Link>
       </div>
     </div>
-  )
-}
-
-function ProductHighlight() {
-  return (
-    <div>Product Highlights</div>
   )
 }

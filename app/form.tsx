@@ -48,11 +48,12 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-sky-100 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4 text-sky-900">Contact Us</h2>
+    <div className="max-w-lg mx-auto p-6 rounded-lg" id="form">
+      <h2 className="text-2xl font-bold mb-4">How Can We Help?</h2>
       <form className="gform space-y-4" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-sky-700">Name</label>
+          <p className="mb-4">We'd love to hear from you! Please fill out the form below, and we'll get back to you as soon as possible.</p>
+          <label htmlFor="name" className="block text-sm font-medium text-sky-700">Name *</label>
           <input
             id="name"
             name="name"
@@ -60,11 +61,11 @@ const ContactForm = () => {
             required
             value={formData.name}
             onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            className="mt-1 block w-full border-b focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-sky-700">Email</label>
+          <label htmlFor="email" className="block text-sm font-medium text-sky-700">Email *</label>
           <input
             id="email"
             name="email"
@@ -72,29 +73,29 @@ const ContactForm = () => {
             required
             value={formData.email}
             onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            className="mt-1 block w-full border-b focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-sky-700">Phone</label>
+          <label htmlFor="email" className="block text-sm font-medium text-sky-700">Phone *</label>
           <input
             id="phone"
             name="phone"
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            className="mt-1 block w-full border-b focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-sky-700">Message</label>
+          <label htmlFor="message" className="block text-sm font-medium text-sky-700">Message *</label>
           <textarea
             id="message"
             name="message"
             required
             value={formData.message}
             onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+            className="mt-1 block w-full border-b focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
             rows={4}
           ></textarea>
         </div>
