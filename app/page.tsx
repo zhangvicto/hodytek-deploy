@@ -1,11 +1,12 @@
 "use client";
 
-import Link from 'next/link'
+import Image from "next/image";
 import React, { useState } from "react";
 import Carousel from './carousel';
 import ContactForm from './form';
 import Footer from './footer';
 import Menu from './menu';
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -36,10 +37,18 @@ function AboutUs() {
 
 function WhyUs() {
   return (
-    <div className="p-2">
-      Why Us: Because we the best
-      <img src={`/images/carousel1.jpg`} width="100" />
-      <img src={`/images/carousel2.png`} width="100" />
+    <div className="p-2 flex items-center bg-sky-900">
+      <div className="p-10 lg:p-20">
+        <Image src={`/images/carousel1.jpg`} alt="Why Us Image 1" width="200" height="100" />
+        <Image src={`/images/carousel2.png`} alt="Why Us Image 2" width="200" height="100" />
+      </div>
+      <div className="text-white flex">
+        <p className="text-3xl lg:text-4xl font-bold">Why Us</p>
+        <div>Reason 1</div>
+        <div>Reason 2</div>
+        <div>Reason 3</div>
+        <Link className="btn bg-white text-sky-900 p-3 m-5" href="/product">Browse Our Products</Link>
+      </div>
     </div>
   )
 }

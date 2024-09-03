@@ -29,11 +29,11 @@ export default function Menu() {
         {/* Menu Items */}
         <ul className={`w-full block lg:flex lg:items-center lg:w-auto ${isNavOpen ? 'block' : 'hidden'}`}>
           <div className="text-sm lg:flex-grow">
-            <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 mr-4">
+            <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 mr-10">
               <Link href="/about">About</Link>
             </li>
-            <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 mr-4">
-              <Link href="/products">Products</Link>
+            <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 mr-10">
+              <Link href="/product">Products</Link>
             </li>
             <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 mr-4">
               <Link href="/contact">Contact Us</Link>
