@@ -44,9 +44,9 @@ function WhyUs() {
       </div>
       <div className="text-white flex">
         <p className="text-3xl lg:text-4xl font-bold">Why Us</p>
-        <div>Reason 1</div>
-        <div>Reason 2</div>
-        <div>Reason 3</div>
+        <div>Global Reach with Local Expertise</div>
+        <div>Strategic Offshore Connections</div>
+        <div>Comprehensive Support with Technical Excellence</div>
         <Link className="btn bg-white text-sky-900 p-3 m-5" href="/product">Browse Our Products</Link>
       </div>
     </div>

@@ -40,7 +40,7 @@ const Carousel: React.FC = () => {
 
     return (
         <div
-            className="relative w-full sm:h-80 md:h-96 lg:h-100 overflow-hidden"
+            className="relative w-full h-80 md:h-96 lg:h-100 overflow-hidden"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >

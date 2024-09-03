@@ -6,9 +6,8 @@ import Menu from '../menu';
 
 export default function Page() {
     return (
-    <div>
+    <div className="bg-white text-sky-900 inset-0 overflow-hidden">
       <Menu />
-      Contact Us
       <ContactForm />
       <Footer />
     </div>

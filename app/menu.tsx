@@ -12,7 +12,7 @@ export default function Menu() {
     };
   
     return (
-      <nav className="flex items-center justify-between flex-wrap bg-sky-50 p-2">
+      <nav className="flex items-center justify-between flex-wrap bg-sky-50 lg:p-5 px-10 py-5">
         {/* Icon */}
         <Link className="flex items-center flex-shrink-0 text-black mr-6" href='/'>
           <Image className="mr-2" src={`/icons/hodytek-icon.svg`} alt="Icon" width="30" height="40" />

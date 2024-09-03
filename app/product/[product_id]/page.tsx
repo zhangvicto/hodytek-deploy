@@ -1,5 +1,5 @@
-// app/product/[product_id]/page.tsx
-import { notFound } from 'next/navigation';
+import Footer from '../../footer';
+import Menu from '../../menu';
 
 const products: { [key: string]: { name: string; description: string; image: string } } = {
   "product-a": { name: "Product A", description: "Description for Product A", image: "/images/product-a.jpg" },
@@ -16,10 +16,12 @@ const products: { [key: string]: { name: string; description: string; image: str
   "product-l": { name: "Product L", description: "Description for Product L", image: "/images/product-l.jpg" },
 };
 
+
 export async function generateStaticParams() {
   const productIds = Object.keys(products);
   return productIds.map((id) => ({ product_id: id }));
 }
+
 
 export default function ProductDetailPage({ params }: { params: { product_id: string } }) {
   const product = products[params.product_id];
@@ -29,10 +31,14 @@ export default function ProductDetailPage({ params }: { params: { product_id: st
   }
 
   return (
-    <div className="space-y-4">
-      <h1 className="text-3xl font-bold">{product.name}</h1>
-      <img src={product.image} alt={product.name} className="w-full h-64 object-cover rounded shadow" />
-      <p className="text-gray-700">{product.description}</p>
+    <div className="bg-white">
+      <Menu />
+      <div className="space-y-4">
+        <h1 className="text-3xl font-bold">{product.name}</h1>
+        <img src={product.image} alt={product.name} className="w-full h-64 object-cover rounded shadow" />
+        <p className="text-gray-700">{product.description}</p>
+      </div>
+      <Footer />
     </div>
   );
 }

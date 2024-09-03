@@ -6,7 +6,7 @@ export default function Footer() {
         <div className="self-center">
           <p className="h1 font-bold">Contact Us</p>
           <p>Sales Rep</p>
-          <p>someone@hodytek.com</p>
+          <p><a href="mailto:someone@hodytek.com"></a>someone@hodytek.com</p>
           <p>+1 123-456-7891</p>
         </div>
   
@@ -14,7 +14,7 @@ export default function Footer() {
   
         <div className="self-center justify-self-end text-right">
           <p><Link href="/about">About</Link></p>
-          <p><Link href="/products">Products</Link></p>
+          <p><Link href="/product">Products</Link></p>
           <p><Link href="/contact">Contact Us</Link></p>
         </div>
       </div>
