@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Footer from '../../footer';
 import Menu from '../../menu';
 
@@ -14,9 +15,10 @@ const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKnRiX_Ih-3V
 export async function generateStaticParams() {
   try {
     // Fetch product types and flatten products to get all product IDs
-    const response = await fetch(GOOGLE_SCRIPT_URL);
+    const response = await fetch(GOOGLE_SCRIPT_URL, { cache: 'no-store' });
     const productTypes = await response.json();
     const allProducts = productTypes.flatMap((type: any) => type.products);
+    console.log(allProducts)
 
     return allProducts.map((product: Product) => ({
       product_id: product.id,
@@ -29,11 +31,11 @@ export async function generateStaticParams() {
 
 export default async function ProductDetailPage({ params }: { params: { product_id: string } }) {
   // Fetch all product data
-    const response = await fetch(GOOGLE_SCRIPT_URL);
-    const productTypes = await response.json();
-    const allProducts = productTypes.flatMap((type: any) => type.products);
-    // Find the specific product by ID
-    const product = allProducts.find((p: Product) => p.id === params.product_id) || null;
+  const response = await fetch(GOOGLE_SCRIPT_URL, { cache: 'no-store' });
+  const productTypes = await response.json();
+  const allProducts = productTypes.flatMap((type: any) => type.products);
+  // Find the specific product by ID
+  const product = allProducts.find((p: Product) => p.id === params.product_id) || null;
 
   // } catch (error) {
   //   console.error('Error fetching product data:', error);
@@ -45,8 +47,8 @@ export default async function ProductDetailPage({ params }: { params: { product_
       <Menu />
       <div className="space-y-4 text-sky-900">
         <h1 className="text-3xl font-bold">{product.name}</h1>
-        <img src={product.image} alt={product.name} className="w-full h-64 object-cover rounded shadow" />
-        
+        <Image src={product.image} alt={product.name} width="500" height="200" className="w-full h-64 object-cover rounded shadow" />
+
         {/* Render the description as HTML */}
         <div className="text-gray-700"> {product.description}</div>
       </div>
