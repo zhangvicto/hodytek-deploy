@@ -23,20 +23,21 @@ export default function Home() {
 
 function AboutUs() {
   return (
-    <div className="flex items-center p-10 lg:px-40 py-20">
-      <div className="sm:pr-5 lg:pr-10">
+    <div className="flex-wrap md:flex md:flex-nowrap items-center justify-center p-10 lg:px-40 py-20">
+      <div className="pr-5">
         <p className="text-3xl lg:text-4xl font-bold pb-2">Who We Are</p>
         <p className="text-xl lg:text-2xl">At Hodytek, we specialize in providing integrated solutions for marine and offshore engineering projects. Our product range includes systems, equipment, and materials that are at the forefront of innovation in the marine and offshore engineering sectors.</p>
       </div>
-
-      <Image src="/images/aboutus.jfif" alt="about us" width="300" height="100" />
+      <div className="flex justify-center w-full">
+        <Image src="/images/aboutus.jfif" alt="about us" width="300" height="200" />
+      </div>
     </div>
   )
 }
 
 function WhyUs() {
   return (
-    <div className="flex items-center justify-center  bg-sky-900 mb-10 px-10 lg:px-40 py-20">
+    <div className="flex items-center justify-center bg-sky-900 mb-10 px-10 lg:px-40 py-20">
       {/* <div className="p-10 lg:p-20">
         <Image src={`/images/carousel1.jpg`} alt="Why Us Image 1" width="200" height="100" />
         <Image src={`/images/carousel2.png`} alt="Why Us Image 2" width="200" height="100" />
@@ -45,7 +46,7 @@ function WhyUs() {
         <p className="text-3xl lg:text-4xl font-bold">What We Offer</p>
         <div className="grid grid-cols-3 items-center p-5 mb-5">
           <div className="border-r p-5 h-full">Global Reach with Local Expertise</div>
-          <div  className="border-r p-5 h-full">Strategic Offshore Connections</div>
+          <div className="border-r p-5 h-full">Strategic Offshore Connections</div>
           <div className="p-5 h-full">Comprehensive Support with Technical Excellence</div>
         </div>
 

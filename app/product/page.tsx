@@ -148,15 +148,17 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
       <div className="px-10 lg:px-40">
         <h1 className="text-2xl font-bold py-2">Product Index</h1>
         <div className="text-white">
+          {/* Product Type Bars */}
           {productTypes.map((productType) => (
             <div key={productType.slug}>
               <button
-                className="flex justify-between items-center text-lg font-semibold text-left w-full py-2 mb-2 px-10 pl-5 bg-sky-900 hover:bg-sky-500"
+                className="flex justify-between items-center text-lg font-semibold w-full py-2 mb-2 px-10 pl-5 bg-sky-900 hover:bg-sky-500"
                 onClick={() => toggleProductType(productType.slug)}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                </svg> {productType.name}
+                </svg> 
+                <div className="text-center">{productType.name}</div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -169,6 +171,8 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
               </button>
+
+              {/* Products */}
               {expandedProductType === productType.slug && (
                 <div className="mt-2 space-y-2">
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 my-5">

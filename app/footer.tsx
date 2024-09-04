@@ -11,7 +11,7 @@ export default function Footer() {
   }
 
   return (
-    <div className="relative grid lg:grid-cols-3 gap-5 w-full bg-black text-white mt-10 p-10 lg:px-20">
+    <div className="relative grid lg:grid-cols-3 gap-5 w-full bg-black text-white mt-10 p-10 lg:px-40">
       <div className="self-center">
         <p className="h1 font-bold">Contact Us</p>
         <p>Sales Rep</p>
@@ -19,7 +19,7 @@ export default function Footer() {
         <p>+1 123-456-7891</p>
       </div>
 
-      <div className="self-center lg:justify-self-center"> &copy; Hodytek 2024 </div>
+      <div className="self-end lg:justify-self-center"> &copy; Hodytek 2024 </div>
 
       <div className="self-center lg:justify-self-end lg:text-right">
         <p><Link href="/about">About</Link></p>

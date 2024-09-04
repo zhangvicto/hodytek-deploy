@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
-const images = ["/images/carousel1.jpg", "/images/carousel2.png", "/images/carousel3.jpg"];
+const images = ["/images/carousel1.jpg", "/images/carousel2.jpeg", "/images/carousel3.jpg"];
 
 const Carousel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);

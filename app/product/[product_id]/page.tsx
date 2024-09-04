@@ -19,10 +19,10 @@ export async function generateStaticParams() {
   try {
     // Fetch product types and flatten products to get all product IDs
     // const response = await fetch(GOOGLE_SCRIPT_URL, { cache: deploy ? 'reload' : 'no-store' });
-    const response = await fetch(GOOGLE_SCRIPT_URL, {cache : "default"});
+    const response = await fetch(GOOGLE_SCRIPT_URL, { cache: "default" });
     const productTypes = await response.json();
     const allProducts = productTypes.flatMap((type: any) => type.products);
-    console.log(allProducts)
+    // console.log(allProducts)
 
     return allProducts.map((product: Product) => ({
       product_id: product.id,
@@ -35,7 +35,7 @@ export async function generateStaticParams() {
 
 export default async function ProductDetailPage({ params }: { params: { product_id: string } }) {
   // Fetch all product data
-  const response = await fetch(GOOGLE_SCRIPT_URL, {cache : "default"});
+  const response = await fetch(GOOGLE_SCRIPT_URL, { cache: "default" });
   const productTypes = await response.json();
   const allProducts = productTypes.flatMap((type: any) => type.products);
   // Find the specific product by ID
@@ -44,12 +44,17 @@ export default async function ProductDetailPage({ params }: { params: { product_
   return (
     <div className="bg-white">
       <Menu />
-      <div className="space-y-4 text-sky-900">
+      <div className="space-y-5 text-sky-900 px-10 lg:px-40 py-5">
+        {/* Title */}
         <h1 className="text-3xl font-bold">{product.name}</h1>
-        <Image src={product.image} alt={product.name} width="500" height="200" className="w-full h-64 object-cover rounded shadow" />
 
-        {/* Render the description as HTML */}
-        <div className="text-gray-700"> {product.description}</div>
+        {/* Image */}
+        <div className="grid lg:grid-cols-2">
+          <Image className="w-full h-80 object-cover rounded shadow" src={product.image} alt={product.name} width="500" height="200" />
+
+          {/* Description */}
+          <div className="text-gray-700 mx-5"> {product.description}</div>
+        </div>
       </div>
       <Footer />
     </div>
