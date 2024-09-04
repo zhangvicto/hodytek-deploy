@@ -23,7 +23,7 @@ export default function Home() {
 
 function AboutUs() {
   return (
-    <div className="flex items-center p-10 lg:p-20">
+    <div className="flex items-center p-10 lg:px-40 py-20">
       <div className="sm:pr-5 lg:pr-10">
         <p className="text-3xl lg:text-4xl font-bold pb-2">Who We Are</p>
         <p className="text-xl lg:text-2xl">At Hodytek, we specialize in providing integrated solutions for marine and offshore engineering projects. Our product range includes systems, equipment, and materials that are at the forefront of innovation in the marine and offshore engineering sectors.</p>
@@ -36,7 +36,7 @@ function AboutUs() {
 
 function WhyUs() {
   return (
-    <div className="flex items-center justify-center  bg-sky-900 mb-10 p-10">
+    <div className="flex items-center justify-center  bg-sky-900 mb-10 px-10 lg:px-40 py-20">
       {/* <div className="p-10 lg:p-20">
         <Image src={`/images/carousel1.jpg`} alt="Why Us Image 1" width="200" height="100" />
         <Image src={`/images/carousel2.png`} alt="Why Us Image 2" width="200" height="100" />

@@ -1,42 +1,54 @@
 import Footer from '../../footer';
 import Menu from '../../menu';
 
-const products: { [key: string]: { name: string; description: string; image: string } } = {
-  "product-a": { name: "Product A", description: "Description for Product A", image: "/images/product-a.jpg" },
-  "product-b": { name: "Product B", description: "Description for Product B", image: "/images/product-b.jpg" },
-  "product-c": { name: "Product C", description: "Description for Product C", image: "/images/product-c.jpg" },
-  "product-d": { name: "Product D", description: "Description for Product D", image: "/images/product-d.jpg" },
-  "product-e": { name: "Product E", description: "Description for Product E", image: "/images/product-e.jpg" },
-  "product-f": { name: "Product F", description: "Description for Product F", image: "/images/product-f.jpg" },
-  "product-g": { name: "Product G", description: "Description for Product G", image: "/images/product-g.jpg" },
-  "product-h": { name: "Product H", description: "Description for Product H", image: "/images/product-h.jpg" },
-  "product-i": { name: "Product I", description: "Description for Product I", image: "/images/product-i.jpg" },
-  "product-j": { name: "Product J", description: "Description for Product J", image: "/images/product-j.jpg" },
-  "product-k": { name: "Product K", description: "Description for Product K", image: "/images/product-k.jpg" },
-  "product-l": { name: "Product L", description: "Description for Product L", image: "/images/product-l.jpg" },
+type Product = {
+  name: string;
+  id: string;
+  image: string;
+  description: string;
 };
 
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKnRiX_Ih-3VN4aKfK3hEjOIMYt4xP65R8spQb2RbxXfEW4W9r6DE1o96i4yhTJoQ/exec'; // Replace with your Google Apps Script URL
 
+// Generate static paths for each product
 export async function generateStaticParams() {
-  const productIds = Object.keys(products);
-  return productIds.map((id) => ({ product_id: id }));
+  try {
+    // Fetch product types and flatten products to get all product IDs
+    const response = await fetch(GOOGLE_SCRIPT_URL);
+    const productTypes = await response.json();
+    const allProducts = productTypes.flatMap((type: any) => type.products);
+
+    return allProducts.map((product: Product) => ({
+      product_id: product.id,
+    }));
+  } catch (error) {
+    console.error('Error fetching product data for static params:', error);
+    return [];
+  }
 }
 
+export default async function ProductDetailPage({ params }: { params: { product_id: string } }) {
+  // Fetch all product data
+    const response = await fetch(GOOGLE_SCRIPT_URL);
+    const productTypes = await response.json();
+    const allProducts = productTypes.flatMap((type: any) => type.products);
+    // Find the specific product by ID
+    const product = allProducts.find((p: Product) => p.id === params.product_id) || null;
 
-export default function ProductDetailPage({ params }: { params: { product_id: string } }) {
-  const product = products[params.product_id];
-
-  if (!product) {
-    return <p className="text-red-500">Product not found</p>;
-  }
+  // } catch (error) {
+  //   console.error('Error fetching product data:', error);
+  //   return <p className="text-red-500">Product not found</p>;
+  // }
 
   return (
     <div className="bg-white">
       <Menu />
-      <div className="space-y-4">
+      <div className="space-y-4 text-sky-900">
         <h1 className="text-3xl font-bold">{product.name}</h1>
         <img src={product.image} alt={product.name} className="w-full h-64 object-cover rounded shadow" />
-        <p className="text-gray-700">{product.description}</p>
+        
+        {/* Render the description as HTML */}
+        <div className="text-gray-700"> {product.description}</div>
       </div>
       <Footer />
     </div>

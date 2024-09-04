@@ -22,6 +22,8 @@ const nextConfig = {
      */
     images: {
       unoptimized: true,
+      loader: "custom",
+      loaderFile: './imgLoad.js'
     },
   };
   
