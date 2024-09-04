@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Footer from '../../footer';
 import Menu from '../../menu';
+import { revalidatePath } from 'next/cache'
 
 type Product = {
   name: string;
@@ -9,13 +10,16 @@ type Product = {
   description: string;
 };
 
+// const deploy = true;
+
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKnRiX_Ih-3VN4aKfK3hEjOIMYt4xP65R8spQb2RbxXfEW4W9r6DE1o96i4yhTJoQ/exec'; // Replace with your Google Apps Script URL
 
 // Generate static paths for each product
 export async function generateStaticParams() {
   try {
     // Fetch product types and flatten products to get all product IDs
-    const response = await fetch(GOOGLE_SCRIPT_URL, { cache: 'no-store' });
+    // const response = await fetch(GOOGLE_SCRIPT_URL, { cache: deploy ? 'reload' : 'no-store' });
+    const response = await fetch(GOOGLE_SCRIPT_URL, {cache : "default"});
     const productTypes = await response.json();
     const allProducts = productTypes.flatMap((type: any) => type.products);
     console.log(allProducts)
@@ -31,16 +35,11 @@ export async function generateStaticParams() {
 
 export default async function ProductDetailPage({ params }: { params: { product_id: string } }) {
   // Fetch all product data
-  const response = await fetch(GOOGLE_SCRIPT_URL, { cache: 'no-store' });
+  const response = await fetch(GOOGLE_SCRIPT_URL, {cache : "default"});
   const productTypes = await response.json();
   const allProducts = productTypes.flatMap((type: any) => type.products);
   // Find the specific product by ID
   const product = allProducts.find((p: Product) => p.id === params.product_id) || null;
-
-  // } catch (error) {
-  //   console.error('Error fetching product data:', error);
-  //   return <p className="text-red-500">Product not found</p>;
-  // }
 
   return (
     <div className="bg-white">
