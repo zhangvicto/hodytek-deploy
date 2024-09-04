@@ -29,7 +29,7 @@ function AboutUs() {
         <p className="text-xl lg:text-2xl">At Hodytek, we specialize in providing integrated solutions for marine and offshore engineering projects. Our product range includes systems, equipment, and materials that are at the forefront of innovation in the marine and offshore engineering sectors.</p>
       </div>
 
-      <img src={`/images/aboutus.jfif`} width="300" />
+      <Image src="/images/aboutus.jfif" alt="about us" width="300" height="100" />
     </div>
   )
 }

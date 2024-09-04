@@ -105,7 +105,9 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
                 {randomProducts.slice(slideIndex * 3, slideIndex * 3 + 3).map((product) => (
                   <div key={product.id} className="w-1/3 px-2">
                     <Link href={`/product/${product.id}`} className="block">
-                      <img
+                      <Image
+                        width="500"
+                        height="200"
                         src={product.image}
                         alt={product.name}
                         className="w-full h-48 object-cover rounded"
@@ -172,7 +174,9 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 my-5">
                     {productType.products.map((product) => (
                       <Link key={product.id} href={`/product/${product.id}`} className="block text-center">
-                        <img
+                        <Image
+                          width="500"
+                          height="200"
                           src={product.image}
                           alt={product.name}
                           className="w-full h-32 object-cover rounded shadow"

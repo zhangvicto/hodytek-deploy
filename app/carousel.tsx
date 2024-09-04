@@ -2,6 +2,7 @@
 // components/Carousel.tsx
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const images = ["/images/carousel1.jpg", "/images/carousel2.png", "/images/carousel3.jpg"];
 
@@ -66,10 +67,7 @@ const Carousel: React.FC = () => {
             {/* Carousel Main */}
             <div className="relative w-full h-full overflow-hidden">
                 {images.map((image, index) => (
-                    <img
-                        key={index}
-                        src={image}
-                        alt={`Image ${index + 1}`}
+                    <Image key={index} src={image} alt={"image " + (index + 1)} width="1000" height="500"
                         className={`absolute w-full h-full object-cover transition-opacity duration-500 ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
                     />
                 ))}
