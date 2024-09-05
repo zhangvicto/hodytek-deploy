@@ -5,7 +5,8 @@ import Footer from '../footer';
 import Menu from '../menu';
 import Image from 'next/image';
 import { ContactButton } from '../contact-button';
-
+import Link from 'next/link';
+ 
 type Product = {
   name: string;
   id: string;
@@ -104,7 +105,7 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
               <div key={slideIndex} className="flex-shrink-0 w-full flex">
                 {randomProducts.slice(slideIndex * 3, slideIndex * 3 + 3).map((product) => (
                   <div key={product.id} className="w-1/3 px-2">
-                    <a target="_blank" rel="noopener noreferrer" href={`/product/${product.id}`} className="block">
+                    <Link target="_blank" rel="noopener noreferrer" href={`/product/${decodeURIComponent(product.id)}`} className="block">
                       <Image
                         width="500"
                         height="200"
@@ -112,7 +113,7 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
                         alt={product.name}
                         className="w-full h-48 object-contain rounded"
                       />
-                    </a>
+                    </Link>
                   </div>
                 ))}
               </div>

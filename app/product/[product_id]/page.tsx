@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Footer from '../../footer';
 import Menu from '../../menu';
-import { revalidatePath } from 'next/cache'
 
 type Product = {
   name: string;
@@ -24,9 +23,11 @@ export async function generateStaticParams() {
     const allProducts = productTypes.flatMap((type: any) => type.products);
     // console.log(allProducts)
 
-    return allProducts.map((product: Product) => ({
-      product_id: product.id,
+    const generatedParams = allProducts.map((product: Product) => ({
+      product_id: String(product.id),
     }));
+    console.log(generatedParams)
+    return generatedParams;
   } catch (error) {
     console.error('Error fetching product data for static params:', error);
     return [];
@@ -50,7 +51,7 @@ export default async function ProductDetailPage({ params }: { params: { product_
             {/* Title */}
             <div className="text-3xl font-bold py-2">{product.name}</div>
             {/* Product ID */}
-            <div className="text-gray-400 pb-5">Product ID: {product.id}</div>
+            <div className="text-gray-400 pb-5">Product ID: {product.id.replace("_", "/")}</div>
             {/* Image */}
             <Image className="h-80 object-cover rounded shadow" src={product.image} alt={product.name} width="500" height="200" />
           </div>
