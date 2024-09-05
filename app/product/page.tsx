@@ -105,7 +105,7 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
               <div key={slideIndex} className="flex-shrink-0 w-full flex">
                 {randomProducts.slice(slideIndex * 3, slideIndex * 3 + 3).map((product) => (
                   <div key={product.id} className="w-1/3 px-2">
-                    <Link target="_blank" rel="noopener noreferrer" href={`/product/${decodeURIComponent(product.id)}`} className="block">
+                    <Link target="_blank" rel="noopener noreferrer" href={`/product/${product.id}`} className="block">
                       <Image
                         width="500"
                         height="200"
