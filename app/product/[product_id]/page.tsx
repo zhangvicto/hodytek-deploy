@@ -44,16 +44,20 @@ export default async function ProductDetailPage({ params }: { params: { product_
   return (
     <div className="bg-white">
       <Menu />
-      <div className="space-y-5 text-sky-900 px-10 lg:px-40 py-5">
-        {/* Title */}
-        <h1 className="text-3xl font-bold">{product.name}</h1>
-
-        {/* Image */}
-        <div className="grid lg:grid-cols-2">
-          <Image className="w-full h-80 object-cover rounded shadow" src={product.image} alt={product.name} width="500" height="200" />
+      <div className="text-sky-900 px-10 lg:px-40">
+        <div className="grid lg:grid-cols-2 pt-10">
+          <div className="">
+            {/* Title */}
+            <div className="text-3xl font-bold py-2">{product.name}</div>
+            {/* Product ID */}
+            <div className="text-gray-400 pb-5">Product ID: {product.id}</div>
+            {/* Image */}
+            <Image className="h-80 object-cover rounded shadow" src={product.image} alt={product.name} width="500" height="200" />
+          </div>
 
           {/* Description */}
-          <div className="text-gray-700 mx-5"> {product.description}</div>
+          <div className="text-sky-900 my-5 lg:mx-5"> {product.description}</div>
+
         </div>
       </div>
       <Footer />

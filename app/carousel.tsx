@@ -3,8 +3,13 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-const images = ["/images/carousel1.jpg", "/images/carousel2.jpeg", "/images/carousel3.jpg"];
+const images = ["/images/carousel3.jpg", "/images/carousel1.jpg", "/images/carousel2.jpg", ];
+const captions = [<Link key="1" href="/contact"><p>Offshore Excellence, Local Expertise: </p><p className="font-bold">Your Path to Global Success</p></Link>,
+    <Link key="2" className="font-bold" href="product">Explore our products!</Link>,
+    <Link key="3" className="font-bold" href="contact">Contact us today!</Link>];
+const textAlign = ["left", "right", "left"]; // Option for text alignment: 
 
 const Carousel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -48,28 +53,38 @@ const Carousel: React.FC = () => {
             {/* Buttons */}
             <div className="absolute inset-0 h-full w-full z-20">
 
-                <button className="absolute h-full w-1/4 top-0 left-0 z-30" onClick={handlePrevious}>
+                <button className="absolute h-full w-full md:w-1/3 lg:w1/3 top-0 left-0 z-30" onClick={handlePrevious}>
                     <svg className="absolute top-1/2 transform -translate-y-1/2 left-2 lg:ml-4 w-6 h-6 text-white z-15" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                     </svg>
-                    <div className="h-full bg-gradient-to-r from-black/50 to-transparent z-10"></div>
+                    <div className="hidden md:block lg:block h-full bg-gradient-to-l from-transparent to-black/50 z-10"></div>
                 </button>
 
-                <button className="absolute h-full w-1/4 top-0 right-0 z-30" onClick={handleNext}>
+                <button className="absolute h-full w-1/3 top-0 right-0 z-30" onClick={handleNext}>
                     <svg className="absolute top-1/2 transform -translate-y-1/2 right-2 lg:mr-4 w-6 h-6 text-white z-15" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                     </svg>
-                    <div className="h-full bg-gradient-to-l from-black/50 to-transparent z-10"></div>
+                    <div className="hidden md:block lg:block h-full bg-gradient-to-l from-black/50 to-transparent z-10"></div>
                 </button>
             </div>
 
-
             {/* Carousel Main */}
             <div className="relative w-full h-full overflow-hidden">
+
                 {images.map((image, index) => (
-                    <Image key={index} src={image} alt={"image " + (index + 1)} width="1000" height="500"
-                        className={`absolute w-full h-full object-cover transition-opacity duration-500 ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
-                    />
+                    <div key={index} className={`absolute w-full h-full text-white`}>
+                        <div className="md:hidden lg:hidden absolute w-full h-full bg-black opacity-20"></div>
+                        <div className={`absolute w-full h-full transition-opacity duration-500 ${index === currentIndex ? "opacity-100" : "opacity-0"}`}>
+                        <Image src={image} alt={"image " + (index + 1)} width="1000" height="500" className="w-full h-full object-cover " />
+                        </div>
+                        
+                        {/* Caption */}
+                        <div className={`absolute inset-0 flex items-center text-xl md:text-2xl lg:text-3xl font-light`}>
+                            <div className={`w-full t text-${textAlign[index]} w-40vw z-20 ml-10 md:ml-20 lg:ml-20 mr-20 transition-opacity duration-490 ${index === currentIndex ? "opacity-100" : "opacity-0"}`}>
+                                {captions[index]}
+                            </div>
+                        </div>
+                    </div>
                 ))}
             </div>
 

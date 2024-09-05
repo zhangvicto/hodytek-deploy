@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import Footer from '../footer';
 import Menu from '../menu';
-import Link from 'next/link';
 import Image from 'next/image';
+import { ContactButton } from '../contact-button';
 
 type Product = {
   name: string;
@@ -104,15 +104,15 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
               <div key={slideIndex} className="flex-shrink-0 w-full flex">
                 {randomProducts.slice(slideIndex * 3, slideIndex * 3 + 3).map((product) => (
                   <div key={product.id} className="w-1/3 px-2">
-                    <Link href={`/product/${product.id}`} className="block">
+                    <a target="_blank" rel="noopener noreferrer" href={`/product/${product.id}`} className="block">
                       <Image
                         width="500"
                         height="200"
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-48 object-cover rounded"
+                        className="w-full h-48 object-contain rounded"
                       />
-                    </Link>
+                    </a>
                   </div>
                 ))}
               </div>
@@ -177,16 +177,17 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
                 <div className="mt-2 space-y-2">
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 my-5">
                     {productType.products.map((product) => (
-                      <Link key={product.id} href={`/product/${product.id}`} className="block text-center">
+                      <a key={product.id} target="_blank" rel="noopener noreferrer" href={`/product/${product.id}`} className="block text-center">
                         <Image
                           width="500"
                           height="200"
                           src={product.image}
                           alt={product.name}
-                          className="w-full h-32 object-cover rounded shadow"
+                          className="w-full h-32 rounded shadow"
+                          style={{objectFit:"contain"}}
                         />
                         <p className="mt-2 text-gray-700">{product.name}</p>
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -198,7 +199,7 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
 
       <div className="px-10 lg:px-40">
         <h1 className="text-2xl font-bold py-2">Need Help?</h1>
-        <Link className="" href="/contact">Contact Us</Link>
+        <ContactButton />
       </div>
 
     </div>
