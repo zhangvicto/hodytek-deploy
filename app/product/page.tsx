@@ -178,7 +178,7 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
                 <div className="mt-2 space-y-2">
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 my-5">
                     {productType.products.map((product) => (
-                      <a key={product.id} target="_blank" rel="noopener noreferrer" href={`/product/${product.id}`} className="block text-center">
+                      <Link key={product.id} target="_blank" rel="noopener noreferrer" href={`/product/${product.id}`} className="block text-center">
                         <Image
                           width="500"
                           height="200"
@@ -188,7 +188,7 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
                           style={{objectFit:"contain"}}
                         />
                         <p className="mt-2 text-gray-700">{product.name}</p>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

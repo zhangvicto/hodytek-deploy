@@ -50,8 +50,8 @@ function WhyUs() {
           <div className="p-5 h-full">Comprehensive Support with Technical Excellence</div>
         </div>
 
-        <Link className="btn bg-white text-sky-900 p-3 m-5 hover:" href="/product">Browse Our Products</Link>
-        <Link className="btn bg-white text-sky-900 p-3 m-5 hover:" href="#form">Contact Us</Link>
+        <Link className="text-sky-900 px-4 py-4 m-4 border border-transparent text-base font-medium rounded-md shadow-sm bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" href="/product">Browse Our Products</Link>
+        <Link className="text-sky-900 px-4 py-4 m-4 border border-transparent text-base font-medium rounded-md shadow-sm bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" href="#form">Contact Us</Link>
       </div>
     </div>
   )

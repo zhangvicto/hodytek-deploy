@@ -26,7 +26,6 @@ export async function generateStaticParams() {
     const generatedParams = allProducts.map((product: Product) => ({
       product_id: String(product.id),
     }));
-    console.log(generatedParams)
     return generatedParams;
   } catch (error) {
     console.error('Error fetching product data for static params:', error);
