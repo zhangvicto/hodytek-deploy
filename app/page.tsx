@@ -25,8 +25,8 @@ function AboutUs() {
   return (
     <div className="flex-wrap md:flex md:flex-nowrap items-center justify-center p-10 lg:px-40 py-20">
       <div className="pr-5">
-        <p className="text-3xl lg:text-4xl font-bold pb-2">Who We Are</p>
-        <p className="text-xl lg:text-2xl">At Hodytek, we specialize in providing integrated solutions for marine and offshore engineering projects. Our product range includes systems, equipment, and materials that are at the forefront of innovation in the marine and offshore engineering sectors.</p>
+        <p className="text-3xl lg:text-4xl font-bold pb-2">Why Us</p>
+        <p className="text-xl lg:text-2xl">Hodytek Ltd. provides products, consulting services, and integrated solutions for clients in marine and offshore engineering, as well as the oil & gas, electricity, construction, and other related industries.</p>
       </div>
       <div className="flex justify-center w-full">
         <Image src="/images/aboutus.jfif" alt="about us" width="300" height="200" />
@@ -45,9 +45,29 @@ function WhyUs() {
       <div className="text-white text-center my-5">
         <p className="text-3xl lg:text-4xl font-bold">What We Offer</p>
         <div className="grid grid-cols-3 items-center p-5 mb-5">
-          <div className="border-r p-5 h-full">Global Reach with Local Expertise</div>
-          <div className="border-r p-5 h-full">Strategic Offshore Connections</div>
-          <div className="p-5 h-full">Comprehensive Support with Technical Excellence</div>
+          <div className="border-r p-5 h-full">
+            <div className="text-2xl font-bold mb-5">Supplies</div>
+            <div className="text-left">We provide a wide range of products:
+              <p>- Cables</p>
+              <p>- Cable glands</p>
+              <p>- Cable seals</p>
+              <p>- Cable ties</p>
+              <p>- Explosion-proof lighting</p>
+              <p>- Explosion-proof junction boxes</p>
+              <p>- Distribution boxes</p>
+              <p>- Generator equipment</p>
+            </div>
+
+          </div>
+          <div className="border-r p-5 h-full">
+            <div className="text-2xl font-bold mb-5">Services</div>
+            We offer pre-sales, in-sales, and post-sales services for all the products we provide.
+          </div>
+          <div className="p-5 h-full">
+            <div className="text-2xl font-bold mb-5">Solutions</div>
+            Our professional team of experts and engineers are here to provide:
+            <p>- Customized solutions for cables and cable accessories.</p>
+            <p>- Solutions for explosion-proof lighting, junction boxes, and distribution boxes.</p></div>
         </div>
 
         <Link className="text-sky-900 px-4 py-4 m-4 border border-transparent text-base font-medium rounded-md shadow-sm bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" href="/product">Browse Our Products</Link>

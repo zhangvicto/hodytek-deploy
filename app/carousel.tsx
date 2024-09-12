@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const images = ["/images/carousel3.jpg", "/images/carousel1.jpg", "/images/carousel2.jpg", ];
 const captions = [<Link key="1" href="/contact"><p>Offshore Excellence, Local Expertise: </p><p className="font-bold">Your Path to Global Success</p></Link>,
-    <Link key="2" className="font-bold" href="product">Explore our products!</Link>,
-    <Link key="3" className="font-bold" href="contact">Contact us today!</Link>];
+    <Link key="2" className="" href="product">Explore our products!</Link>,
+    <Link key="3" className="" href="contact">Contact us today!</Link>];
 const textAlign = ["left", "right", "left"]; // Option for text alignment: 
 
 const Carousel: React.FC = () => {

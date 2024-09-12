@@ -6,7 +6,7 @@ import Menu from '../menu';
 import Image from 'next/image';
 import { ContactButton } from '../contact-button';
 import Link from 'next/link';
- 
+
 type Product = {
   name: string;
   id: string;
@@ -34,13 +34,11 @@ function LoadSpinner() {
 
 export default function Page() {
   const [productTypes, setProductTypes] = useState<ProductType[]>([]);
-  const [expandedProductType, setExpandedProductType] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchProductTypes() {
       try {
-        // Replace with your Google Apps Script URL
-        const response = await fetch('https://script.google.com/macros/s/AKfycbxKnRiX_Ih-3VN4aKfK3hEjOIMYt4xP65R8spQb2RbxXfEW4W9r6DE1o96i4yhTJoQ/exec');
+        const response = await fetch('./data.json');
         const data = await response.json();
         setProductTypes(data);
       } catch (error) {
@@ -51,20 +49,16 @@ export default function Page() {
     fetchProductTypes();
   }, []);
 
-  const toggleProductType = (productTypeSlug: string) => {
-    setExpandedProductType((prev) => (prev === productTypeSlug ? null : productTypeSlug));
-  };
-
   return (
     <div className="bg-white text-sky-900">
       <Menu />
-      <ProductPage productTypes={productTypes} toggleProductType={toggleProductType} expandedProductType={expandedProductType} />
+      <ProductPage productTypes={productTypes} />
       <Footer />
     </div>
   );
 }
 
-function ProductPage({ productTypes, toggleProductType, expandedProductType }: { productTypes: ProductType[], toggleProductType: (slug: string) => void, expandedProductType: string | null }) {
+function ProductPage({ productTypes }: { productTypes: ProductType[] }) {
   const [randomProducts, setRandomProducts] = useState<Product[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -102,23 +96,31 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
         <div className="relative w-full overflow-hidden pb-5">
           <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             {Array.from({ length: Math.ceil(randomProducts.length / 3) }).map((_, slideIndex) => (
-              <div key={slideIndex} className="flex-shrink-0 w-full flex">
-                {randomProducts.slice(slideIndex * 3, slideIndex * 3 + 3).map((product) => (
-                  <div key={product.id} className="w-1/3 px-2">
-                    <Link target="_blank" rel="noopener noreferrer" href={`/product/${product.id}`} className="block">
-                      <Image
-                        width="500"
-                        height="200"
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-48 object-contain rounded"
-                      />
-                    </Link>
-                  </div>
-                ))}
+              <div key={slideIndex} className="flex-shrink-0 w-full flex divide-x-2">
+                {randomProducts.slice(slideIndex * 3, slideIndex * 3 + 3).map((product) => {
+                  // Find the product type for each product
+                  const productType = productTypes.find(pt => pt.products.some(p => p.id === product.id));
+                  
+                  return (
+                    <div key={product.id} className="w-1/3 px-2">
+                      {productType && (
+                        <Link target="_blank" rel="noopener noreferrer" href={`/product/${productType.slug}/${product.id}`} className="block">
+                          <Image
+                            width="500"
+                            height="200"
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-48 object-contain"
+                          />
+                        </Link>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             ))}
           </div>
+
           {productTypes && randomProducts.length > 3 ? (
             <div className="absolute inset-0 flex items-center justify-between pointer-events-none">
               <button
@@ -130,69 +132,27 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
                 </svg>
 
               </button>
-              <button
-                onClick={handleNext}
-                className="pointer-events-auto text-sky-900 px-4 py-2"
-              >
+              <button onClick={handleNext} className="pointer-events-auto text-sky-900 px-4 py-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
-
               </button>
             </div>
           ) : <LoadSpinner />}
         </div>
-
       </div>
 
       {/* Product Index */}
       <div className="px-10 lg:px-40">
-        <h1 className="text-2xl font-bold py-2">Product Index</h1>
+        <h1 className="text-2xl font-bold py-2">Product Categories</h1>
         <div className="text-white">
           {/* Product Type Bars */}
           {productTypes.map((productType) => (
             <div key={productType.slug}>
-              <button
-                className="flex justify-between items-center text-lg font-semibold w-full py-2 mb-2 px-10 pl-5 bg-sky-900 hover:bg-sky-500"
-                onClick={() => toggleProductType(productType.slug)}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                </svg> 
+              <Link href={`/product/${productType.slug}`}
+                className="flex justify-between items-center text-lg font-semibold w-full py-2 mb-2 px-10 pl-5 bg-sky-900 hover:bg-sky-500">
                 <div className="text-center">{productType.name}</div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className={`w-6 h-6 transform transition-transform duration-300 ${expandedProductType === productType.slug ? "rotate-180" : "rotate-0"
-                    }`}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-              </button>
-
-              {/* Products */}
-              {expandedProductType === productType.slug && (
-                <div className="mt-2 space-y-2">
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 my-5">
-                    {productType.products.map((product) => (
-                      <Link key={product.id} target="_blank" rel="noopener noreferrer" href={`/product/${product.id}`} className="block text-center">
-                        <Image
-                          width="500"
-                          height="200"
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-32 rounded shadow"
-                          style={{objectFit:"contain"}}
-                        />
-                        <p className="mt-2 text-gray-700">{product.name}</p>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
+              </Link>
             </div>
           ))}
         </div>
@@ -202,7 +162,6 @@ function ProductPage({ productTypes, toggleProductType, expandedProductType }: {
         <h1 className="text-2xl font-bold py-2">Need Help?</h1>
         <ContactButton />
       </div>
-
     </div>
   );
 }
