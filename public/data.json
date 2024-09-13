@@ -1,416 +1,436 @@
-[
-  {
-    "name": "Compound Cable Gland",
-    "slug": "compound-cable-gland",
-    "products": [
-      {
-        "name": "Compound For Any Type Of Armoured Cable Gland",
-        "id": "OS-EXBF",
-        "image": "/images/OS-EXBF.jpg",
-        "description": "Placeholder"
+{
+  "Cable Gland and Accessories": {
+    "name": "Cable Gland and Accessories",
+    "slug": "cable-gland-and-accessories",
+    "subcategories": {
+      "Compound Cable Gland": {
+        "name": "Compound Cable Gland",
+        "products": [
+          {
+            "name": "Compound For Any Type Of Armoured Cable Gland",
+            "id": "OS-EXBF",
+            "image": "/images/OS-EXBF.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Compound For Any Type Of Lead Sheathed Armoured Cable Gland",
+            "id": "OS-EXBF_LS",
+            "image": "/images/OS-EXBF_LS.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Compound For Non-Armoured Cable Gland",
+            "id": "OS-EXBF-A",
+            "image": "/images/OS-EXBF-A.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Compound For Packing Type Cable Gland",
+            "id": "OS-EXBF-F",
+            "image": "/images/OS-EXBF-F.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Compound Non-Armoured Cable With Flexible Conduit Type",
+            "id": "OS-EXBF-EP",
+            "image": "/images/OS-EXBF-EP.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Compound For Metal Clad Cable",
+            "id": "OS-EXBF-MC",
+            "image": "/images/OS-EXBF-MC.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Barrier Sealing Device For Multi-Core Type Cable",
+            "id": "OS-EXBF-SD",
+            "image": "/images/OS-EXBF-SD.jpg",
+            "description": "Placeholder"
+          }
+        ]
       },
-      {
-        "name": "Compound For Any Type Of Lead Sheathed Armoured Cable Gland",
-        "id": "OS-EXBF_LS",
-        "image": "/images/OS-EXBF_LS.jpg",
-        "description": "Placeholder"
+      "Ex Cable Gland": {
+        "name": "Ex Cable Gland",
+        "products": [
+          {
+            "name": "Any Type Of Armoured Cable Gland",
+            "id": "OS-E1UF",
+            "image": "/images/OS-E1UF.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Any Type Of Lead Sheathed Armoured Cable Gland",
+            "id": "OS-E1UF_LS",
+            "image": "/images/OS-E1UF_LS.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Non-Armoured Cable With Flexible Conduit Type",
+            "id": "OS-E1UF-EP",
+            "image": "/images/OS-E1UF-EP.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Metal Clad Type Cable Gland",
+            "id": "OS-E1UF-MC",
+            "image": "/images/OS-E1UF-MC.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Non-Armoured Cable Gland",
+            "id": "OS-A2F-U",
+            "image": "/images/OS-A2F-U.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Non-Armoured Cable With Male-Female Type Cable Gland",
+            "id": "OS-A2F-UFN",
+            "image": "/images/OS-A2F-UFN.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Non-Armoured Double Compression Cable Gland",
+            "id": "OS-A2F-UD",
+            "image": "/images/OS-A2F-UD.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Heating Type Cable Gland",
+            "id": "OS-A2F-UH",
+            "image": "/images/OS-A2F-UH.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Heat Tracing / Flat Form Cable Gland With Metal Hose",
+            "id": "OS-A2F-UHMH",
+            "image": "/images/OS-A2F-UHMH.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Non-Armoured Cable Gland For Metal Hose",
+            "id": "OS-A2F-UMH",
+            "image": "/images/OS-A2F-UMH.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Packing Type Cable Gland",
+            "id": "OSXP-F",
+            "image": "/images/OSXP-F.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Single Compression With Any Type Of Armoured Cable Gland (Touch)",
+            "id": "OSER-Z",
+            "image": "/images/OSER-Z.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Contact Insert Type Cable Gland",
+            "id": "OSER-CS",
+            "image": "/images/OSER-CS.jpg",
+            "description": "Placeholder"
+          }
+        ]
       },
-      {
-        "name": "Compound For Non-Armoured Cable Gland",
-        "id": "OS-EXBF-A",
-        "image": "/images/OS-EXBF-A.jpg",
-        "description": "Placeholder"
+      "Non Ex (weatherproof) Cable Gland": {
+        "name": "Non Ex (weatherproof) Cable Gland",
+        "products": [
+          {
+            "name": "Any Type Of Armoured Cable Gland",
+            "id": "OS-E1U",
+            "image": "/images/OS-E1U.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Any Type Of Lead Sheathed Armoured Cable Gland",
+            "id": "OS-E1U_LS",
+            "image": "/images/OS-E1U_LS.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Armoured Cable Gland With Single Compression",
+            "id": "OSCU",
+            "image": "/images/OSCU.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Non-Armoured Cable Gland",
+            "id": "OSNU",
+            "image": "/images/OSNU.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Non-Armoured Cable With Male-Female Type Cable Gland",
+            "id": "OSNU-FN",
+            "image": "/images/OSNU-FN.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Non-Armoured Double Compression Cable Gland",
+            "id": "OSNU-D",
+            "image": "/images/OSNU-D.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Jis Standard Cable Gland",
+            "id": "OSCG",
+            "image": "/images/OSCG.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Flexible Conduit",
+            "id": "OSEP",
+            "image": "/images/OSEP.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Welding Type Cable Gland",
+            "id": "OSWD",
+            "image": "/images/OSWD.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Welding Type Cable Gland",
+            "id": "OSWD-L",
+            "image": "/images/OSWD-L.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Normal Round Type Cable Gland",
+            "id": "OSPG-R",
+            "image": "/images/OSPG-R.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Round Type Plastic Cable Gland",
+            "id": "OSPGR-P",
+            "image": "/images/OSPGR-P.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Din 89280 Type Cable Gland",
+            "id": "OSPGM",
+            "image": "/images/OSPGM.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Din 89280 Type Cable Gland",
+            "id": "OSPGM-Z",
+            "image": "/images/OSPGM-Z.jpg",
+            "description": "Placeholder"
+          }
+        ]
       },
-      {
-        "name": "Compound For Packing Type Cable Gland",
-        "id": "OS-EXBF-F",
-        "image": "/images/OS-EXBF-F.jpg",
-        "description": "Placeholder"
+      "Ex Certified Accessories": {
+        "name": "Ex Certified Accessories",
+        "products": [
+          {
+            "name": "Adaptor",
+            "id": "OSAJ",
+            "image": "/images/OSAJ.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Reducer",
+            "id": "OSRA",
+            "image": "/images/OSRA.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Stopping Plug",
+            "id": "OSSP",
+            "image": "/images/OSSP.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Elbow",
+            "id": "OSAE",
+            "image": "/images/OSAE.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Insulated Adaptor",
+            "id": "OSAJ(I)",
+            "image": "/images/OSAJ(I).jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Breather Drains",
+            "id": "OSBD",
+            "image": "/images/OSBD.jpg",
+            "description": "Placeholder"
+          }
+        ]
       },
-      {
-        "name": "Compound Non-Armoured Cable With Flexible Conduit Type",
-        "id": "OS-EXBF-EP",
-        "image": "/images/OS-EXBF-EP.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Compound For Metal Clad Cable",
-        "id": "OS-EXBF-MC",
-        "image": "/images/OS-EXBF-MC.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Barrier Sealing Device For Multi-Core Type Cable",
-        "id": "OS-EXBF-SD",
-        "image": "/images/OS-EXBF-SD.jpg",
-        "description": "Placeholder"
+      "Gland Accessories": {
+        "name": "Gland Accessories",
+        "products": [
+          {
+            "name": "Earth Tag",
+            "id": "OSET",
+            "image": "/images/OSET.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Ezsafe Compound Resin",
+            "id": "OSEZ",
+            "image": "/images/OSEZ.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Shroud",
+            "id": "OSSH",
+            "image": "/images/OSSH.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Serrated Washer / Teeth Washer",
+            "id": "OSTW",
+            "image": "/images/OSTW.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Lead Sheath Washer",
+            "id": "OSLS",
+            "image": "/images/OSLS.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Lock Nut",
+            "id": "OSLN",
+            "image": "/images/OSLN.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Sealing Washer",
+            "id": "OSSR",
+            "image": "/images/OSSR.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Spanner",
+            "id": "SPANNER",
+            "image": "/images/SPANNER.jpg",
+            "description": "Placeholder"
+          }
+        ]
       }
-    ]
+    }
   },
-  {
-    "name": "Ex Cable Gland",
-    "slug": "ex-cable-gland",
-    "products": [
-      {
-        "name": "Any Type Of Armoured Cable Gland",
-        "id": "OS-E1UF",
-        "image": "/images/OS-E1UF.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Any Type Of Lead Sheathed Armoured Cable Gland",
-        "id": "OS-E1UF_LS",
-        "image": "/images/OS-E1UF_LS.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Non-Armoured Cable With Flexible Conduit Type",
-        "id": "OS-E1UF-EP",
-        "image": "/images/OS-E1UF-EP.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Metal Clad Type Cable Gland",
-        "id": "OS-E1UF-MC",
-        "image": "/images/OS-E1UF-MC.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Non-Armoured Cable Gland",
-        "id": "OS-A2F-U",
-        "image": "/images/OS-A2F-U.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Non-Armoured Cable With Male-Female Type Cable Gland",
-        "id": "OS-A2F-UFN",
-        "image": "/images/OS-A2F-UFN.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Non-Armoured Double Compression Cable Gland",
-        "id": "OS-A2F-UD",
-        "image": "/images/OS-A2F-UD.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Heating Type Cable Gland",
-        "id": "OS-A2F-UH",
-        "image": "/images/OS-A2F-UH.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Heat Tracing / Flat Form Cable Gland With Metal Hose",
-        "id": "OS-A2F-UHMH",
-        "image": "/images/OS-A2F-UHMH.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Non-Armoured Cable Gland For Metal Hose",
-        "id": "OS-A2F-UMH",
-        "image": "/images/OS-A2F-UMH.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Packing Type Cable Gland",
-        "id": "OSXP-F",
-        "image": "/images/OSXP-F.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Single Compression With Any Type Of Armoured Cable Gland (Touch)",
-        "id": "OSER-Z",
-        "image": "/images/OSER-Z.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Contact Insert Type Cable Gland",
-        "id": "OSER-CS",
-        "image": "/images/OSER-CS.jpg",
-        "description": "Placeholder"
-      }
-    ]
-  },
-  {
-    "name": "Non Ex (weatherproof) Cable Gland",
-    "slug": "non-ex-(weatherproof)-cable-gland",
-    "products": [
-      {
-        "name": "Any Type Of Armoured Cable Gland",
-        "id": "OS-E1U",
-        "image": "/images/OS-E1U.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Any Type Of Lead Sheathed Armoured Cable Gland",
-        "id": "OS-E1U_LS",
-        "image": "/images/OS-E1U_LS.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Armoured Cable Gland With Single Compression",
-        "id": "OSCU",
-        "image": "/images/OSCU.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Non-Armoured Cable Gland",
-        "id": "OSNU",
-        "image": "/images/OSNU.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Non-Armoured Cable With Male-Female Type Cable Gland",
-        "id": "OSNU-FN",
-        "image": "/images/OSNU-FN.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Non-Armoured Double Compression Cable Gland",
-        "id": "OSNU-D",
-        "image": "/images/OSNU-D.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Jis Standard Cable Gland",
-        "id": "OSCG",
-        "image": "/images/OSCG.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Flexible Conduit",
-        "id": "OSEP",
-        "image": "/images/OSEP.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Welding Type Cable Gland",
-        "id": "OSWD",
-        "image": "/images/OSWD.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Welding Type Cable Gland",
-        "id": "OSWD-L",
-        "image": "/images/OSWD-L.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Normal Round Type Cable Gland",
-        "id": "OSPG-R",
-        "image": "/images/OSPG-R.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Round Type Plastic Cable Gland",
-        "id": "OSPGR-P",
-        "image": "/images/OSPGR-P.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Din 89280 Type Cable Gland",
-        "id": "OSPGM",
-        "image": "/images/OSPGM.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Din 89280 Type Cable Gland",
-        "id": "OSPGM-Z",
-        "image": "/images/OSPGM-Z.jpg",
-        "description": "Placeholder"
-      }
-    ]
-  },
-  {
-    "name": "Ex Certified Accessories",
-    "slug": "ex-certified-accessories",
-    "products": [
-      {
-        "name": "Adaptor",
-        "id": "OSAJ",
-        "image": "/images/OSAJ.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Reducer",
-        "id": "OSRA",
-        "image": "/images/OSRA.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Stopping Plug",
-        "id": "OSSP",
-        "image": "/images/OSSP.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Elbow",
-        "id": "OSAE",
-        "image": "/images/OSAE.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Insulated Adaptor",
-        "id": "OSAJ(I)",
-        "image": "/images/OSAJ(I).jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Breather Drains",
-        "id": "OSBD",
-        "image": "/images/OSBD.jpg",
-        "description": "Placeholder"
-      }
-    ]
-  },
-  {
-    "name": "Gland Accessories",
-    "slug": "gland-accessories",
-    "products": [
-      {
-        "name": "Earth Tag",
-        "id": "OSET",
-        "image": "/images/OSET.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Ezsafe Compound Resin",
-        "id": "OSEZ",
-        "image": "/images/OSEZ.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Shroud",
-        "id": "OSSH",
-        "image": "/images/OSSH.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Serrated Washer / Teeth Washer",
-        "id": "OSTW",
-        "image": "/images/OSTW.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Lead Sheath Washer",
-        "id": "OSLS",
-        "image": "/images/OSLS.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Lock Nut",
-        "id": "OSLN",
-        "image": "/images/OSLN.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Sealing Washer",
-        "id": "OSSR",
-        "image": "/images/OSSR.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Spanner",
-        "id": "SPANNER",
-        "image": "/images/SPANNER.jpg",
-        "description": "Placeholder"
-      }
-    ]
-  },
-  {
+  "Junction Box": {
     "name": "Junction Box",
     "slug": "junction-box",
-    "products": [
-      {
-        "name": "Ex Stainless Steel Junction Box",
-        "id": "OS-TOP",
-        "image": "/images/OS-TOP.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Non-Ex Stainless Steel Junction Box",
-        "id": "OS-ITOP",
-        "image": "/images/OS-ITOP.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Ex Glass Reinforced Polyester Junction Box",
-        "id": "OSGP",
-        "image": "/images/OSGP.jpg",
-        "description": "Placeholder"
-      },
-      {
-        "name": "Non-Ex Glass Reinforced Polyester Junction Box",
-        "id": "OSIGP",
-        "image": "/images/OSIGP.jpg",
-        "description": "Placeholder"
+    "subcategories": {
+      "Junction Box": {
+        "name": "Junction Box",
+        "products": [
+          {
+            "name": "Ex Stainless Steel Junction Box",
+            "id": "OS-TOP",
+            "image": "/images/OS-TOP.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Non-Ex Stainless Steel Junction Box",
+            "id": "OS-ITOP",
+            "image": "/images/OS-ITOP.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Ex Glass Reinforced Polyester Junction Box",
+            "id": "OSGP",
+            "image": "/images/OSGP.jpg",
+            "description": "Placeholder"
+          },
+          {
+            "name": "Non-Ex Glass Reinforced Polyester Junction Box",
+            "id": "OSIGP",
+            "image": "/images/OSIGP.jpg",
+            "description": "Placeholder"
+          }
+        ]
       }
-    ]
+    }
   },
-  {
+  "Seals": {
     "name": "Seals",
     "slug": "seals",
-    "products": [
-      {
-        "name": "Flexible Fire Seal",
-        "id": "edt-629",
-        "image": "/images/edt-629.jpg",
-        "description": "Features: \n• Fire ratings: J-90 & H-120 class\n• Approved and certified by ABS for\nJ-90 class first post-blast of 4.2 bar\n• Approved and certified by ABS, BV,\nand DNV for H-120 class\n• Resistant to jet-fire, hydrocarbon-fire\n• Weather/seawater/shock/blast\nresistant\n• Excellent vibration durability and high\ntension tolerance\n• Abrasion/friction/corrosion resistance\nin seawater\n• Strong resistance to hydrocarbon\nsplash, liquefied gas, liquid fuel, UV\nlight, and ozone\n• Tailored designs to suit each\ninstallation and fulfill all customer\nrequirements\n• Low maintenance\n• Non-asbestos\n\nSpecifications: \n• Color: Black\r\n• Capacity: piece [each]\r\n• Service life: more than 40 years\r\n• Service temperature: -60°C to 250°C\r\n• Specific gravity: 1.5 g/cm3 to 1.7 g/cm3\r\n• Compressive strength: over 4.5 bar\r\n• Pressure strength: 0.27MPa to 0.64\r\nMPa[25%]\r\n• Elongation: 150 ~ 250%\r\n• Hardness: 44 ~ 55 shore A\r\n• Elasticity: 55%\r\n• Storage temperature: room\r\ntemperature\r\n• UV test: grade 5, (40±1)°C, 24 hours\r\n• Cold shock: no crack, (-55±1)°C, 3\r\nminutes"
-      }
-    ]
-  },
-  {
-    "name": "Sealing Systens",
-    "slug": "sealing-systens",
-    "products": [
-      {
-        "name": "Extremely Advanced Pipe & Cable Penetration Sealing System",
-        "id": "rex-205-25",
-        "image": "/images/rex-205-25.jpg",
-        "description": "Features\n• Fire rating: A-0 (without insulation),\nA-60\n• Excellent intumescence and heat\nabsorption\n• High elasticity and high tensile\nstrength\n• High bonding strength\n• Gas-tight\n• Water-tight\n• UV light and ozone resistance\n• Variety of sizes, which conform to all\nwiring standards\n• No negative changes in repelling cold\nand heat\n\nSpecifications\n• Color: Matt Black\n• Total drying time: 120 hours (20 mm)\n• Surface drying time : 1 to 2 hours\n• Storage life: 12 months\n• Service temperature: -62 °C ~ 180 °C\n• Specific gravity: about (1.15±0.03) g/\ncm3\n• Tensile failure: 75%\n• Hardness: 40 shore A\n• Elasticity: 20%\n• Storage temperature: Room\ntemperature\n• UV test: Grade 5, (40±1) °C, 24 hours\n• Cold shock: No crack, (-60±1) °C, 3\nminutes"
+    "subcategories": {
+      "Seals": {
+        "name": "Seals",
+        "products": [
+          {
+            "name": "Flexible Fire Seal",
+            "id": "edt-629",
+            "image": "/images/edt-629.jpg",
+            "description": "Features: \n• Fire ratings: J-90 & H-120 class\n• Approved and certified by ABS for\nJ-90 class first post-blast of 4.2 bar\n• Approved and certified by ABS, BV,\nand DNV for H-120 class\n• Resistant to jet-fire, hydrocarbon-fire\n• Weather/seawater/shock/blast\nresistant\n• Excellent vibration durability and high\ntension tolerance\n• Abrasion/friction/corrosion resistance\nin seawater\n• Strong resistance to hydrocarbon\nsplash, liquefied gas, liquid fuel, UV\nlight, and ozone\n• Tailored designs to suit each\ninstallation and fulfill all customer\nrequirements\n• Low maintenance\n• Non-asbestos\n\nSpecifications: \n• Color: Black\r\n• Capacity: piece [each]\r\n• Service life: more than 40 years\r\n• Service temperature: -60°C to 250°C\r\n• Specific gravity: 1.5 g/cm3 to 1.7 g/cm3\r\n• Compressive strength: over 4.5 bar\r\n• Pressure strength: 0.27MPa to 0.64\r\nMPa[25%]\r\n• Elongation: 150 ~ 250%\r\n• Hardness: 44 ~ 55 shore A\r\n• Elasticity: 55%\r\n• Storage temperature: room\r\ntemperature\r\n• UV test: grade 5, (40±1)°C, 24 hours\r\n• Cold shock: no crack, (-55±1)°C, 3\r\nminutes"
+          }
+        ]
       },
-      {
-        "name": "Cable, Multi Core Tubing\r\n& Pipe Penetration\r\nSealing System",
-        "id": "rs-105-rrs-105",
-        "image": "/images/rs-105-rrs-105.jpg",
-        "description": "some description"
+      "Sealing Systens": {
+        "name": "Sealing Systens",
+        "products": [
+          {
+            "name": "Extremely Advanced Pipe & Cable Penetration Sealing System",
+            "id": "rex-205-25",
+            "image": "/images/rex-205-25.jpg",
+            "description": "Features\n• Fire rating: A-0 (without insulation),\nA-60\n• Excellent intumescence and heat\nabsorption\n• High elasticity and high tensile\nstrength\n• High bonding strength\n• Gas-tight\n• Water-tight\n• UV light and ozone resistance\n• Variety of sizes, which conform to all\nwiring standards\n• No negative changes in repelling cold\nand heat\n\nSpecifications\n• Color: Matt Black\n• Total drying time: 120 hours (20 mm)\n• Surface drying time : 1 to 2 hours\n• Storage life: 12 months\n• Service temperature: -62 °C ~ 180 °C\n• Specific gravity: about (1.15±0.03) g/\ncm3\n• Tensile failure: 75%\n• Hardness: 40 shore A\n• Elasticity: 20%\n• Storage temperature: Room\ntemperature\n• UV test: Grade 5, (40±1) °C, 24 hours\n• Cold shock: No crack, (-60±1) °C, 3\nminutes"
+          },
+          {
+            "name": "Cable, Multi Core Tubing\r\n& Pipe Penetration\r\nSealing System",
+            "id": "rs-105-rrs-105",
+            "image": "/images/rs-105-rrs-105.jpg",
+            "description": "some description"
+          }
+        ]
       }
-    ]
+    }
   },
-  {
+  "Bushings": {
     "name": "Bushings",
     "slug": "bushings",
-    "products": [
-      {
-        "name": "Product E",
-        "id": "product-e",
-        "image": "/images/product-e.jpg",
-        "description": "some description"
-      },
-      {
-        "name": "Product F",
-        "id": "product-f",
-        "image": "/images/product-f.jpg",
-        "description": "some description"
+    "subcategories": {
+      "Bushings": {
+        "name": "Bushings",
+        "products": [
+          {
+            "name": "Product E",
+            "id": "product-e",
+            "image": "/images/product-e.jpg",
+            "description": "some description"
+          },
+          {
+            "name": "Product F",
+            "id": "product-f",
+            "image": "/images/product-f.jpg",
+            "description": "some description"
+          }
+        ]
       }
-    ]
+    }
   },
-  {
-    "name": "Fire Resistance Adhesives",
-    "slug": "fire-resistance-adhesives",
-    "products": [
-      {
-        "name": "Product G",
-        "id": "product-g",
-        "image": "/images/product-g.jpg",
-        "description": "some description"
-      },
-      {
-        "name": "Product H",
-        "id": "product-h",
-        "image": "/images/product-h.jpg",
-        "description": "some description"
+  "Adhesives": {
+    "name": "Adhesives",
+    "slug": "adhesives",
+    "subcategories": {
+      "Fire Resistance Adhesives": {
+        "name": "Fire Resistance Adhesives",
+        "products": [
+          {
+            "name": "Product G",
+            "id": "product-g",
+            "image": "/images/product-g.jpg",
+            "description": "some description"
+          },
+          {
+            "name": "Product H",
+            "id": "product-h",
+            "image": "/images/product-h.jpg",
+            "description": "some description"
+          }
+        ]
       }
-    ]
+    }
   }
-]
+}

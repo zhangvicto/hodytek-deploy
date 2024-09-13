@@ -1,10 +1,12 @@
+"use client";
+
+// Import necessary modules and components
 import Footer from '../../footer';
 import Menu from '../../menu';
 import Image from 'next/image';
 import { ContactButton } from '../../contact-button';
 import Link from 'next/link';
-import fs from 'fs';
-import path from 'path';
+import { useState, useEffect } from 'react';
 
 type Product = {
   name: string;
@@ -13,51 +15,122 @@ type Product = {
   description: string;
 };
 
-type ProductType = {
+type ProductSubcategory = {
+  name: string;
+  products: Product[];
+}
+
+type ProductAll = {
   name: string;
   slug: string;
-  products: Product[];
+  subcategories: ProductSubcategory[];
 };
 
-export default async function ProductPage({ params }: { params: {product_category : string} }) {
+export default function ProductPage({ params }: { params: { product_category: string } }) {
   // Fetch all product data
-  const filePath = path.join(process.cwd(), '/public/data.json');
-  const fetchedData = fs.readFileSync(filePath, 'utf-8');
-  const productTypes = JSON.parse(fetchedData);
-  const productType = productTypes.find((p: ProductType) => p.slug === params.product_category) || null;
-  const products = productType.products;
+  const [productAll, setProductAll] = useState<ProductAll>();
+  const [productSubcategory, setProductSubcategory] = useState<ProductSubcategory[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProductTypes() {
+      setLoading(true);
+      try {
+        const response = await fetch(`${window.location.origin}/data.json`);
+        const data = await response.json();
+
+        const productAll = (Object.values(data) as ProductAll[]).find(
+          (p: ProductAll) => p.slug === params.product_category
+        );
+
+        setProductAll(productAll);
+        setProductSubcategory(productAll?.subcategories || [])
+
+      } catch (error) {
+        console.error("Error fetching product data:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProductTypes();
+  }, []);
+
+  // console.log(productSubcategory)
+
+  // Search and filter states
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedSubcategory, setSelectedSubcategory] = useState('');
+
+  // Filter products based on the selected subcategory and search term
+  const filteredProducts = Object.values(productSubcategory)
+    .filter((subcategory) => selectedSubcategory === '' || subcategory.name === selectedSubcategory)
+    .flatMap((subcategory) => subcategory.products)
+    .filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
+
     <div className="bg-white">
       <Menu />
-      {/* Products */}
-      <div className="px-10 lg:px-40 text-sky-900">
-        <h1 className="text-2xl font-bold py-2">{productType.name}</h1>
-        <div className="text-sky-900">
-          <div className="mt-2 space-y-2">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 my-5">
-              {productType && products.map((product: Product) => (
-                <Link key={product.id} target="_blank" rel="noopener noreferrer" href={`/product/${productType.slug}/${product.id}`} className="block text-center">
-                  <Image
-                    width="500"
-                    height="200"
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-32 rounded shadow"
-                    style={{ objectFit: "contain" }}
-                  />
-                  <p className="mt-2 text-gray-700">{product.name}</p>
-                </Link>
+      {loading && <div>Loading...</div>}
+      {!loading && productAll &&
+        <div className="px-10 lg:px-40 text-sky-900 flex flex-col lg:flex-row">
+          {/* Filter and Search Section */}
+          <div className="lg:w-1/4 w-full p-4 lg:border-r border-gray-200">
+            <h2 className="text-2xl font-bold mb-2">{productAll.name}</h2>
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded mb-4"
+            />
+
+            <div>
+              <h2 className="text-lg font-semibold mb-2">Filter by Subcategory</h2>
+              <select
+                value={selectedSubcategory}
+                onChange={(e) => setSelectedSubcategory(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded"
+              >
+                <option value="">All Subcategories</option>
+                {Object.values(productSubcategory).map((subcategory) => (
+                  <option key={subcategory.name} value={subcategory.name}>
+                    {subcategory.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Products Section */}
+          <div className="lg:w-3/4 w-full p-4">
+            {/* <h1 className="text-2xl font-bold py-2">{productSubcategory.name}</h1> */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredProducts.map((product) => (
+                <div key={product.id} className="border p-4 rounded shadow hover:shadow-md transition-shadow">
+                  <Link href={`/product/${params.product_category}/${product.id}`} className="text-sky-500 hover:underline mt-2 block">
+                    <div style={{ height: 200, overflow: 'hidden' }}>
+                      <Image src={product.image} alt={product.name} height={200} width={300} object-fit="contain" className="w-full" />
+                    </div>
+                  </Link>
+
+                  <h3 className="mt-2 text-lg font-bold">{product.name}</h3>
+                  {/* <p className="text-sm text-gray-600">{product.description}</p> */}
+                  <Link href={`/product/${params.product_category}/${product.id}`} className="text-sky-500 hover:underline mt-2 block">
+                    View Details
+                  </Link>
+                </div>
               ))}
             </div>
           </div>
         </div>
-      </div>
+      }
       <div className="px-10 lg:px-40">
         <h1 className="text-2xl font-bold py-2 text-sky-900">Need Help?</h1>
         <ContactButton />
       </div>
       <Footer />
     </div>
+
   );
 }

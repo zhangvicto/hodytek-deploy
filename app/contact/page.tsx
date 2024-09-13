@@ -9,6 +9,7 @@ export default function Page() {
     <div className="bg-white text-sky-900 inset-0 overflow-hidden">
       <Menu />
       <ContactForm />
+      Contact info...
       <Footer />
     </div>
   )

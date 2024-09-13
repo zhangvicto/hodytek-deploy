@@ -11,15 +11,20 @@ type Product = {
     description: string;
 };
 
-type ProductType = {
+type ProductSubcategory = {
+    name: string;
+    products: Product[];
+}
+
+type ProductAll = {
     name: string;
     slug: string;
-    products: Product[];
+    subcategories: ProductSubcategory[];
 };
 
 export default function Menu() {
     const [isNavOpen, setIsNavOpen] = useState(false);
-    const [productTypes, setProductTypes] = useState<ProductType[]>([]);
+    const [productTypes, setProductTypes] = useState<ProductAll[]>([]);
 
     useEffect(() => {
         async function fetchProductTypes() {
@@ -43,7 +48,7 @@ export default function Menu() {
         <nav className="z-50 flex items-center justify-between flex-wrap bg-sky-50 lg:p-5 px-10 py-5">
             {/* Icon */}
             <Link className="flex items-center flex-shrink-0 text-black mr-6" href='/'>
-                <Image className="mr-2" src={`/icons/hodytek-icon.svg`} alt="Icon" width="30" height="40" />
+                <Image className="mr-2" src={`/icons/hodytek-icon.svg`} alt="Icon" width="60" height="40" />
                 <Image src={`/icons/hodytek-text.svg`} alt="Icon Text" width="170" height="45" />
             </Link>
 
@@ -66,38 +71,20 @@ export default function Menu() {
                     <Link href="/product">Products</Link>
                     <ul className="lg:hidden lg:absolute z-50 group-hover:block bg-sky-50 lg:pt-2 lg:w-48 lg:shadow-lg overflow-hidden lg:last:rounded-b-md">
                         {productTypes &&
-                            productTypes.map((type) => (
-                                <li key={type.slug} className="border-b hover:bg-sky-100">
+                            Object.values(productTypes).map((productType) => (
+                                <li key={productType.slug} className="border-b hover:bg-sky-100">
                                     <Link
-                                        href={`/product/${type.slug}`}
+                                        href={`/product/${productType.slug}`}
                                         className="block px-4 py-2 text-sm text-sky-900 hover:text-sky-500"
                                     >
-                                        {type.name}
+                                        {productType.name}
                                     </Link>
                                 </li>
                             ))}
                     </ul>
                 </li>
-                <li className="relative group block lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 lg:rounded-b-md">
-                    <Link href="/services">Services</Link>
-                    <ul className="lg:hidden lg:absolute z-50 group-hover:block bg-sky-50 lg:pt-2 lg:w-48 lg:shadow-lg overflow-hidden lg:rounded-b-md">
-                        <li className="border-b hover:bg-sky-100">
-                            <Link
-                                href="/services/projects"
-                                className="block px-4 py-2 text-sm text-sky-900 hover:text-sky-500"
-                            >
-                                Project Showcase
-                            </Link>
-                        </li>
-                        <li className="border-b hover:bg-sky-100">
-                            <Link
-                                href="/services/brands"
-                                className="block px-4 py-2 text-sm text-sky-900 hover:text-sky-500"
-                            >
-                                Partner Brands
-                            </Link>
-                        </li>
-                    </ul>
+                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10">
+                    <Link href="/projects">Projects</Link>
                 </li>
                 <li className="block lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10">
                     <Link href="/contact">Contact Us</Link>

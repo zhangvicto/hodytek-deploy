@@ -14,10 +14,15 @@ type Product = {
   description: string;
 };
 
-type ProductType = {
+type ProductSubcategory = {
+  name: string;
+  products: Product[];
+}
+
+type ProductAll = {
   name: string;
   slug: string;
-  products: Product[];
+  subcategories: ProductSubcategory[];
 };
 
 function LoadSpinner() {
@@ -33,45 +38,56 @@ function LoadSpinner() {
 }
 
 export default function Page() {
-  const [productTypes, setProductTypes] = useState<ProductType[]>([]);
+  const [productData, setProductData] = useState<ProductAll[]>([]);
 
   useEffect(() => {
-    async function fetchProductTypes() {
+    async function fetchProductData() {
       try {
-        const response = await fetch('./data.json');
+        const response = await fetch('/data.json');
         const data = await response.json();
-        setProductTypes(data);
+
+        setProductData(Object.values(data));
       } catch (error) {
         console.error("Error fetching product data:", error);
       }
     }
 
-    fetchProductTypes();
+    fetchProductData();
   }, []);
 
   return (
     <div className="bg-white text-sky-900">
       <Menu />
-      <ProductPage productTypes={productTypes} />
+      <ProductPage productData={productData} />
       <Footer />
     </div>
   );
 }
 
-function ProductPage({ productTypes }: { productTypes: ProductType[] }) {
+function ProductPage({ productData }: { productData: ProductAll[] }) {
   const [randomProducts, setRandomProducts] = useState<Product[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    if (productTypes.length > 0) {
+    if (productData.length > 0) {
       // Flatten all products into a single array
-      const allProducts = productTypes.flatMap(pt => pt.products);
+      const products: Product[] = [];
+
+      productData.forEach((category) => {
+        for (const subcategory of Object.values(category.subcategories)) {
+          subcategory.products.forEach((product) => {
+            products.push(product);
+          });
+        }
+      }
+      )
+      // console.log(products)
 
       // Shuffle and select 6 random products
-      const shuffled = allProducts.sort(() => 0.5 - Math.random());
+      const shuffled = products.sort(() => 0.5 - Math.random());
       setRandomProducts(shuffled.slice(0, 6));
     }
-  }, [productTypes]);
+  }, [productData]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -98,13 +114,11 @@ function ProductPage({ productTypes }: { productTypes: ProductType[] }) {
             {Array.from({ length: Math.ceil(randomProducts.length / 3) }).map((_, slideIndex) => (
               <div key={slideIndex} className="flex-shrink-0 w-full flex divide-x-2">
                 {randomProducts.slice(slideIndex * 3, slideIndex * 3 + 3).map((product) => {
-                  // Find the product type for each product
-                  const productType = productTypes.find(pt => pt.products.some(p => p.id === product.id));
-                  
+
                   return (
                     <div key={product.id} className="w-1/3 px-2">
-                      {productType && (
-                        <Link target="_blank" rel="noopener noreferrer" href={`/product/${productType.slug}/${product.id}`} className="block">
+                      {productData && (
+                        <Link target="_blank" rel="noopener noreferrer" href={`/product/${findSlugByProductId(productData, product.id)}/${product.id}`} className="block">
                           <Image
                             width="500"
                             height="200"
@@ -121,7 +135,7 @@ function ProductPage({ productTypes }: { productTypes: ProductType[] }) {
             ))}
           </div>
 
-          {productTypes && randomProducts.length > 3 ? (
+          {productData && randomProducts.length > 3 ? (
             <div className="absolute inset-0 flex items-center justify-between pointer-events-none">
               <button
                 onClick={handlePrevious}
@@ -142,18 +156,31 @@ function ProductPage({ productTypes }: { productTypes: ProductType[] }) {
         </div>
       </div>
 
-      {/* Product Index */}
+      {/* Categories */}
       <div className="px-10 lg:px-40">
         <h1 className="text-2xl font-bold py-2">Product Categories</h1>
-        <div className="text-white">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Product Type Bars */}
-          {productTypes.map((productType) => (
-            <div key={productType.slug}>
-              <Link href={`/product/${productType.slug}`}
-                className="flex justify-between items-center text-lg font-semibold w-full py-2 mb-2 px-10 pl-5 bg-sky-900 hover:bg-sky-500">
-                <div className="text-center">{productType.name}</div>
-              </Link>
-            </div>
+          {Object.values(productData).map((productCategory) => (
+            // <div style={{ height: 200, overflow: 'hidden' }} key={productCategory.slug}>
+            //   <Link href={`/product/${productCategory.slug}`}
+            //     className="border p-4 rounded shadow hover:shadow-md transition-shadow">
+
+            //     <div className="text-center">{productCategory.name}</div>
+            //     <div className="">
+            //       <Image className="" alt={productCategory.name + " image"} width={300} height={200} src={getFirstProductImage(productCategory)}></Image>
+            //     </div>
+            //   </Link>
+            // </div>
+            <div key={productCategory.slug} className="p-4 rounded shadow hover:shadow-md transition-shadow">
+            <Link href={`/product/${productCategory.slug}`} className="text-sky-500 hover:underline mt-2 block">
+              <div style={{ height: 200, overflow: 'hidden' }}>
+                <Image src={getFirstProductImage(productCategory)} alt={productCategory.name + " image"} height={200} width={300} object-fit="contain" className="w-full" />
+              </div>
+            </Link>
+
+            <h3 className="mt-2 text-lg font-bold">{productCategory.name}</h3>
+          </div>
           ))}
         </div>
       </div>
@@ -164,4 +191,65 @@ function ProductPage({ productTypes }: { productTypes: ProductType[] }) {
       </div>
     </div>
   );
+}
+
+function findSlugByProductId(productData: ProductAll[], productId: string): string | null {
+  // Iterate over all main categories
+  for (const category of productData) {
+    // Iterate over all subcategories in each main category
+    for (const subcategory of Object.values(category.subcategories)) {
+      // Iterate over all products in each subcategory
+      for (const product of subcategory.products) {
+        if (product.id === productId) {
+          return category.slug; // Return the main category name if the product ID matches
+        }
+      }
+    }
+  }
+
+  return null; // Return null if no product is found with the given ID
+}
+
+// function getRandomProductImage(category: ProductAll): string {
+//   // Check if the category has subcategories
+
+//   const subcategories = Object.values(category.subcategories)
+
+//   if (!subcategories.length) {
+//       return ""; // Return an empty string if there are no subcategories
+//   }
+
+//   // Select a random subcategory
+//   const randomSubcategory = subcategories[Math.floor(Math.random() * subcategories.length)];
+
+//   // Check if the selected subcategory has products
+//   if (!randomSubcategory.products.length) {
+//       return ""; // Return an empty string if there are no products in the selected subcategory
+//   }
+
+//   // Select a random product from the subcategory
+//   const randomProduct = randomSubcategory.products[Math.floor(Math.random() * randomSubcategory.products.length)];
+
+//   // Return the image path of the randomly selected product
+//   return randomProduct.image;
+// }
+
+function getFirstProductImage(category: ProductAll): string {
+  // Convert subcategories to an array
+  const subcategories = Object.values(category.subcategories);
+
+  // Check if the category has subcategories
+  if (!subcategories.length) {
+      return ""; // Return an empty string if there are no subcategories
+  }
+
+  // Find the first subcategory that has products
+  for (const subcategory of subcategories) {
+      if (subcategory.products.length > 0) {
+          // Return the image path of the first product found
+          return subcategory.products[0].image;
+      }
+  }
+
+  return ""; // Return an empty string if no products are found in any subcategory
 }

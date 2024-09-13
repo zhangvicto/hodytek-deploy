@@ -9,10 +9,15 @@ type Product = {
     description: string;
 };
 
-type ProductType = {
+type ProductSubcategory = {
+    name: string;
+    products: Product[];
+}
+
+type ProductAll = {
     name: string;
     slug: string;
-    products: Product[];
+    subcategories: ProductSubcategory[];
 };
 
 export async function generateStaticParams() {
@@ -21,7 +26,7 @@ export async function generateStaticParams() {
         const filePath = path.join(process.cwd(), '/public/data.json');
         const fetchedData = fs.readFileSync(filePath, 'utf-8');
         const productTypes = JSON.parse(fetchedData)
-        const generatedParams = productTypes.map((productType: ProductType) => ({
+        const generatedParams = Object.values(productTypes as { [key: string]: ProductAll }).map((productType) => ({
             product_category: String(productType.slug),
         }));
         // console.log(generatedParams)
@@ -34,9 +39,8 @@ export async function generateStaticParams() {
 
 export default function Layout({
     children,
-  }: Readonly<{
+}: Readonly<{
     children: React.ReactNode;
-  }>) {
+}>) {
     return (<>{children}</>);
-  }
-  
+}

@@ -1,7 +1,7 @@
 "use client";
 
-import Footer from '../../footer';
-import Menu from '../../menu';
+import Footer from '../footer';
+import Menu from '../menu';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 

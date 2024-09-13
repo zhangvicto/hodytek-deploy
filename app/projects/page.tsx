@@ -1,7 +1,7 @@
 "use client";
 
-import Footer from '../../footer';
-import Menu from '../../menu';
+import Footer from '../footer';
+import Menu from '../menu';
 import { useState, useEffect } from 'react'
 
 type Project = {
