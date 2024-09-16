@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { ContactButton } from '../../contact-button';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import publicDataURL from '@/app/dataURL';
 
 type Product = {
   name: string;
@@ -37,7 +38,7 @@ export default function ProductPage({ params }: { params: { product_category: st
       setLoading(true);
       try {
         const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-        const response = await fetch(`${basePath}/data.json`);
+        const response = await fetch(publicDataURL('data.json'));
         const data = await response.json();
 
         const productAll = (Object.values(data) as ProductAll[]).find(

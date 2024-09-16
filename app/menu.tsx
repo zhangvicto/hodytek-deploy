@@ -62,7 +62,7 @@ export default function Menu() {
             </div>
 
             <ul
-                className={`relative w-full lg:flex lg:items-center lg:w-auto transition-all duration-300 ease-in-out ${isNavOpen ? 'max-h-screen' : 'max-h-0 sm:overflow-y-hidden lg:overflow-y-visible'
+                className={`relative w-full lg:flex lg:items-center lg:w-auto transition-all duration-300 ease-in-out ${isNavOpen ? 'max-h-screen' : 'max-h-0 overflow-y-hidden lg:overflow-y-visible'
                     } lg:max-h-full`}
             >
                 <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 font-semibold">

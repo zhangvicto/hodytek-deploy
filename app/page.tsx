@@ -37,42 +37,67 @@ function AboutUs() {
 
 function WhyUs() {
   return (
-    <div className="flex items-center justify-center bg-sky-900 mb-10 px-10 lg:px-40 py-20">
-      {/* <div className="p-10 lg:p-20">
-        <Image src={`/images/carousel1.jpg`} alt="Why Us Image 1" width="200" height="100" />
-        <Image src={`/images/carousel2.png`} alt="Why Us Image 2" width="200" height="100" />
-      </div> */}
-      <div className="text-white text-center my-5">
-        <p className="text-3xl lg:text-4xl font-bold">What We Offer</p>
-        <div className="grid grid-cols-3 items-center p-5 mb-5">
-          <div className="border-r p-5 h-full">
-            <div className="text-2xl font-bold mb-5">Supplies</div>
-            <div className="text-left">We provide a wide range of products:
-              <p>- Cables</p>
-              <p>- Cable glands</p>
-              <p>- Cable seals</p>
-              <p>- Cable ties</p>
-              <p>- Explosion-proof lighting</p>
-              <p>- Explosion-proof junction boxes</p>
-              <p>- Distribution boxes</p>
-              <p>- Generator equipment</p>
-            </div>
+    <div className="flex flex-col items-center justify-center bg-sky-900 mb-10 px-6 lg:px-40 py-20">
+      {/* Header Section */}
+      <div className="text-white text-center mb-10">
+        <p className="text-3xl lg:text-4xl font-bold mb-4">What We Offer</p>
+        <p className="text-base lg:text-lg text-gray-300">
+          Explore our comprehensive range of products and services tailored to meet your needs.
+        </p>
+      </div>
 
-          </div>
-          <div className="border-r p-5 h-full">
-            <div className="text-2xl font-bold mb-5">Services</div>
-            We offer pre-sales, in-sales, and post-sales services for all the products we provide.
-          </div>
-          <div className="p-5 h-full">
-            <div className="text-2xl font-bold mb-5">Solutions</div>
-            Our professional team of experts and engineers are here to provide:
-            <p>- Customized solutions for cables and cable accessories.</p>
-            <p>- Solutions for explosion-proof lighting, junction boxes, and distribution boxes.</p></div>
+      {/* Main Content Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 w-full text-white text-left">
+        {/* Supplies Section */}
+        <div className="p-6 bg-sky-800 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <h3 className="text-2xl font-bold mb-4">Supplies</h3>
+          <p className="mb-4">We provide a wide range of products:</p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>Cables</li>
+            <li>Cable glands</li>
+            <li>Cable seals</li>
+            <li>Cable ties</li>
+            <li>Explosion-proof lighting</li>
+            <li>Explosion-proof junction boxes</li>
+            <li>Distribution boxes</li>
+            <li>Generator equipment</li>
+          </ul>
         </div>
 
-        <Link className="text-sky-900 px-4 py-4 m-4 border border-transparent text-base font-medium rounded-md shadow-sm bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" href="/product">Browse Our Products</Link>
-        <Link className="text-sky-900 px-4 py-4 m-4 border border-transparent text-base font-medium rounded-md shadow-sm bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" href="#form">Contact Us</Link>
+        {/* Services Section */}
+        <div className="p-6 bg-sky-800 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <h3 className="text-2xl font-bold mb-4">Services</h3>
+          <p>We offer comprehensive pre-sales, in-sales, and post-sales services for all the products we provide, ensuring complete satisfaction from start to finish.</p>
+        </div>
+
+        {/* Solutions Section */}
+        <div className="p-6 bg-sky-800 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <h3 className="text-2xl font-bold mb-4">Solutions</h3>
+          <p className="mb-4">Our professional team of experts and engineers are here to provide:</p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>Customized solutions for cables and cable accessories</li>
+            <li>Solutions for explosion-proof lighting, junction boxes, and distribution boxes</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Call-to-Action Buttons */}
+      <div className="mt-10">
+        <Link
+          href="/product"
+          aria-label="Browse our products"
+          className="inline-block text-sky-900 px-4 py-3 m-2 border border-transparent text-base font-medium rounded-md shadow-sm bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 transition-colors"
+        >
+          Browse Our Products
+        </Link>
+        <Link
+          href="#form"
+          aria-label="Contact us"
+          className="inline-block text-sky-900 px-4 py-3 m-2 border border-transparent text-base font-medium rounded-md shadow-sm bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 transition-colors"
+        >
+          Contact Us
+        </Link>
       </div>
     </div>
-  )
+  );
 }

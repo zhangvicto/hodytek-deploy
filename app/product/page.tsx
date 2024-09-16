@@ -6,6 +6,7 @@ import Menu from '../menu';
 import Image from 'next/image';
 import { ContactButton } from '../contact-button';
 import Link from 'next/link';
+import publicDataURL from '../dataURL';
 
 type Product = {
   name: string;
@@ -44,7 +45,7 @@ export default function Page() {
     async function fetchProductData() {
       try {
         const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-        const response = await fetch(`${basePath}/data.json`);
+        const response = await fetch(publicDataURL('data.json'));
         const data = await response.json();
 
         setProductData(Object.values(data));

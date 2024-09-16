@@ -1,21 +1,63 @@
 [
     {
       "id": 1,
-      "title": "Project One",
-      "description": "A brief description of Project One.",
-      "images": ["/images/project1-image1.jpg", "/images/project1-image2.jpg"]
+      "title": "FPSO",
+      "description": "MODEC\nMV18/19/21/22/23/24/26/27/29/30/31\n/32/33/34/Woodside/Bacalhau\nSMB MERO2\nYINSON Marlim2\n\nBuilder: CHI (DALIAN), DSIC, BOMESC",
+      "images": ["/images/projects/FPSO.png"]
     },
     {
       "id": 2,
-      "title": "Project Two",
-      "description": "A brief description of Project Two.",
-      "images": ["/images/project2-image1.jpg", "/images/project2-image2.jpg"]
+      "title": "DRILLSHIP",
+      "description": "Dalian Developer Drillship (DDD N110)\nBuilder: CHI (DALIAN)",
+      "images": ["/images/projects/drillship.jpeg"]
     },
     {
       "id": 3,
-      "title": "Project Three",
-      "description": "A brief description of Project Three.",
-      "images": ["/images/project3-image1.jpg", "/images/project3-image2.jpg"]
+      "title": "FPSO Module",
+      "description": "PETROBRAS\nP63/66/67/68/70/71/74/75/76/77\n\nBuilder: CHI (DALIAN)",
+      "images": ["/images/projects/FPSO-module.jpeg"]
+    },
+    {
+      "id": 4,
+      "title": "JACK UP",
+      "description": "JACK UP 527/581/582/596/610/611\nJU2000E07/08/09/10/11/12/13/14/15\n/16/17/18/19/20/21/22/23\nBuilder: CHI(DALIAN), DSIC",
+      "images": ["/images/projects/jackup.jpeg"]
+    },    
+    {
+      "id": 5,
+      "title": "Transport Vessel",
+      "description": "N624/625/626/627\n\nBuilder: CHI (DALIAN)",
+      "images": ["/images/projects/transport-vessel.jpeg"]
+    },
+    {
+      "id": 6,
+      "title": "Subsea Support Vessel (SSV)",
+      "description": "N450/451/452/453\n\nBuilder: CHI (DALIAN)",
+      "images": ["/images/projects/ssv.jpeg"]
+    },
+    {
+      "id": 7,
+      "title": "FPSO Module",
+      "description": "MODEC MV30 9P/MV32 9P& CIP\n/MV33 CIP/MV33 8P/Woodside 7P&CIP\n\nBuilder: CHI (DALIAN), BOMESC, DSIC",
+      "images": ["/images/projects/FPSO-module-2.png"]
+    },
+    {
+      "id": 8,
+      "title": "YAMAL LNG ALNG 2",
+      "description": "Builder: CHI (DALIAN), BOMESC, DSIC",
+      "images": ["/images/projects/yamal.png"]
+    },
+    {
+      "id": 9,
+      "title": "Ehouse",
+      "description": "UZ750 EPC2\nModec MV30&32&33&34\nE-House\nModec BacalhauE-house\nSBM Marlim2 E-House\n\nBuilder: CHI(DALIAN), BOMESC",
+      "images": ["/images/projects/ehouse-1.png", "/images/projects/ehouse-2.png"]
+    },
+    {
+      "id": 10,
+      "title": "LER Module",
+      "description": "FLNG Module\n\nBuilder: BOMESC",
+      "images": ["/images/projects/LER-module.png"]
     }
   ]
   
