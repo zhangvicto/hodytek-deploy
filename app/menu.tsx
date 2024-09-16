@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from "react";
+import publicDataURL from './dataURL';
 
 type Product = {
     name: string;
@@ -30,7 +31,7 @@ export default function Menu() {
         async function fetchProductTypes() {
             try {
                 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-                const response = await fetch(`${basePath}/data.json`);
+                const response = await fetch(publicDataURL('data.json'));
                 const data = await response.json();
                 setProductTypes(data);
             } catch (error) {

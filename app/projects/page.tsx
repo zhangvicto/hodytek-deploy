@@ -4,6 +4,7 @@ import publicDataURL from '../dataURL';
 import Footer from '../footer';
 import Menu from '../menu';
 import { useState, useEffect } from 'react'
+import Image from 'next/image';
 
 type Project = {
     id: number;
@@ -72,9 +73,11 @@ const ProjectsPage = () => {
                         <p className="mb-4" style={{ whiteSpace: 'pre-line' }}>{project.description}</p>
                         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4">
                             {project.images.map((image, index) => (
-                                <img
+                                <Image 
                                     key={index}
                                     src={image}
+                                    height={300}
+                                    width={400}
                                     alt={`Image for ${project.title}`}
                                     className="w-full h-auto rounded shadow"
                                 />
