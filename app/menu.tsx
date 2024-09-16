@@ -29,7 +29,8 @@ export default function Menu() {
     useEffect(() => {
         async function fetchProductTypes() {
             try {
-                const response = await fetch('/data.json');
+                const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+                const response = await fetch(`${basePath}/data.json`);
                 const data = await response.json();
                 setProductTypes(data);
             } catch (error) {
@@ -64,11 +65,11 @@ export default function Menu() {
                 className={`relative w-full lg:flex lg:items-center lg:w-auto transition-all duration-300 ease-in-out ${isNavOpen ? 'max-h-screen' : 'max-h-0 sm:overflow-y-hidden lg:overflow-y-visible'
                     } lg:max-h-full`}
             >
-                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10">
+                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 font-semibold">
                     <Link href="/about">About</Link>
                 </li>
-                <li className="relative group block lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10">
-                    <Link href="/product">Products</Link>
+                <li className="relative group block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10">
+                    <Link className='font-semibold' href="/product">Products</Link>
                     <ul className="lg:hidden lg:absolute z-50 group-hover:block bg-sky-50 lg:pt-2 lg:w-48 lg:shadow-lg overflow-hidden lg:last:rounded-b-md">
                         {productTypes &&
                             Object.values(productTypes).map((productType) => (
@@ -83,10 +84,10 @@ export default function Menu() {
                             ))}
                     </ul>
                 </li>
-                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10">
+                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 font-semibold">
                     <Link href="/projects">Projects</Link>
                 </li>
-                <li className="block lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10">
+                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 font-semibold">
                     <Link href="/contact">Contact Us</Link>
                 </li>
             </ul>

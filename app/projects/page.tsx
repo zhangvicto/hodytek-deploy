@@ -34,7 +34,8 @@ const ProjectsPage = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await fetch('/projects.json');
+                const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+                const response = await fetch(`${basePath}/projects.json`);
                 const data: Project[] = await response.json();
                 setProjects(data);
             } catch (error) {

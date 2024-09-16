@@ -43,7 +43,8 @@ export default function Page() {
   useEffect(() => {
     async function fetchProductData() {
       try {
-        const response = await fetch('/data.json');
+        const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+        const response = await fetch(`${basePath}/data.json`);
         const data = await response.json();
 
         setProductData(Object.values(data));
@@ -107,8 +108,8 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
 
   return (
     <div className="text-sky-900 pt-5">
-      <div className="px-10 lg:px-40 hidden md:block lg:block">
-        <h1 className="text-2xl font-bold pb-5">Browse Our Products</h1>
+      <div className=" hidden md:block lg:block">
+        <h1 className="px-10 lg:px-40 text-2xl font-bold pb-5">Browse Our Products</h1>
         <div className="relative w-full overflow-hidden pb-5">
           <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             {Array.from({ length: Math.ceil(randomProducts.length / 3) }).map((_, slideIndex) => (
@@ -162,16 +163,6 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Product Type Bars */}
           {Object.values(productData).map((productCategory) => (
-            // <div style={{ height: 200, overflow: 'hidden' }} key={productCategory.slug}>
-            //   <Link href={`/product/${productCategory.slug}`}
-            //     className="border p-4 rounded shadow hover:shadow-md transition-shadow">
-
-            //     <div className="text-center">{productCategory.name}</div>
-            //     <div className="">
-            //       <Image className="" alt={productCategory.name + " image"} width={300} height={200} src={getFirstProductImage(productCategory)}></Image>
-            //     </div>
-            //   </Link>
-            // </div>
             <div key={productCategory.slug} className="p-4 rounded shadow hover:shadow-md transition-shadow">
             <Link href={`/product/${productCategory.slug}`} className="text-sky-500 hover:underline mt-2 block">
               <div style={{ height: 200, overflow: 'hidden' }}>
@@ -185,7 +176,7 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
         </div>
       </div>
 
-      <div className="px-10 lg:px-40">
+      <div className="px-10 mt-10 lg:px-40">
         <h1 className="text-2xl font-bold py-2">Need Help?</h1>
         <ContactButton />
       </div>
@@ -209,30 +200,6 @@ function findSlugByProductId(productData: ProductAll[], productId: string): stri
 
   return null; // Return null if no product is found with the given ID
 }
-
-// function getRandomProductImage(category: ProductAll): string {
-//   // Check if the category has subcategories
-
-//   const subcategories = Object.values(category.subcategories)
-
-//   if (!subcategories.length) {
-//       return ""; // Return an empty string if there are no subcategories
-//   }
-
-//   // Select a random subcategory
-//   const randomSubcategory = subcategories[Math.floor(Math.random() * subcategories.length)];
-
-//   // Check if the selected subcategory has products
-//   if (!randomSubcategory.products.length) {
-//       return ""; // Return an empty string if there are no products in the selected subcategory
-//   }
-
-//   // Select a random product from the subcategory
-//   const randomProduct = randomSubcategory.products[Math.floor(Math.random() * randomSubcategory.products.length)];
-
-//   // Return the image path of the randomly selected product
-//   return randomProduct.image;
-// }
 
 function getFirstProductImage(category: ProductAll): string {
   // Convert subcategories to an array

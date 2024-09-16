@@ -36,7 +36,8 @@ export default function ProductPage({ params }: { params: { product_category: st
     async function fetchProductTypes() {
       setLoading(true);
       try {
-        const response = await fetch(`${window.location.origin}/data.json`);
+        const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+        const response = await fetch(`${basePath}/data.json`);
         const data = await response.json();
 
         const productAll = (Object.values(data) as ProductAll[]).find(
