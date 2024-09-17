@@ -48,7 +48,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 rounded-lg mt-10" id="form">
+    <div className="max-w-lg rounded-lg mt-10 px-10 mx-auto" id="form">
       <h2 className="text-2xl font-bold mb-4">How Can We Help?</h2>
       <form className="gform space-y-4" onSubmit={handleSubmit}>
         <div>

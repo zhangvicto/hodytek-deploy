@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Carousel from './carousel';
-import ContactForm from './form';
+import ContactForm from './contact-form';
 import Footer from './footer';
 import Menu from './menu';
 import Link from 'next/link'
@@ -28,8 +28,8 @@ function AboutUs() {
         <p className="text-3xl lg:text-4xl font-bold pb-2">Why Us</p>
         <p className="text-xl lg:text-2xl">Hodytek Ltd. provides products, consulting services, and integrated solutions for clients in marine and offshore engineering, as well as the oil & gas, electricity, construction, and other related industries.</p>
       </div>
-      <div className="flex justify-center w-full">
-        <Image src="/images/aboutus.jfif" alt="about us" width="300" height="200" />
+      <div className="flex justify-center w-full mt-5 lg:mt-0">
+        <Image src="/images/about-us.avif" alt="about us" width="300" height="200" />
       </div>
     </div>
   )

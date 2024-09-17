@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import publicDataURL from '@/app/dataURL';
-import ContactPopUp from '@/app/contactPopUp';
+import ContactPopUp from '@/app/contact-popup';
 
 type Product = {
   name: string;
@@ -78,13 +78,21 @@ export default function ProductPage({ params }: { params: { product_category: st
     currentPage * itemsPerPage
   );
 
+  const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+  function scrollToTop() {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 100, behavior: 'smooth' });
+  }
+
   // Handle pagination
   const handlePrevPage = () => {
     setCurrentPage((prev) => Math.max(prev - 1, 1));
+    scrollToTop();
   };
 
   const handleNextPage = () => {
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+    scrollToTop();
   };
 
   return (
@@ -123,22 +131,22 @@ export default function ProductPage({ params }: { params: { product_category: st
 
           {/* Pagination Controls */}
           <div className="lg:hidden flex justify-center items-center mt-6">
-              <button
-                onClick={handlePrevPage}
-                className={`px-4 py-2 border ${currentPage === 1 ? 'text-gray-400' : 'text-sky-500'} rounded`}
-                disabled={currentPage === 1}
-              >
-                Previous
-              </button>
-              <span className="px-4 py-2">{`Page ${currentPage} of ${totalPages}`}</span>
-              <button
-                onClick={handleNextPage}
-                className={`px-4 py-2 border ${currentPage === totalPages ? 'text-gray-400' : 'text-sky-500'} rounded`}
-                disabled={currentPage === totalPages}
-              >
-                Next
-              </button>
-              </div>
+            <button
+              onClick={handlePrevPage}
+              className={`px-4 py-2 border ${currentPage === 1 ? 'text-gray-400' : 'text-sky-500'} rounded`}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            <span className="px-4 py-2">{`Page ${currentPage} of ${totalPages}`}</span>
+            <button
+              onClick={handleNextPage}
+              className={`px-4 py-2 border ${currentPage === totalPages ? 'text-gray-400' : 'text-sky-500'} rounded`}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
 
           {/* Products Section */}
           <div className="lg:w-3/4 w-full p-4">

@@ -1,28 +1,28 @@
 "use client";
 
-import ContactForm from "../form"
+import ContactForm from "../contact-form"
 import Footer from '../footer';
 import Menu from '../menu';
 
 export default function Page() {
-    return (
+  return (
     <div className="bg-white text-sky-900 inset-0 overflow-hidden">
       <Menu />
-      <div className="flex space-x-5 justify-center mx-10 lg:mx-40">
-      <NameCard name="Gary" position="President" tel="+1 (647) 872 2588" fax="+1 (647) 873 2777" cell="+1 (416) 985 7666" email="gary@hodytek.com" />
-      <NameCard name="Jessie" position="Sales Manager" tel="+1 (647) 385 6629" fax="+1 (647) 873 2777" cell="+1 (647) 385 6629" email="jessie@hodytek.com" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 justify-center px-10 lg:px-40">
+        <NameCard name="Gary" position="President" tel="+1 (647) 872 2588" fax="+1 (647) 873 2777" cell="+1 (416) 985 7666" email="gary@hodytek.com" />
+        <NameCard name="Jessie" position="Sales Manager" tel="+1 (647) 385 6629" fax="+1 (647) 873 2777" cell="+1 (647) 385 6629" email="jessie@hodytek.com" />
       </div>
-       <ContactForm />
+      <ContactForm />
       <Footer />
     </div>
   )
 }
 
-function NameCard(props : {name: string, position: string, tel: string, fax: string, cell: string, email: string}) {
+function NameCard(props: { name: string, position: string, tel: string, fax: string, cell: string, email: string }) {
   return (
     <div className="bg-white border rounded-lg shadow-md overflow-hidden flex items-center p-6 space-x-6 mt-10">
       {/* Left section - icon */}
-      <div className="bg-sky-100 p-3 rounded-full flex items-center justify-center">
+      <div className="bg-sky-100 hidden lg:block p-3 rounded-full flex items-center justify-center">
         <svg
           className="text-sky-500 h-12 w-12"
           fill="none"

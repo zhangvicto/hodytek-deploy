@@ -5,7 +5,7 @@ import Footer from '../footer';
 import Menu from '../menu';
 import { useState, useEffect } from 'react'
 import Image from 'next/image';
-import ContactPopUp from '../contactPopUp';
+import ContactPopUp from '../contact-popup';
 
 type Project = {
     id: number;
