@@ -4,10 +4,10 @@
 import Footer from '../../footer';
 import Menu from '../../menu';
 import Image from 'next/image';
-import { ContactButton } from '../../contact-button';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import publicDataURL from '@/app/dataURL';
+import ContactPopUp from '@/app/contactPopUp';
 
 type Product = {
   name: string;
@@ -19,7 +19,7 @@ type Product = {
 type ProductSubcategory = {
   name: string;
   products: Product[];
-}
+};
 
 type ProductAll = {
   name: string;
@@ -37,7 +37,6 @@ export default function ProductPage({ params }: { params: { product_category: st
     async function fetchProductTypes() {
       setLoading(true);
       try {
-        const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
         const response = await fetch(publicDataURL('data.json'));
         const data = await response.json();
 
@@ -46,8 +45,7 @@ export default function ProductPage({ params }: { params: { product_category: st
         );
 
         setProductAll(productAll);
-        setProductSubcategory(productAll?.subcategories || [])
-
+        setProductSubcategory(productAll?.subcategories || []);
       } catch (error) {
         console.error("Error fetching product data:", error);
       } finally {
@@ -55,13 +53,15 @@ export default function ProductPage({ params }: { params: { product_category: st
       }
     }
     fetchProductTypes();
-  }, []);
-
-  // console.log(productSubcategory)
+  }, [params.product_category]);
 
   // Search and filter states
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSubcategory, setSelectedSubcategory] = useState('');
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   // Filter products based on the selected subcategory and search term
   const filteredProducts = Object.values(productSubcategory)
@@ -69,12 +69,29 @@ export default function ProductPage({ params }: { params: { product_category: st
     .flatMap((subcategory) => subcategory.products)
     .filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
-  return (
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
+  // Get the products for the current page
+  const currentProducts = filteredProducts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  // Handle pagination
+  const handlePrevPage = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  };
+
+  return (
     <div className="bg-white">
       <Menu />
       {loading && <div>Loading...</div>}
-      {!loading && productAll &&
+      {!loading && productAll && (
         <div className="px-10 lg:px-40 text-sky-900 flex flex-col lg:flex-row">
           {/* Filter and Search Section */}
           <div className="lg:w-1/4 w-full p-4 lg:border-r border-gray-200">
@@ -104,35 +121,68 @@ export default function ProductPage({ params }: { params: { product_category: st
             </div>
           </div>
 
+          {/* Pagination Controls */}
+          <div className="lg:hidden flex justify-center items-center mt-6">
+              <button
+                onClick={handlePrevPage}
+                className={`px-4 py-2 border ${currentPage === 1 ? 'text-gray-400' : 'text-sky-500'} rounded`}
+                disabled={currentPage === 1}
+              >
+                Previous
+              </button>
+              <span className="px-4 py-2">{`Page ${currentPage} of ${totalPages}`}</span>
+              <button
+                onClick={handleNextPage}
+                className={`px-4 py-2 border ${currentPage === totalPages ? 'text-gray-400' : 'text-sky-500'} rounded`}
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
+              </div>
+
           {/* Products Section */}
           <div className="lg:w-3/4 w-full p-4">
-            {/* <h1 className="text-2xl font-bold py-2">{productSubcategory.name}</h1> */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProducts.map((product) => (
-                <div key={product.id} className="border p-4 rounded shadow hover:shadow-md transition-shadow">
-                  <Link href={`/product/${params.product_category}/${product.id}`} className="text-sky-500 hover:underline mt-2 block">
-                    <div style={{ height: 200, overflow: 'hidden' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {currentProducts.map((product) => (
+                <div key={product.id} className="border p-4 rounded shadow hover:shadow-md transition-shadow h-full">
+                  <Link href={`/product/${params.product_category}/${product.id}`} className="text-sky-500 hover:underline block">
+                    <div style={{ height: '20vh', overflow: 'hidden' }}>
                       <Image src={product.image} alt={product.name} height={200} width={300} object-fit="contain" className="w-full" />
                     </div>
                   </Link>
-
-                  <h3 className="mt-2 text-lg font-bold">{product.name}</h3>
-                  {/* <p className="text-sm text-gray-600">{product.description}</p> */}
-                  <Link href={`/product/${params.product_category}/${product.id}`} className="text-sky-500 hover:underline mt-2 block">
-                    View Details
-                  </Link>
+                  <div>
+                    <h3 className="mt-2 text-md font-bold items-end">{product.name}</h3>
+                    <Link href={`/product/${params.product_category}/${product.id}`} className="text-sky-500 hover:underline mt-2 block">
+                      View Details
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
+
+            {/* Pagination Controls */}
+            <div className="flex justify-center items-center mt-6">
+              <button
+                onClick={handlePrevPage}
+                className={`px-4 py-2 border ${currentPage === 1 ? 'text-gray-400' : 'text-sky-500'} rounded`}
+                disabled={currentPage === 1}
+              >
+                Previous
+              </button>
+              <span className="px-4 py-2">{`Page ${currentPage} of ${totalPages}`}</span>
+              <button
+                onClick={handleNextPage}
+                className={`px-4 py-2 border ${currentPage === totalPages ? 'text-gray-400' : 'text-sky-500'} rounded`}
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
-      }
-      <div className="px-10 lg:px-40">
-        <h1 className="text-2xl font-bold py-2 text-sky-900">Need Help?</h1>
-        <ContactButton />
-      </div>
+      )}
+      <ContactPopUp />
       <Footer />
     </div>
-
   );
 }

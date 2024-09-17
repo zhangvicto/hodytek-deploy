@@ -161,12 +161,12 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
       {/* Categories */}
       <div className="px-10 lg:px-40">
         <h1 className="text-2xl font-bold py-2">Product Categories</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
           {/* Product Type Bars */}
           {Object.values(productData).map((productCategory) => (
             <div key={productCategory.slug} className="p-4 rounded shadow hover:shadow-md transition-shadow">
             <Link href={`/product/${productCategory.slug}`} className="text-sky-500 hover:underline mt-2 block">
-              <div style={{ height: 200, overflow: 'hidden' }}>
+              <div style={{ height: '20vh', overflow: 'hidden' }}>
                 <Image src={getFirstProductImage(productCategory)} alt={productCategory.name + " image"} height={200} width={300} object-fit="contain" className="w-full" />
               </div>
             </Link>

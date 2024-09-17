@@ -5,6 +5,7 @@ import Footer from '../footer';
 import Menu from '../menu';
 import { useState, useEffect } from 'react'
 import Image from 'next/image';
+import ContactPopUp from '../contactPopUp';
 
 type Project = {
     id: number;
@@ -50,7 +51,6 @@ const ProjectsPage = () => {
 
     return (
         <div className="w-full px-10 lg:px-40 py-5 lg:h-screen block lg:flex">
-
             {/* Table of Contents */}
             <section className="mb-8 w-full border-r">
                 <h2 className="text-2xl font-semibold mb-4">Table of Contents</h2>
@@ -73,7 +73,7 @@ const ProjectsPage = () => {
                         <p className="mb-4" style={{ whiteSpace: 'pre-line' }}>{project.description}</p>
                         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4">
                             {project.images.map((image, index) => (
-                                <Image 
+                                <Image
                                     key={index}
                                     src={image}
                                     height={300}
@@ -86,7 +86,6 @@ const ProjectsPage = () => {
                     </section>
                 ))}
             </div>
-
         </div>
     );
 };

@@ -47,11 +47,11 @@ export default function Menu() {
     }
 
     return (
-        <nav className="z-50 flex items-center justify-between flex-wrap bg-sky-50 lg:p-5 px-10 py-5">
+        <nav className="z-50 flex items-center justify-between flex-wrap bg-sky-50 lg:p-5 px-10 py-5 lg:px-40">
             {/* Icon */}
             <Link className="flex items-center flex-shrink-0 text-black mr-6" href='/'>
-                <Image className="mr-2" src={`/icons/hodytek-icon.svg`} alt="Icon" width="60" height="40" />
-                <Image src={`/icons/hodytek-text.svg`} alt="Icon Text" width="170" height="45" />
+                <Image className="mr-2" src={`/icons/hodytek-icon.svg`} alt="Icon" width="55" height="40" />
+                <Image src={`/icons/hodytek-text.svg`} alt="Icon Text" width="165" height="45" />
             </Link>
 
             <div className="block lg:hidden">
@@ -66,11 +66,11 @@ export default function Menu() {
                 className={`relative w-full lg:flex lg:items-center lg:w-auto transition-all duration-300 ease-in-out ${isNavOpen ? 'max-h-screen' : 'max-h-0 overflow-y-hidden lg:overflow-y-visible'
                     } lg:max-h-full`}
             >
-                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 font-semibold">
+                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 ">
                     <Link href="/about">About</Link>
                 </li>
                 <li className="relative group block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10">
-                    <Link className='font-semibold' href="/product">Products</Link>
+                    <Link href="/product">Products</Link>
                     <ul className="lg:hidden lg:absolute z-50 group-hover:block bg-sky-50 lg:pt-2 lg:w-48 lg:shadow-lg overflow-hidden lg:last:rounded-b-md">
                         {productTypes &&
                             Object.values(productTypes).map((productType) => (
@@ -85,10 +85,10 @@ export default function Menu() {
                             ))}
                     </ul>
                 </li>
-                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 font-semibold">
+                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 ">
                     <Link href="/projects">Projects</Link>
                 </li>
-                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 font-semibold">
+                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 ">
                     <Link href="/contact">Contact Us</Link>
                 </li>
             </ul>
