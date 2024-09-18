@@ -12,7 +12,7 @@ const nextConfig = {
    *
    * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
    */
-  // basePath: "/hodytek-deploy",
+  basePath: "/hodytek-deploy",
 
   /**
    * Disable server-based image optimization. Next.js does not support
@@ -21,9 +21,9 @@ const nextConfig = {
    * @see https://nextjs.org/docs/app/api-reference/components/image#unoptimized
    */
   images: {
-    unoptimized: true,
-    // loader: "custom",
-    // loaderFile: './imgLoad.js'
+    // unoptimized: true,
+    loader: "custom",
+    loaderFile: './imgLoad.js'
   },
 };
 
