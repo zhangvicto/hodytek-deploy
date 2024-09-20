@@ -16,8 +16,8 @@ export default function Page() {
       <div className="relative h-full justify-center overflow-hidden">
         <div className="relative text-white mt-40 md:mt-60 lg:mt-60 mb-10 z-10 mx-10 lg:mx-40 space-y-5">
           <h1 className="w-full">About Us</h1>
-          <div className="text-3xl lg:text-4xl font-bold">We integrate solutions for marine and offshore engineering projects.</div>
-          <p className="lg:text-lg">As the trusted agent for several well-known brands from Europe, the United States, and Korea, we bring advanced technology and high-quality products to the Chinese market. Our product range includes systems, equipment, and materials that are at the forefront of innovation in the marine and offshore engineering sectors.</p>
+          <div className="text-3xl lg:text-4xl font-bold">We integrate solutions for oil and gas, marine and offshore engineering projects.</div>
+          <p className="lg:text-lg">As the trusted agent for several well-known brands from Europe, the United States, and Korea, we bring advanced technology and high-quality products to the Chinese market. Our product range includes systems, equipment, and materials that are at the forefront of innovation in the oil and gas, marine and offshore engineering sectors.</p>
 
           <Link className="flex justify-center" href="#excellence">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -44,7 +44,7 @@ export default function Page() {
       <div id="excellence" className="relative flex flex-wrap lg:flex-nowrap content-center justify-center px-10 lg:px-40 space-y-5 my-10 lg:my-20">
         <div className="lg:mr-20 lg:flex-wrap content-center">
           <h1 className="text-3xl lg:text-4xl font-bold">Commitment to Excellence</h1>
-          <p className="mt-5">We are more than just a supplier; we are a comprehensive partner in your project’s success. Alongside delivering high-quality products, we offer professional technical support and service, ensuring that our solutions are perfectly aligned with your project’s specific needs. Our expertise extends beyond the marine and offshore sectors, with our products being widely applied in locomotive, petrochemical, construction, and electricity industries.</p>
+          <p className="mt-5">We are more than just a supplier; we are a comprehensive partner in your project&apos;s success. Alongside delivering high-quality products, we offer professional technical support and service, ensuring that our solutions are perfectly aligned with your project&apos;s specific needs. Our expertise extends beyond the marine and offshore sectors, with our products being widely applied in locomotive, petrochemical, construction, and electricity industries.</p>
         </div>
         <Image
           className="w-full h-80"
@@ -83,7 +83,7 @@ export default function Page() {
           <div className="lg:mr-20 content-center">
             <div className="text-3xl lg:text-4xl font-bold">Our Locations</div>
             <p className="lg:text-lg self-start my-5 ">
-              Based in Toronto, Canada, we provide services to all over the world, with clients in __, ___, and ___.</p>
+              Based in Toronto, Canada, we provide services to clients all over the world.</p>
             <div className="flex justify-center"><ContactButton /></div>
           </div>
           <Image

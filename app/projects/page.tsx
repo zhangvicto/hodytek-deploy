@@ -71,7 +71,7 @@ const ProjectsPage = () => {
                     <section id={`project-${project.id}`} key={project.id} className="mb-12">
                         <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                         <p className="mb-4" style={{ whiteSpace: 'pre-line' }}>{project.description}</p>
-                        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 lg:pr-5">
                             {project.images.map((image, index) => (
                                 <Image
                                     key={index}
@@ -79,7 +79,7 @@ const ProjectsPage = () => {
                                     height={300}
                                     width={400}
                                     alt={`Image for ${project.title}`}
-                                    className="w-full h-auto rounded shadow"
+                                    className="h-full w-auto rounded shadow"
                                 />
                             ))}
                         </div>

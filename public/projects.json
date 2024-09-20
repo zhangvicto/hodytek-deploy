@@ -3,17 +3,17 @@
       "id": 1,
       "title": "FPSO",
       "description": "MODEC\nMV18/19/21/22/23/24/26/27/29/30/31\n/32/33/34/Woodside/Bacalhau\nSMB MERO2\nYINSON Marlim2\n\nBuilder: CHI (DALIAN), DSIC, BOMESC",
-      "images": ["/images/projects/FPSO.png"]
+      "images": ["/images/projects/FPSO.png","/images/projects/FPSO-2.png","/images/projects/FPSO-3.png","/images/projects/FPSO-4.png"]
     },
     {
       "id": 2,
       "title": "DRILLSHIP",
       "description": "Dalian Developer Drillship (DDD N110)\nBuilder: CHI (DALIAN)",
-      "images": ["/images/projects/drillship.jpeg"]
+      "images": ["/images/projects/drillship.jpeg","/images/projects/drillship-2.png"]
     },
     {
       "id": 3,
-      "title": "FPSO Module",
+      "title": "FPSO Module Part 1",
       "description": "PETROBRAS\nP63/66/67/68/70/71/74/75/76/77\n\nBuilder: CHI (DALIAN)",
       "images": ["/images/projects/FPSO-module.jpeg"]
     },
@@ -33,31 +33,43 @@
       "id": 6,
       "title": "Subsea Support Vessel (SSV)",
       "description": "N450/451/452/453\n\nBuilder: CHI (DALIAN)",
-      "images": ["/images/projects/ssv.jpeg"]
+      "images": ["/images/projects/ssv.jpeg","/images/projects/ssv-2.png"]
     },
     {
       "id": 7,
-      "title": "FPSO Module",
+      "title": "FPSO Module Part 2",
       "description": "MODEC MV30 9P/MV32 9P& CIP\n/MV33 CIP/MV33 8P/Woodside 7P&CIP\n\nBuilder: CHI (DALIAN), BOMESC, DSIC",
-      "images": ["/images/projects/FPSO-module-2.png"]
+      "images": ["/images/projects/FPSO-module-2.png","/images/projects/FPSO-module-3.png"]
     },
     {
       "id": 8,
       "title": "YAMAL LNG ALNG 2",
       "description": "Builder: CHI (DALIAN), BOMESC, DSIC",
-      "images": ["/images/projects/yamal.png"]
+      "images": ["/images/projects/yamal.png","/images/projects/yamal-2.png","/images/projects/yamal-3.png"]
     },
     {
       "id": 9,
+      "title": "FLNG",
+      "description": "MARINE XII CONGO LNG\n\nBuilder: WISON",
+      "images": ["/images/projects/flng.png"]
+    },
+    {
+      "id": 10,
       "title": "Ehouse",
       "description": "UZ750 EPC2\nModec MV30&32&33&34\nE-House\nModec BacalhauE-house\nSBM Marlim2 E-House\n\nBuilder: CHI(DALIAN), BOMESC",
       "images": ["/images/projects/ehouse-1.png", "/images/projects/ehouse-2.png"]
     },
     {
-      "id": 10,
-      "title": "LER Module",
-      "description": "FLNG Module\n\nBuilder: BOMESC",
+      "id": 11,
+      "title": "FLNG Module",
+      "description": "LER Module\n\nBuilder: BOMESC",
       "images": ["/images/projects/LER-module.png"]
+    },
+    {
+      "id": 12,
+      "title": "Energy Storage",
+      "description": "6MWH/258MWH/10MW 64.8MWh\n\nBuilder: Narada",
+      "images": ["/images/projects/flng.png"]
     }
   ]
   

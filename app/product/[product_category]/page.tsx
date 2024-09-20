@@ -104,7 +104,7 @@ export default function ProductPage({ params }: { params: { product_category: st
       {!loading && productAll && (
         <div className="px-10 lg:px-40 text-sky-900 flex flex-col lg:flex-row">
           {/* Filter and Search Section */}
-          <div className="lg:w-1/4 w-full py-4 lg:border-r border-gray-200">
+          <div className="lg:w-1/4 w-full py-4 lg:border-r lg:pr-5 lg:mt-2 border-gray-200">
             <h2 className="text-2xl font-bold mb-2">{productAll.name}</h2>
             <input
               type="text"

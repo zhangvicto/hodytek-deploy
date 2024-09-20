@@ -162,17 +162,29 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
       <div className="px-10 lg:px-40">
         <h1 className="text-2xl font-bold py-2">Product Categories</h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-          {/* Product Type Bars */}
-          {Object.values(productData).map((productCategory) => (
-            <div key={productCategory.slug} className="p-4 rounded shadow hover:shadow-md transition-shadow">
-            <Link href={`/product/${productCategory.slug}`} className="text-sky-500 hover:underline mt-2 block">
+
+          {/* Cable Gland Fixed */}
+          <div  className="p-4 rounded shadow hover:shadow-md transition-shadow">
+            <Link href="/product/cable-glands" className="text-sky-500 hover:underline mt-2 block">
               <div style={{ height: '20vh', overflow: 'hidden' }}>
-                <Image src={getFirstProductImage(productCategory)} alt={productCategory.name + " image"} height={200} width={300} object-fit="contain" className="w-full" />
+                <Image src="./images/oscg.jpg" alt="cable gland" height={200} width={300} object-fit="contain" className="w-full" />
               </div>
             </Link>
 
-            <h3 className="mt-2 text-lg font-bold">{productCategory.name}</h3>
+            <h3 className="mt-2 text-lg font-bold">Cable Glands and Accessories</h3>
           </div>
+
+          {/* Product Type Bars */}
+          {Object.values(productData).map((productCategory) => (
+            <div key={productCategory.slug} className="p-4 rounded shadow hover:shadow-md transition-shadow">
+              <Link href={`/product/${productCategory.slug}`} className="text-sky-500 hover:underline mt-2 block">
+                <div style={{ height: '20vh', overflow: 'hidden' }}>
+                  <Image src={getFirstProductImage(productCategory)} alt={productCategory.name + " image"} height={200} width={300} object-fit="contain" className="w-full" />
+                </div>
+              </Link>
+
+              <h3 className="mt-2 text-lg font-bold">{productCategory.name}</h3>
+            </div>
           ))}
         </div>
       </div>
@@ -208,15 +220,15 @@ function getFirstProductImage(category: ProductAll): string {
 
   // Check if the category has subcategories
   if (!subcategories.length) {
-      return ""; // Return an empty string if there are no subcategories
+    return ""; // Return an empty string if there are no subcategories
   }
 
   // Find the first subcategory that has products
   for (const subcategory of subcategories) {
-      if (subcategory.products.length > 0) {
-          // Return the image path of the first product found
-          return subcategory.products[0].image;
-      }
+    if (subcategory.products.length > 0) {
+      // Return the image path of the first product found
+      return subcategory.products[0].image;
+    }
   }
 
   return ""; // Return an empty string if no products are found in any subcategory

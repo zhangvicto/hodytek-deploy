@@ -72,6 +72,16 @@ export default function Menu() {
                 <li className="relative group block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10">
                     <Link href="/product">Products</Link>
                     <ul className="lg:hidden lg:absolute z-50 group-hover:block bg-sky-50 lg:pt-2 lg:w-48 lg:shadow-lg overflow-hidden lg:last:rounded-b-md">
+                        {/* Cable Gland Fixed Link */}
+                        <li className="border-b hover:bg-sky-100">
+                                    <Link
+                                        href={`/product/cable-glands`}
+                                        className="block px-4 py-2 text-sm text-sky-900 hover:text-sky-500"
+                                    >
+                                        Cable Glands
+                                    </Link>
+                                </li>
+                        {/* Mapping Other Categories */}
                         {productTypes &&
                             Object.values(productTypes).map((productType) => (
                                 <li key={productType.slug} className="border-b hover:bg-sky-100">
