@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const images = ["/images/carousel3.jpg", "/images/carousel1.jpg", "/images/carousel2.jpg", ];
+const images = ["/images/carousel1.jpg", "/images/carousel3.webp", "/images/carousel2.webp", ];
 const captions = [<Link key="1" href="/contact"><p>Offshore Excellence, Local Expertise: </p><p className="font-bold">Your Path to Global Success</p></Link>,
     <Link key="2" className="" href="product">Explore our products!</Link>,
     <Link key="3" className="" href="contact">Contact us today!</Link>];

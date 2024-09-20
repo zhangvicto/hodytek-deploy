@@ -95,6 +95,8 @@ export default function ProductPage({ params }: { params: { product_category: st
     scrollToTop();
   };
 
+  const filerDisplayCondition = filteredProducts.length <= 6;
+
   return (
     <div className="bg-white">
       <Menu />
@@ -102,17 +104,17 @@ export default function ProductPage({ params }: { params: { product_category: st
       {!loading && productAll && (
         <div className="px-10 lg:px-40 text-sky-900 flex flex-col lg:flex-row">
           {/* Filter and Search Section */}
-          <div className="lg:w-1/4 w-full p-4 lg:border-r border-gray-200">
+          <div className="lg:w-1/4 w-full py-4 lg:border-r border-gray-200">
             <h2 className="text-2xl font-bold mb-2">{productAll.name}</h2>
             <input
               type="text"
               placeholder="Search products..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded mb-4"
+              className={`${filerDisplayCondition ? "hidden" : "block"} w-full p-2 border border-gray-300 rounded mb-4`}
             />
 
-            <div>
+            <div className={`${filerDisplayCondition ? "hidden" : "block"}`}>
               <h2 className="text-lg font-semibold mb-2">Filter by Subcategory</h2>
               <select
                 value={selectedSubcategory}
@@ -130,7 +132,7 @@ export default function ProductPage({ params }: { params: { product_category: st
           </div>
 
           {/* Pagination Controls */}
-          <div className="lg:hidden flex justify-center items-center mt-6">
+          <div className={`${filerDisplayCondition ? "hidden" : "block"} lg:hidden flex justify-center items-center mt-6`}>
             <button
               onClick={handlePrevPage}
               className={`px-4 py-2 border ${currentPage === 1 ? 'text-gray-400' : 'text-sky-500'} rounded`}
@@ -169,7 +171,7 @@ export default function ProductPage({ params }: { params: { product_category: st
             </div>
 
             {/* Pagination Controls */}
-            <div className="flex justify-center items-center mt-6">
+            <div className={`${filerDisplayCondition ? "hidden" : "block"} flex justify-center items-center mt-6`}>
               <button
                 onClick={handlePrevPage}
                 className={`px-4 py-2 border ${currentPage === 1 ? 'text-gray-400' : 'text-sky-500'} rounded`}
