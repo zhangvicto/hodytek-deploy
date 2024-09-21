@@ -21,7 +21,7 @@ const Carousel: React.FC = () => {
 
         const interval = setInterval(() => {
             handleNext();
-        }, 3000); // Change image every 3 seconds
+        }, 5000); // Change image every 3 seconds
 
         return () => clearInterval(interval); // Cleanup on unmount or when hovered
     }, [isHovered]);

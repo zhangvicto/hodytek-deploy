@@ -129,6 +129,10 @@ export default function ProductPage({ params }: { params: { product_category: st
                 ))}
               </select>
             </div>
+            <Link className="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+              href="/product">
+              Back to Product
+            </Link>
           </div>
 
           {/* Pagination Controls */}

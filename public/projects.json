@@ -19,27 +19,27 @@
     },
     {
       "id": 4,
+      "title": "FPSO Module Part 2",
+      "description": "MODEC MV30 9P/MV32 9P& CIP\n/MV33 CIP/MV33 8P/Woodside 7P&CIP\n\nBuilder: CHI (DALIAN), BOMESC, DSIC",
+      "images": ["/images/projects/FPSO-module-2.png","/images/projects/FPSO-module-3.png"]
+    },
+    {
+      "id": 5,
       "title": "JACK UP",
       "description": "JACK UP 527/581/582/596/610/611\nJU2000E07/08/09/10/11/12/13/14/15\n/16/17/18/19/20/21/22/23\nBuilder: CHI(DALIAN), DSIC",
       "images": ["/images/projects/jackup.jpeg"]
     },    
     {
-      "id": 5,
+      "id": 6,
       "title": "Transport Vessel",
       "description": "N624/625/626/627\n\nBuilder: CHI (DALIAN)",
       "images": ["/images/projects/transport-vessel.jpeg"]
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Subsea Support Vessel (SSV)",
       "description": "N450/451/452/453\n\nBuilder: CHI (DALIAN)",
       "images": ["/images/projects/ssv.jpeg","/images/projects/ssv-2.png"]
-    },
-    {
-      "id": 7,
-      "title": "FPSO Module Part 2",
-      "description": "MODEC MV30 9P/MV32 9P& CIP\n/MV33 CIP/MV33 8P/Woodside 7P&CIP\n\nBuilder: CHI (DALIAN), BOMESC, DSIC",
-      "images": ["/images/projects/FPSO-module-2.png","/images/projects/FPSO-module-3.png"]
     },
     {
       "id": 8,
@@ -69,7 +69,13 @@
       "id": 12,
       "title": "Energy Storage",
       "description": "6MWH/258MWH/10MW 64.8MWh\n\nBuilder: Narada",
-      "images": ["/images/projects/flng.png"]
+      "images": ["/images/projects/energy-storage.png"]
+    },
+    {
+      "id": 13,
+      "title": "NFPS",
+      "description": "QatarEnergy North Field Production Sustainability (NFPS) \n\nNFPS Offshore Compression Complexes Project COMP2\n\nBuilder: BOMESC",
+      "images": ["/images/projects/nfps.png", "/images/projects/nfps-2.png", "/images/projects/nfps-3.jpg", "/images/projects/nfps-4.jpg"]
     }
   ]
   

@@ -67,6 +67,9 @@ export default function Menu() {
                     } lg:max-h-full`}
             >
                 <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 ">
+                    <Link href="/">Home</Link>
+                </li>
+                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 ">
                     <Link href="/about">About</Link>
                 </li>
                 <li className="relative group block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10">
@@ -74,13 +77,13 @@ export default function Menu() {
                     <ul className="lg:hidden lg:absolute z-50 group-hover:block bg-sky-50 lg:pt-2 lg:w-48 lg:shadow-lg overflow-hidden lg:last:rounded-b-md">
                         {/* Cable Gland Fixed Link */}
                         <li className="border-b hover:bg-sky-100">
-                                    <Link
-                                        href={`/product/cable-glands`}
-                                        className="block px-4 py-2 text-sm text-sky-900 hover:text-sky-500"
-                                    >
-                                        Cable Glands
-                                    </Link>
-                                </li>
+                            <Link
+                                href={`/product/cable-glands`}
+                                className="block px-4 py-2 text-sm text-sky-900 hover:text-sky-500"
+                            >
+                                Cable Glands
+                            </Link>
+                        </li>
                         {/* Mapping Other Categories */}
                         {productTypes &&
                             Object.values(productTypes).map((productType) => (

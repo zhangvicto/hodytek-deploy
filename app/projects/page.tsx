@@ -5,7 +5,6 @@ import Footer from '../footer';
 import Menu from '../menu';
 import { useState, useEffect } from 'react'
 import Image from 'next/image';
-import ContactPopUp from '../contact-popup';
 
 type Project = {
     id: number;
@@ -37,7 +36,6 @@ const ProjectsPage = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
                 const response = await fetch(publicDataURL('projects.json'));
                 const data: Project[] = await response.json();
                 setProjects(data);
@@ -57,7 +55,7 @@ const ProjectsPage = () => {
                 <ul className="list-disc list-inside">
                     {projects.map((project) => (
                         <li key={project.id}>
-                            <a href={`#project-${project.id}`} className="text-blue-500 hover:underline">
+                            <a href={`#project-${project.id}`} className="text-sky-900 hover:underline">
                                 {project.title}
                             </a>
                         </li>
@@ -79,7 +77,7 @@ const ProjectsPage = () => {
                                     height={300}
                                     width={400}
                                     alt={`Image for ${project.title}`}
-                                    className="h-full w-auto rounded shadow"
+                                    className="w-full h-auto md:h-full md:w-auto rounded shadow"
                                 />
                             ))}
                         </div>

@@ -29,7 +29,7 @@ function AboutUs() {
     <div className="flex-wrap md:flex md:flex-nowrap items-center justify-center p-10 lg:px-40 py-20">
       <div className="pr-5">
         <p className="text-3xl lg:text-4xl font-bold pb-2">Why Us</p>
-        <p className="text-xl lg:text-2xl">Hodytek Ltd. provides products, consulting services, and integrated solutions for clients in the <Link href="/projects" className="font-semibold">oil & gas,  marine and offshore engineering, energy, telecommunications, sensors and instruments, construction,</Link> and many other related industries.</p>
+        <p className="text-xl lg:text-2xl">Hodytek Ltd. provides products, consulting services, and integrated solutions for clients in the <Link href="/projects" className="font-semibold">oil and gas,  marine and offshore engineering, energy, telecommunications, sensors and instruments, construction,</Link> and many other related industries.</p>
       </div>
       <div className="flex justify-center w-full mt-20 lg:mt-0">
         <Image src="/images/projects/drillship.jpeg" alt="about us" width="300" height="200" />
@@ -56,14 +56,13 @@ function WhyUs() {
           <h3 className="text-2xl font-bold mb-4">Supplies</h3>
           <p className="mb-4">We provide a wide range of products:</p>
           <ul className="list-disc pl-5 space-y-2">
+            <li>Hazardous and Industrial Cable Glands</li>
             <li>Cables</li>
-            <li>Cable glands</li>
-            <li>Cable seals</li>
-            <li>Cable ties</li>
-            <li>Explosion-proof lighting</li>
-            <li>Explosion-proof junction boxes</li>
-            <li>Distribution boxes</li>
-            <li>Generator equipment</li>
+            <li>Cable Ties</li>
+            <li>Explosion-Proof Lighting</li>
+            <li>Explosion-Proof Junction boxes</li>
+            <li>Extremely Advanced Pipe & Cable Penetration Sealing System</li>
+            <li>Generator Equipment</li>
           </ul>
         </div>
 
@@ -81,7 +80,7 @@ function WhyUs() {
           <p className="mb-4">Our professional team of experts and engineers are here to provide:</p>
           <ul className="list-disc pl-5 space-y-2">
             <li>Customized solutions for cables and cable accessories</li>
-            <li>Solutions for explosion-proof lighting, junction boxes, and distribution boxes</li>
+            <li>Solutions for explosion-proof lighting, cable glands, and other hazardous/industrial environment cable components.</li>
           </ul>
         </div>
       </div>
@@ -111,7 +110,9 @@ function ProductCategorySlider() {
   const [productData, setProductData] = useState<ProductAll[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [windowWidth, setWindowWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 1024); // Provide a default width
+  const [windowWidth, setWindowWidth] = useState<number>(
+    typeof window !== 'undefined' ? window.innerWidth : 1024
+  );
 
   type Product = {
     name: string;
@@ -132,34 +133,31 @@ function ProductCategorySlider() {
   };
 
   useEffect(() => {
-    setWindowWidth(window.innerWidth)
+    setWindowWidth(window.innerWidth);
 
     const fetchProducts = async () => {
       const res = await fetch(publicDataURL('data.json'));
       const data = await res.json();
 
-      // Add the static product category to the dynamic data
       const staticCategory: ProductAll = {
-        name: "Cable Glands and Accessories",
-        slug: "cable-glands",
+        name: 'Cable Glands and Accessories',
+        slug: 'cable-glands',
         subcategories: [
           {
-            name: "Cable Glands",
+            name: 'Cable Glands',
             products: [
               {
-                name: "Cable Gland",
-                id: "fixed-cable-gland",
-                image: "/images/oscg.jpg",
-                description: "High-quality cable glands and accessories."
-              }
-            ]
-          }
-        ]
+                name: 'Cable Gland',
+                id: 'fixed-cable-gland',
+                image: '/images/oscg.jpg',
+                description: 'High-quality cable glands and accessories.',
+              },
+            ],
+          },
+        ],
       };
 
       const dataArray: ProductAll[] = Object.values(data);
-
-      // Prepend the static category to the fetched data
       setProductData([staticCategory, ...dataArray]);
     };
     fetchProducts();
@@ -169,12 +167,11 @@ function ProductCategorySlider() {
     if (!isPaused) {
       const interval = setInterval(() => {
         nextSlide();
-      }, 3000); // Slide every 3 seconds
+      }, 3000);
       return () => clearInterval(interval);
     }
   }, [currentSlide, isPaused]);
 
-  // Determine products per slide based on screen width
   const productsPerSlide = windowWidth >= 1024 ? 4 : windowWidth >= 640 ? 3 : 2;
   const totalSlides = Math.ceil(productData.length / productsPerSlide);
 
@@ -197,7 +194,6 @@ function ProductCategorySlider() {
     return '';
   }
 
-  // Handle touch events for mobile swiping
   let touchStartX: number = 0;
   let touchEndX: number = 0;
 
@@ -222,21 +218,31 @@ function ProductCategorySlider() {
   return (
     <div
       className="relative w-full h-full overflow-hidden lg:px-40 px-10 my-20"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
       <p className="text-3xl lg:text-4xl font-bold mb-10">Our Products</p>
 
       {/* Slider Content */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-        {productData
-          .slice(currentSlide * productsPerSlide, (currentSlide + 1) * productsPerSlide)
-          .map((productCategory) => (
-            <div key={productCategory.slug} className="p-4 rounded shadow hover:shadow-md transition-shadow">
-              <Link href={`/product/${productCategory.slug}`} className="text-sky-500 hover:underline mt-2 block">
-                <div style={{ height: '20vh', overflow: 'hidden' }}>
+      <div className="overflow-hidden"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div
+          className="flex h-full transition-transform duration-500 ease-in-out my-2"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {productData.map((productCategory) => (
+            <div
+              key={productCategory.slug}
+              className="p-2 w-full lg:w-1/4 sm:w-1/3 w-1/2 flex-shrink-0"
+            >
+              <div className="px-4 h-full rounded shadow hover:shadow-md transition-shadow">
+                <Link
+                href={`/product/${productCategory.slug}`}
+                className="text-sky-500 hover:underline mt-2 block"
+              >
+                <div className="h-20 lg:h-40 overflow-hidden">
                   <Image
                     src={getFirstProductImage(productCategory)}
                     alt={productCategory.name + ' image'}
@@ -248,8 +254,12 @@ function ProductCategorySlider() {
                 </div>
               </Link>
               <h3 className="mt-2 text-lg font-bold">{productCategory.name}</h3>
+              </div>
+              
+              
             </div>
           ))}
+        </div>
       </div>
 
       {/* Slider Navigation */}

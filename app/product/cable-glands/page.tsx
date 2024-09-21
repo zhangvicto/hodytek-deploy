@@ -1,10 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import publicDataURL from "@/app/dataURL";
 import Image from "next/image";
 import Menu from "@/app/menu";
-import ContactForm from "@/app/contact-form";
 import Footer from "@/app/footer";
 
 export default function Page() {
@@ -67,7 +65,7 @@ function ProductSlider() {
                 {products.map((product) => (
                     <div
                         key={product.id}
-                        className="my-6 md:my-0 md:mx-6 flex-shrink-0"
+                        className="h-full my-6 md:my-0 md:mx-6 flex-shrink-0"
                     >
                         <div className="h-full bg-white shadow-lg rounded-lg p-6 text-center">
                             <Image

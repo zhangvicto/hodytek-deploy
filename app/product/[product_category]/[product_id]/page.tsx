@@ -3,6 +3,7 @@ import Footer from '../../../footer';
 import Menu from '../../../menu';
 import fs from 'fs';
 import path from 'path';
+import Link from 'next/link';
 
 type Product = {
   name: string;
@@ -75,7 +76,7 @@ export default async function ProductDetailPage({
   if (!productAll) {
     return <div>Product category not found.</div>;
   }
-  // Get the product object for curren product
+  // Get the product object for current product
   const product = getProductById(productAll, params.product_id);
 
   if (!product) {
@@ -91,9 +92,15 @@ export default async function ProductDetailPage({
             {/* Title */}
             <div className="text-3xl font-bold py-2">{product.name}</div>
             {/* Product ID */}
-            <div className="text-gray-400 pb-5">
+            <div className="text-gray-400 mb-2">
               Product ID: {product.id.replace('_', '/')}
             </div>
+            {/* Back Button */}
+            <Link className="hidden md:inline-flex mb-5 items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+              href={`/product/${productAll.slug}`}>
+              Back to {productAll.name}
+            </Link>
+
             {/* Image */}
             <Image
               className="h-80 object-cover rounded shadow"
@@ -123,3 +130,15 @@ function getProductById(productAll: ProductAll, productId: string): Product | nu
   }
   return null;
 }
+
+function getProductCategory(productAll: ProductAll, productId: string): string | null {
+  for (const subcategory of Object.values(productAll.subcategories)) {
+    for (const product of subcategory.products) {
+      if (product.id === productId) {
+        return subcategory.name;
+      }
+    }
+  }
+  return null;
+}
+
