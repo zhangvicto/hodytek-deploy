@@ -149,7 +149,7 @@ function ProductCategorySlider() {
               {
                 name: "Cable Gland",
                 id: "fixed-cable-gland",
-                image: "./images/oscg.jpg",
+                image: "/images/oscg.jpg",
                 description: "High-quality cable glands and accessories."
               }
             ]

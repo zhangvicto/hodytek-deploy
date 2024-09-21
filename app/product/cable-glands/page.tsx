@@ -63,11 +63,11 @@ function ProductSlider() {
         <div className="relative w-full h-full overflow-hidden lg:px-40 px-10 my-10" >
             <p className="text-3xl lg:text-4xl font-bold mb-2">Cable Glands and Accessories</p>
             {/* Slider Content */}
-            <div className="flex h-full transition-transform duration-500 mb-10">
+            <div className="grid grid-cols-1 md:mx-20 md:grid-cols-2 gap-5 justify-items-center h-full transition-transform duration-500 mb-10">
                 {products.map((product) => (
                     <div
                         key={product.id}
-                        className="md:w-1/3 mx-6 flex-shrink-0"
+                        className="my-6 md:my-0 md:mx-6 flex-shrink-0"
                     >
                         <div className="h-full bg-white shadow-lg rounded-lg p-6 text-center">
                             <Image

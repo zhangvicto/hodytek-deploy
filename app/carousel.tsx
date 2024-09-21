@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const images = ["/images/carousel1.jpg", "/images/carousel4.webp", "/images/refinery.avif", ];
-const captions = [<Link key="1" href="/contact"><p className="">Fueling Success in Oil & Gas, Marine, and Offshore Sectors:</p><p className="font-bold w-1/2">We deliver solutions that keep your projects on track and thriving</p></Link>,
+const captions = [<Link key="1" href="/contact"><p className="">Fueling Success in Oil & Gas, Marine, and Offshore Sectors:</p><p className="font-bold lg:w-1/2">We deliver solutions that keep your projects on track and thriving</p></Link>,
     <Link key="2" className="" href="product">Explore our products!</Link>,
     <Link key="3" className="" href="contact">Contact us today!</Link>];
 const textAlign = ["left", "right", "left"]; // Option for text alignment: 
