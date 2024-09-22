@@ -113,6 +113,7 @@ const ProjectsPage = () => {
                 <Image
                   key={idx}
                   src={image}
+                  fill
                   height={300}
                   width={400}
                   alt={`Image for ${project.title}`}
