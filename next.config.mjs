@@ -24,7 +24,6 @@ const nextConfig = {
     unoptimized: true,
     // loader: "custom",
     // loaderFile: './imgLoad.js'
-    path: "https://zhangvicto.github.io/hodytek-deploy/"
   },
 };
 
