@@ -33,9 +33,9 @@
       }
     }
   },
-  "Explosion Proof Lighting": {
-    "name": "Explosion Proof Lighting",
-    "slug": "explosion-proof-lighting",
+  "Explosion Proof Equipment": {
+    "name": "Explosion Proof Equipment",
+    "slug": "explosion-proof-equipment",
     "subcategories": {
       "Explosion Proof Lighting": {
         "name": "Explosion Proof Lighting",
@@ -47,13 +47,7 @@
             "description": "To be updated"
           }
         ]
-      }
-    }
-  },
-  "Explosion-Proof Junction Boxes": {
-    "name": "Explosion-Proof Junction Boxes",
-    "slug": "explosion-proof-junction-boxes",
-    "subcategories": {
+      },
       "Junction Box": {
         "name": "Junction Box",
         "products": [

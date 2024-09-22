@@ -14,9 +14,8 @@ export default function Footer() {
     <div className="relative grid lg:grid-cols-3 gap-5 w-full bg-black text-white mt-10 p-10 lg:px-40">
       <div className="self-center">
         <p className="h1 font-bold">Contact Us</p>
-        <p>Jessie Liu</p>
-        <p><a href="mailto:someone@hodytek.com"></a>jessie.liu@hodytek.com</p>
-        <p>+1 647 385 6629</p>
+        <p>Email: <a href="mailto:inquiry@hodytek.com">inquiry@hodytek.com</a></p>
+        <p>Phone: +1 647 385 6629</p>
       </div>
 
       <div className="self-end lg:justify-self-center"> &copy; Hodytek 2024 </div>

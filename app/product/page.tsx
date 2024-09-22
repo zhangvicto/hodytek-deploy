@@ -110,7 +110,7 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
   return (
     <div className="text-sky-900 pt-5">
       <div className=" hidden md:block lg:block">
-        <h1 className="px-10 lg:px-40 text-2xl font-bold pb-5">Browse Our Products</h1>
+        <h1 className="px-10 lg:px-40 text-2xl font-bold pb-10">Browse Our Products</h1>
         <div className="relative w-full overflow-hidden pb-5">
           <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             {Array.from({ length: Math.ceil(randomProducts.length / 3) }).map((_, slideIndex) => (

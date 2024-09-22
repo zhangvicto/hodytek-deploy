@@ -6,8 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const images = [
-  "/images/carousel1.jpg",
-  "/images/carousel4.webp",
+  "/images/carousel1.webp",
+  "/images/carousel2-transformed.webp",
   "/images/refinery.avif",
 ];
 const captions = [
