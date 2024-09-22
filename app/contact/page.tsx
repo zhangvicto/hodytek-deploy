@@ -9,8 +9,8 @@ export default function Page() {
     <div className="bg-white text-sky-900 inset-0 overflow-hidden">
       <Menu />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 justify-center px-10 lg:px-40">
-        <NameCard name="Gary" position="President" tel="+1 (647) 872 2588" fax="+1 (647) 873 2777" cell="+1 (416) 985 7666" email="gary@hodytek.com" />
-        <NameCard name="Jessie" position="Sales Manager" tel="+1 (647) 385 6629" fax="+1 (647) 873 2777" cell="+1 (647) 385 6629" email="jessie@hodytek.com" />
+        <NameCard name="Gary" position="President" fax="+1 (647) 873 2777" cell="+1 (416) 985 7666" email="gary@hodytek.com" />
+        <NameCard name="Jessie" position="Sales Manager" fax="+1 (647) 873 2777" cell="+1 (647) 385 6629" email="jessie.liu@hodytek.com" />
       </div>
       <ContactForm />
       <Footer />
@@ -18,7 +18,7 @@ export default function Page() {
   )
 }
 
-function NameCard(props: { name: string, position: string, tel: string, fax: string, cell: string, email: string }) {
+function NameCard(props: { name: string, position: string, fax: string, cell: string, email: string }) {
   return (
     <div className="bg-white border rounded-lg shadow-md overflow-hidden flex items-center p-6 space-x-6 mt-10">
       {/* Left section - icon */}
@@ -44,9 +44,6 @@ function NameCard(props: { name: string, position: string, tel: string, fax: str
         <h2 className="text-2xl font-semibold text-sky-900">{props.name}</h2>
         <p className="text-sm text-sky-700">{props.position}</p>
         <div className="text-sm space-y-1">
-          <p className="flex items-center">
-            <span className="font-semibold text-sky-900">Tel:&nbsp;</span> {props.tel}
-          </p>
           <p className="flex items-center">
             <span className="font-semibold text-sky-900">Fax:&nbsp;</span> {props.fax}
           </p>

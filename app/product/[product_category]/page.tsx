@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import publicDataURL from '@/app/dataURL';
-import ContactPopUp from '@/app/contact-popup';
+import { ContactButton } from '@/app/contact-button';
 
 type Product = {
   name: string;
@@ -195,7 +195,10 @@ export default function ProductPage({ params }: { params: { product_category: st
           </div>
         </div>
       )}
-      <ContactPopUp />
+      <div className="bg-white px-10 lg:px-40 pb-10 bottom-0 lg:bottom-10">
+        <h1 className="text-2xl font-bold py-2 text-sky-900">Get a Quote</h1>
+        <ContactButton />
+      </div>
       <Footer />
     </div>
   );

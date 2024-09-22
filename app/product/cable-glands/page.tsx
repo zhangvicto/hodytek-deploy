@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Menu from "@/app/menu";
 import Footer from "@/app/footer";
+import { ContactButton } from "@/app/contact-button";
 
 export default function Page() {
     return (
@@ -54,47 +55,50 @@ function ProductSlider() {
     }
 
     const handleNavigation = (url: string) => {
-        window.location.href = url;
+        window.open(url, '_blank');
     };
 
     return (
-        <div className="relative w-full h-full overflow-hidden lg:px-40 px-10 my-10" >
-            <p className="text-3xl lg:text-4xl font-bold mb-2">Cable Glands and Accessories</p>
-            {/* Slider Content */}
-            <div className="grid grid-cols-1 md:mx-20 md:grid-cols-2 gap-5 justify-items-center h-full transition-transform duration-500 mb-10">
+        <div className="relative w-full overflow-hidden lg:px-40 px-10 my-10">
+            <p className="text-3xl lg:text-4xl font-bold mb-2">
+                Cable Glands and Accessories
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center mb-10">
                 {products.map((product) => (
                     <div
                         key={product.id}
-                        className="h-full my-6 md:my-0 md:mx-6 flex-shrink-0"
+                        className="w-full max-w-md bg-white shadow-lg rounded-lg p-6"
                     >
-                        <div className="h-full bg-white shadow-lg rounded-lg p-6 text-center">
+                        <div className="relative w-full h-64">
                             <Image
-                                width={100}
-                                height={100}
                                 src={product.image}
                                 alt={product.title}
-                                className="w-full object-cover"
+                                fill
+                                className="object-contain rounded-lg"
                             />
-                            {/* <h2 className="text-lg font-bold mt-4">{product.title}</h2> */}
-                            <div className="mt-4">
-                                <label className="block text-sm font-medium">
-                                    Select {product.title} Type
-                                </label>
-                                <select
-                                    onChange={(e) => handleNavigation(e.target.value)}
-                                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none"
-                                >
-                                    <option value="">Select type ...</option>
-                                    {product.options.map((option, index) => (
-                                        <option key={index} value={option.url}>
-                                            {option.label}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
+                        </div>
+                        <div className="mt-4 text-center">
+                            <label className="block text-sm font-medium">
+                                Select {product.title} Type
+                            </label>
+                            <select
+                                onChange={(e) => handleNavigation(e.target.value)}
+                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none"
+                            >
+                                <option value="">Select type ...</option>
+                                {product.options.map((option, index) => (
+                                    <option key={index} value={option.url}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
                     </div>
                 ))}
+            </div>
+            <div className="bg-white pb-10">
+                <h1 className="text-2xl font-bold py-2 text-sky-900">Get a Quote</h1>
+                <ContactButton />
             </div>
         </div>
     );
