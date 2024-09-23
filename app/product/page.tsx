@@ -168,7 +168,7 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
           <div className="p-4 rounded shadow hover:shadow-md transition-shadow">
             <Link href="/product/cable-glands" className="text-sky-500 hover:underline mt-2 block">
               <div className="h-20 lg:h-40 overflow-hidden">
-                <Image src="/images/oscg.jpg" alt="cable gland" height={200} width={300} object-fit="contain" className="w-full" />
+                <Image src="/images/OSCG.jpg" alt="cable gland" height={200} width={300} object-fit="contain" className="w-full" />
               </div>
             </Link>
 
