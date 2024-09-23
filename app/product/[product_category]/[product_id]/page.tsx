@@ -4,7 +4,7 @@ import Menu from '../../../menu';
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
-import publicDataURL from '@/app/dataURL';
+import publicPDFURL from '@/app/dataURL';
 
 type Product = {
   name: string;
@@ -125,7 +125,7 @@ export default async function ProductDetailPage({
             <h2 className="text-2xl font-bold mb-4">Datasheet</h2>
             {isImageFile(product.datasheet) ? (
               <Image
-                src={publicDataURL(product.datasheet)}
+                src={product.datasheet}
                 alt="Datasheet"
                 width={500}
                 height={500}
@@ -133,7 +133,7 @@ export default async function ProductDetailPage({
               />
             ) : isPdfFile(product.datasheet) ? (
               <iframe
-                src={product.datasheet}
+                src={publicPDFURL(product.datasheet)}
                 width="100%"
                 height="600px"
                 className="rounded shadow"
@@ -154,17 +154,6 @@ function getProductById(productAll: ProductAll, productId: string): Product | nu
     for (const product of subcategory.products) {
       if (product.id === productId) {
         return product;
-      }
-    }
-  }
-  return null;
-}
-
-function getProductCategory(productAll: ProductAll, productId: string): string | null {
-  for (const subcategory of Object.values(productAll.subcategories)) {
-    for (const product of subcategory.products) {
-      if (product.id === productId) {
-        return subcategory.name;
       }
     }
   }
