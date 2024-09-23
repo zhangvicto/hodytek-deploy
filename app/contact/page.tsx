@@ -10,11 +10,11 @@ export default function Page() {
       <Menu />
       {/* <div className="grid grid-cols-1 w-1/2 gap-5 justify-items-center px-10 lg:px-40"> */}
         {/* <NameCard name="Gary" position="President" fax="+1 (647) 873 2777" cell="+1 (416) 985 7666" email="gary@hodytek.com" /> */}
-      Please kindly find our contact info below.
+      {/* Please kindly find our contact info below.
       <div className="flex justify-center">
         <NameCard name="Jessie Liu" position="Sales Manager" fax="+1 (647) 873 2777" cell="+1 (647) 385 6629" email="jessie.liu@hodytek.com" />
       </div>
-      We look forward to hearing from you!
+      We look forward to hearing from you! */}
       <ContactForm />
       <Footer />
     </div>
