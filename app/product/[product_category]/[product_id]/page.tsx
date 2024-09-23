@@ -135,7 +135,7 @@ export default async function ProductDetailPage({
               />
             ) : isPdfFile(product.datasheet) ? (
               <iframe
-                src={publicPDFURL(product.datasheet)}
+                src={product.datasheet}
                 width="100%"
                 height="600px"
                 className="rounded shadow"
