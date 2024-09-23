@@ -25,6 +25,7 @@ type ProductSubcategory = {
 type ProductAll = {
   name: string;
   slug: string;
+  image: string;
   subcategories: ProductSubcategory[];
 };
 

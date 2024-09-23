@@ -2,6 +2,7 @@
   "Cables": {
     "name": "Cables",
     "slug": "cables",
+    "image": "/images/cables.png",
     "subcategories": {
       "Cables": {
         "name": "Cables",
@@ -20,6 +21,7 @@
   "Cable Ties": {
     "name": "Cable Ties",
     "slug": "cable-ties",
+    "image": "/images/cable-tie.png",
     "subcategories": {
       "Cable Ties": {
         "name": "Cable Ties",
@@ -35,9 +37,10 @@
       }
     }
   },
-  "Explosion Proof Equipment": {
-    "name": "Explosion Proof Equipment",
-    "slug": "explosion-proof-equipment",
+  "Explosion Proof Lighting and Junction Boxes": {
+    "name": "Explosion Proof Lighting and Junction Boxes",
+    "slug": "explosion-proof-lighting-and-junction-boxes",
+    "image": "/images/lighting-junction-box.png",
     "subcategories": {
       "Explosion Proof Lighting": {
         "name": "Explosion Proof Lighting",
@@ -65,9 +68,10 @@
       }
     }
   },
-  "Pipe and Cable Penetration Sealing Systems": {
-    "name": "Pipe and Cable Penetration Sealing Systems",
-    "slug": "pipe-and-cable-penetration-sealing-systems",
+  "Extremely Advanced Pipe and Cable Penetration Sealing Systems": {
+    "name": "Extremely Advanced Pipe and Cable Penetration Sealing Systems",
+    "slug": "extremely-advanced-pipe-and-cable-penetration-sealing-systems",
+    "image": "/images/sealing.png",
     "subcategories": {
       "Sealing Systens": {
         "name": "Sealing Systens",
@@ -86,14 +90,15 @@
   "Generator Equipment": {
     "name": "Generator Equipment",
     "slug": "generator-equipment",
+    "image": "/images/coming-soon.jpg",
     "subcategories": {
       "Generator Equipment": {
         "name": "Generator Equipment",
         "products": [
           {
-            "name": "Product-D",
-            "id": "product-d",
-            "image": "/images/product-d.jpg",
+            "name": "Coming-Soon",
+            "id": "coming-soon",
+            "image": "/images/coming-soon.jpg",
             "description": "View our catalog of generator equipment.",
             "datasheet": "/datasheets/generator-catalog.pdf"
           }

@@ -24,6 +24,7 @@ type ProductSubcategory = {
 type ProductAll = {
   name: string;
   slug: string;
+  image: string;
   subcategories: ProductSubcategory[];
 };
 
@@ -168,7 +169,7 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
           <div className="p-4 rounded shadow hover:shadow-md transition-shadow">
             <Link href="/product/cable-glands" className="text-sky-500 hover:underline mt-2 block">
               <div className="h-20 lg:h-40 overflow-hidden">
-                <Image src="/images/OSCG.jpg" alt="cable gland" height={200} width={300} object-fit="contain" className="w-full" />
+                <Image src="/images/cable-glands.png" alt="cable gland" height={200} width={300} object-fit="contain" className="w-full" />
               </div>
             </Link>
 
@@ -187,7 +188,7 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
               >
                 <div className="relative h-40 w-full">
                   <Image
-                    src={getFirstProductImage(productCategory)}
+                    src={productCategory.image}
                     alt={`${productCategory.name} image`}
                     fill
                     style={{ objectFit: 'contain' }}
@@ -206,41 +207,4 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
       </div>
     </div>
   );
-}
-
-function findSlugByProductId(productData: ProductAll[], productId: string): string | null {
-  // Iterate over all main categories
-  for (const category of productData) {
-    // Iterate over all subcategories in each main category
-    for (const subcategory of Object.values(category.subcategories)) {
-      // Iterate over all products in each subcategory
-      for (const product of subcategory.products) {
-        if (product.id === productId) {
-          return category.slug; // Return the main category name if the product ID matches
-        }
-      }
-    }
-  }
-
-  return null; // Return null if no product is found with the given ID
-}
-
-function getFirstProductImage(category: ProductAll): string {
-  // Convert subcategories to an array
-  const subcategories = Object.values(category.subcategories);
-
-  // Check if the category has subcategories
-  if (!subcategories.length) {
-    return ""; // Return an empty string if there are no subcategories
-  }
-
-  // Find the first subcategory that has products
-  for (const subcategory of subcategories) {
-    if (subcategory.products.length > 0) {
-      // Return the image path of the first product found
-      return subcategory.products[0].image;
-    }
-  }
-
-  return ""; // Return an empty string if no products are found in any subcategory
 }

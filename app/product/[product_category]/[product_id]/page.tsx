@@ -22,6 +22,7 @@ type ProductSubcategory = {
 type ProductAll = {
   name: string;
   slug: string;
+  image: string;
   subcategories: ProductSubcategory[];
 };
 
@@ -105,14 +106,15 @@ export default async function ProductDetailPage({
               Back to {productAll.name}
             </Link>
 
-            {/* Image */}
-            <Image
-              className="h-80 object-cover rounded shadow"
-              src={product.image}
-              alt={product.name}
-              width={500}
-              height={200}
-            />
+            <div className="relative h-80 w-full">
+              {/* Image */}
+              <Image
+                className="object-contain rounded shadow"
+                src={product.image}
+                alt={product.name}
+                fill
+              />
+            </div> 
           </div>
 
           {/* Description */}

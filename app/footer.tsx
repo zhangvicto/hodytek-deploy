@@ -23,7 +23,7 @@ export default function Footer() {
       <div className="self-center lg:justify-self-end lg:text-right">
         <p><Link href="/about">About</Link></p>
         <p><Link href="/product">Products</Link></p>
-        <p><Link href="/contact">Projects</Link></p>
+        <p><Link href="/projects">Projects</Link></p>
         <p><Link href="/contact">Contact Us</Link></p>
         <p><button onClick={scrollToTop}>Back to Top</button></p>
       </div>

@@ -40,7 +40,7 @@ function WhyUs() {
 
 function WhatWeOffer() {
   return (
-    <div className="flex flex-col items-center justify-center bg-sky-900 mb-10 px-6 lg:px-40 py-20">
+    <div className="flex flex-col items-center justify-center bg-sky-900 mb-0 px-6 lg:px-40 py-20">
       {/* Header Section */}
       <div className="text-white text-center mb-10">
         <p className="text-3xl lg:text-4xl font-bold mb-4">What We Offer</p>
@@ -59,8 +59,7 @@ function WhatWeOffer() {
             <li>Hazardous and Industrial Cable Glands</li>
             <li>Cables</li>
             <li>Cable Ties</li>
-            <li>Explosion-Proof Lighting</li>
-            <li>Explosion-Proof Junction boxes</li>
+            <li>Explosion-Proof Lighting & Junction Box</li>
             <li>Extremely Advanced Pipe & Cable Penetration Sealing System</li>
             <li>Generator Equipment</li>
           </ul>
@@ -141,6 +140,7 @@ function ProductCategorySlider() {
   type ProductAll = {
     name: string;
     slug: string;
+    image: string;
     subcategories: ProductSubcategory[];
   };
 
@@ -173,6 +173,7 @@ function ProductCategorySlider() {
       const staticCategory: ProductAll = {
         name: 'Cable Glands and Accessories',
         slug: 'cable-glands',
+        image: '/images/cable-glands.png',
         subcategories: [
           {
             name: 'Cable Glands',
@@ -278,7 +279,7 @@ function ProductCategorySlider() {
                 >
                   <div className="relative h-40 overflow-hidden">
                     <Image
-                      src={getFirstProductImage(productCategory)}
+                      src={productCategory.image}
                       alt={`${productCategory.name} image`}
                       fill
                       style={{objectFit:"contain"}}
