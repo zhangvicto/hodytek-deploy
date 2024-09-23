@@ -14,6 +14,7 @@ type Product = {
   id: string;
   image: string;
   description: string;
+  datasheet: string;
 };
 
 type ProductSubcategory = {

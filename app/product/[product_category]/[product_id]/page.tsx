@@ -4,12 +4,14 @@ import Menu from '../../../menu';
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
+import publicDataURL from '@/app/dataURL';
 
 type Product = {
   name: string;
   id: string;
   image: string;
   description: string;
+  datasheet: string;
 };
 
 type ProductSubcategory = {
@@ -96,8 +98,10 @@ export default async function ProductDetailPage({
               Product ID: {product.id.replace('_', '/')}
             </div>
             {/* Back Button */}
-            <Link className="hidden md:inline-flex mb-5 items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-              href={`/product/${productAll.slug}`}>
+            <Link
+              className="hidden md:inline-flex mb-5 items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+              href={`/product/${productAll.slug}`}
+            >
               Back to {productAll.name}
             </Link>
 
@@ -114,6 +118,31 @@ export default async function ProductDetailPage({
           {/* Description */}
           <div className="text-sky-900 my-5 lg:mx-5">{product.description}</div>
         </div>
+
+        {/* Datasheet Section */}
+        {product.datasheet && (
+          <div className="my-5 lg:mx-5">
+            <h2 className="text-2xl font-bold mb-4">Datasheet</h2>
+            {isImageFile(product.datasheet) ? (
+              <Image
+                src={product.datasheet}
+                alt="Datasheet"
+                width={500}
+                height={500}
+                className="rounded shadow"
+              />
+            ) : isPdfFile(product.datasheet) ? (
+              <iframe
+                src={product.datasheet}
+                width="100%"
+                height="600px"
+                className="rounded shadow"
+              ></iframe>
+            ) : (
+              <p>No datasheet available.</p>
+            )}
+          </div>
+        )}
       </div>
       <Footer />
     </div>
@@ -142,3 +171,12 @@ function getProductCategory(productAll: ProductAll, productId: string): string |
   return null;
 }
 
+// Helper function to check if the file is an image
+function isImageFile(filePath: string): boolean {
+  return /\.(jpg|jpeg|png|gif|svg)$/i.test(filePath);
+}
+
+// Helper function to check if the file is a PDF
+function isPdfFile(filePath: string): boolean {
+  return /\.pdf$/i.test(filePath);
+}

@@ -7,10 +7,11 @@
         "name": "Cables",
         "products": [
           {
-            "name": "Product-A",
-            "id": "product-a",
-            "image": "/images/product-a.jpg",
-            "description": "To be updated"
+            "name": "Cables",
+            "id": "cables",
+            "image": "/images/cables.png",
+            "description": "We carry various cables such as ESP, logging, and cable protectors. ",
+            "datasheet": "/datasheets/cables-catalog.pdf"
           }
         ]
       }
@@ -24,10 +25,11 @@
         "name": "Cable Ties",
         "products": [
           {
-            "name": "Product-B",
-            "id": "product-b",
-            "image": "/images/product-b.jpg",
-            "description": "To be updated"
+            "name": "Cable Ties",
+            "id": "cable-tie",
+            "image": "/images/cable-tie.png",
+            "description": "To be updated",
+            "datasheet": "/datasheets/cable-tie-specification.png"
           }
         ]
       }
@@ -41,10 +43,11 @@
         "name": "Explosion Proof Lighting",
         "products": [
           {
-            "name": "Product-C",
-            "id": "product-c",
-            "image": "/images/product-c.jpg",
-            "description": "To be updated"
+            "name": "Explosion Proof Lighting",
+            "id": "BHD91",
+            "image": "/images/BHD91.jpg",
+            "description": "To be updated",
+            "datasheet": "/datasheets/lighting-specification.pdf"
           }
         ]
       },
@@ -52,28 +55,11 @@
         "name": "Junction Box",
         "products": [
           {
-            "name": "Ex Stainless Steel Junction Box",
-            "id": "OS-TOP",
-            "image": "/images/OS-TOP.jpg",
-            "description": "To be updated"
-          },
-          {
-            "name": "Non-Ex Stainless Steel Junction Box",
-            "id": "OS-ITOP",
-            "image": "/images/OS-ITOP.jpg",
-            "description": "To be updated"
-          },
-          {
-            "name": "Ex Glass Reinforced Polyester Junction Box",
-            "id": "OSGP",
-            "image": "/images/OSGP.jpg",
-            "description": "To be updated"
-          },
-          {
-            "name": "Non-Ex Glass Reinforced Polyester Junction Box",
-            "id": "OSIGP",
-            "image": "/images/OSIGP.jpg",
-            "description": "To be updated"
+            "name": "Explosion Proof Junction Box",
+            "id": "BDD95",
+            "image": "/images/BDD95.png",
+            "description": "To be updated",
+            "datasheet": "/datasheets/junction-box-specification.pdf"
           }
         ]
       }
@@ -83,31 +69,15 @@
     "name": "Pipe and Cable Penetration Sealing Systems",
     "slug": "pipe-and-cable-penetration-sealing-systems",
     "subcategories": {
-      "Seals": {
-        "name": "Seals",
-        "products": [
-          {
-            "name": "Flexible Fire Seal",
-            "id": "edt-629",
-            "image": "/images/edt-629.jpg",
-            "description": "Features: \n• Fire ratings: J-90 & H-120 class\n• Approved and certified by ABS for\nJ-90 class first post-blast of 4.2 bar\n• Approved and certified by ABS, BV,\nand DNV for H-120 class\n• Resistant to jet-fire, hydrocarbon-fire\n• Weather/seawater/shock/blast\nresistant\n• Excellent vibration durability and high\ntension tolerance\n• Abrasion/friction/corrosion resistance\nin seawater\n• Strong resistance to hydrocarbon\nsplash, liquefied gas, liquid fuel, UV\nlight, and ozone\n• Tailored designs to suit each\ninstallation and fulfill all customer\nrequirements\n• Low maintenance\n• Non-asbestos\n\nSpecifications: \n• Color: Black\r\n• Capacity: piece [each]\r\n• Service life: more than 40 years\r\n• Service temperature: -60°C to 250°C\r\n• Specific gravity: 1.5 g/cm3 to 1.7 g/cm3\r\n• Compressive strength: over 4.5 bar\r\n• Pressure strength: 0.27MPa to 0.64\r\nMPa[25%]\r\n• Elongation: 150 ~ 250%\r\n• Hardness: 44 ~ 55 shore A\r\n• Elasticity: 55%\r\n• Storage temperature: room\r\ntemperature\r\n• UV test: grade 5, (40±1)°C, 24 hours\r\n• Cold shock: no crack, (-55±1)°C, 3\r\nminutes"
-          }
-        ]
-      },
       "Sealing Systens": {
         "name": "Sealing Systens",
         "products": [
           {
-            "name": "Extremely Advanced Pipe & Cable Penetration Sealing System",
-            "id": "rex-205-25",
-            "image": "/images/rex-205-25.jpg",
-            "description": "Features\n• Fire rating: A-0 (without insulation),\nA-60\n• Excellent intumescence and heat\nabsorption\n• High elasticity and high tensile\nstrength\n• High bonding strength\n• Gas-tight\n• Water-tight\n• UV light and ozone resistance\n• Variety of sizes, which conform to all\nwiring standards\n• No negative changes in repelling cold\nand heat\n\nSpecifications\n• Color: Matt Black\n• Total drying time: 120 hours (20 mm)\n• Surface drying time : 1 to 2 hours\n• Storage life: 12 months\n• Service temperature: -62 °C ~ 180 °C\n• Specific gravity: about (1.15±0.03) g/\ncm3\n• Tensile failure: 75%\n• Hardness: 40 shore A\n• Elasticity: 20%\n• Storage temperature: Room\ntemperature\n• UV test: Grade 5, (40±1) °C, 24 hours\n• Cold shock: No crack, (-60±1) °C, 3\nminutes"
-          },
-          {
-            "name": "Cable, Multi Core Tubing\r\n& Pipe Penetration\r\nSealing System",
-            "id": "rs-105-rrs-105",
-            "image": "/images/rs-105-rrs-105.jpg",
-            "description": "To be updated"
+            "name": "Pipe And Cable Penetration Sealing Systems",
+            "id": "sealing",
+            "image": "/images/sealing.jpg",
+            "description": "Features: \n• Fire ratings: J-90 & H-120 class\n• Approved and certified by ABS for\nJ-90 class first post-blast of 4.2 bar\n• Approved and certified by ABS, BV,\nand DNV for H-120 class\n• Resistant to jet-fire, hydrocarbon-fire\n• Weather/seawater/shock/blast\nresistant\n• Excellent vibration durability and high\ntension tolerance\n• Abrasion/friction/corrosion resistance\nin seawater\n• Strong resistance to hydrocarbon\nsplash, liquefied gas, liquid fuel, UV\nlight, and ozone\n• Tailored designs to suit each\ninstallation and fulfill all customer\nrequirements\n• Low maintenance\n• Non-asbestos\n\nSpecifications: \n• Color: Black\r\n• Capacity: piece [each]\r\n• Service life: more than 40 years\r\n• Service temperature: -60°C to 250°C\r\n• Specific gravity: 1.5 g/cm3 to 1.7 g/cm3\r\n• Compressive strength: over 4.5 bar\r\n• Pressure strength: 0.27MPa to 0.64\r\nMPa[25%]\r\n• Elongation: 150 ~ 250%\r\n• Hardness: 44 ~ 55 shore A\r\n• Elasticity: 55%\r\n• Storage temperature: room\r\ntemperature\r\n• UV test: grade 5, (40±1)°C, 24 hours\r\n• Cold shock: no crack, (-55±1)°C, 3\r\nminutes",
+            "datasheet": "/datasheets/sealing-catalog.pdf"
           }
         ]
       }
@@ -124,41 +94,8 @@
             "name": "Product-D",
             "id": "product-d",
             "image": "/images/product-d.jpg",
-            "description": "To be updated"
-          }
-        ]
-      }
-    }
-  },
-  "Others": {
-    "name": "Others",
-    "slug": "others",
-    "subcategories": {
-      "Bushings": {
-        "name": "Bushings",
-        "products": [
-          {
-            "name": "Non-Combustible Special\r\nRubber Bushing",
-            "id": "RB-series",
-            "image": "/images/RB-series.png",
-            "description": "To be updated"
-          }
-        ]
-      },
-      "Fire Resistance Adhesives": {
-        "name": "Fire Resistance Adhesives",
-        "products": [
-          {
-            "name": "Ceramic Tile Adhesive",
-            "id": "GME-90",
-            "image": "/images/GME-90.png",
-            "description": "To be updated"
-          },
-          {
-            "name": "Vinyl Sheet & Carpet Adhesive",
-            "id": "RF-7077",
-            "image": "/images/RF-7077.png",
-            "description": "To be updated"
+            "description": "To be updated",
+            "datasheet": "/datasheets/generator-catalog.pdf"
           }
         ]
       }

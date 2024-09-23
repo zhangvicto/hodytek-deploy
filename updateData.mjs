@@ -4,7 +4,7 @@ import path from 'path';
 
 const fetchData = async () => {
   // Replace with your data fetching logic
-  const response = await fetch('https://script.google.com/macros/s/AKfycbybnNu0oNL5ZHxutw29QkmkQ5nFWyBNOLm_N4u_6l0P547pkyVXvb-EQuhZQ49eujs/exec');
+  const response = await fetch('https://script.google.com/macros/s/AKfycbxp3EkcWX8Z6Ytw5_ULbWjrWxm6qsHkQDz3KlSSq5r5jF1MfwsPcYzIIIeZJ4DIYBc/exec');
   const data = await response.json();
 
   // Define the path to the JSON file
