@@ -110,7 +110,7 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
 
   return (
     <div className="text-sky-900 pt-5">
-      <div className=" hidden md:block lg:block">
+      {/* <div className="hidden md:block lg:block">
         <h1 className="px-10 lg:px-40 text-2xl font-bold pb-10">Browse Our Products</h1>
         <div className="relative w-full overflow-hidden pb-5">
           <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
@@ -157,7 +157,7 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
             </div>
           ) : <LoadSpinner />}
         </div>
-      </div>
+      </div> */}
 
       {/* Categories */}
       <div className="px-10 lg:px-40">
@@ -177,10 +177,21 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
 
           {/* Product Type Bars */}
           {Object.values(productData).map((productCategory) => (
-            <div key={productCategory.slug} className="p-4 rounded shadow hover:shadow-md transition-shadow">
-              <Link href={`/product/${productCategory.slug}`} className="text-sky-500 hover:underline mt-2 block">
-                <div className="h-20 lg:h-40 overflow-hidden">
-                  <Image src={getFirstProductImage(productCategory)} alt={productCategory.name + " image"} height={200} width={300} object-fit="contain" className="w-full" />
+            <div
+              key={productCategory.slug}
+              className="p-4 rounded shadow hover:shadow-md transition-shadow"
+            >
+              <Link
+                href={`/product/${productCategory.slug}`}
+                className="text-sky-500 mt-2 block"
+              >
+                <div className="relative h-40 w-full">
+                  <Image
+                    src={getFirstProductImage(productCategory)}
+                    alt={`${productCategory.name} image`}
+                    fill
+                    style={{ objectFit: 'contain' }}
+                  />
                 </div>
               </Link>
               <h3 className="mt-2 text-lg font-bold">{productCategory.name}</h3>

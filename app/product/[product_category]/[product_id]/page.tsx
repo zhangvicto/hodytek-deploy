@@ -121,11 +121,11 @@ export default async function ProductDetailPage({
 
         {/* Datasheet Section */}
         {product.datasheet && (
-          <div className="my-5 lg:mx-5">
+          <div className="my-5">
             <h2 className="text-2xl font-bold mb-4">Datasheet</h2>
             {isImageFile(product.datasheet) ? (
               <Image
-                src={product.datasheet}
+                src={publicDataURL(product.datasheet)}
                 alt="Datasheet"
                 width={500}
                 height={500}

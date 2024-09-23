@@ -11,7 +11,7 @@ export default function Footer() {
   }
 
   return (
-    <div className="relative grid lg:grid-cols-3 gap-5 w-full bg-black text-white mt-10 p-10 lg:px-40">
+    <div className="relative grid lg:grid-cols-3 gap-5 w-full bg-zinc-800 text-white mt-10 p-10 lg:px-40">
       <div className="self-center">
         <p className="h1 font-bold">Contact Us</p>
         <p>Email: <a href="mailto:inquiry@hodytek.com">inquiry@hodytek.com</a></p>

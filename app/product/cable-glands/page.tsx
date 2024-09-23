@@ -5,6 +5,7 @@ import Image from "next/image";
 import Menu from "@/app/menu";
 import Footer from "@/app/footer";
 import { ContactButton } from "@/app/contact-button";
+import Link from "next/link";
 
 export default function Page() {
     return (
@@ -63,7 +64,11 @@ function ProductSlider() {
             <p className="text-3xl lg:text-4xl font-bold mb-2">
                 Cable Glands and Accessories
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center mb-10">
+            <Link className="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+              href="/product">
+              Back to Products
+            </Link>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center my-10">
                 {products.map((product) => (
                     <div
                         key={product.id}

@@ -132,7 +132,7 @@ export default function ProductPage({ params }: { params: { product_category: st
             </div>
             <Link className="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
               href="/product">
-              Back to Product
+              Back to Products
             </Link>
           </div>
 
@@ -161,8 +161,8 @@ export default function ProductPage({ params }: { params: { product_category: st
               {currentProducts.map((product) => (
                 <div key={product.id} className="border p-4 rounded shadow hover:shadow-md transition-shadow h-full">
                   <Link href={`/product/${params.product_category}/${product.id}`} className="text-sky-500 hover:underline block">
-                    <div style={{ height: '20vh', overflow: 'hidden' }}>
-                      <Image src={product.image} alt={product.name} height={200} width={300} object-fit="contain" className="w-full" />
+                  <div className="relative h-40 w-full">
+                      <Image src={product.image} alt={product.name} fill style={{ objectFit: 'contain' }} />
                     </div>
                   </Link>
                   <div>

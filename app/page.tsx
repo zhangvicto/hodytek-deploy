@@ -31,7 +31,7 @@ function WhyUs() {
         <p className="text-3xl lg:text-4xl font-bold pb-10">Why Us</p>
         <p className="text-xl lg:text-2xl">Hodytek Ltd. provides products, consulting services, and integrated solutions for clients in the <Link href="/projects" className="font-semibold">oil and gas,  marine and offshore engineering, energy, telecommunications, sensors and instruments, construction,</Link> and many other related industries.</p>
       </div>
-      <div className="flex justify-center w-full mt-10 lg:mt-0">
+      <div className="flex rounded-sm justify-center w-full mt-10 lg:mt-0">
         <Image src="/images/carousel-backup.png" alt="about us" width="300" height="200" style={{ height: 200, width: 300, objectFit: "cover" }} />
       </div>
     </div>
@@ -276,14 +276,12 @@ function ProductCategorySlider() {
                   href={`/product/${productCategory.slug}`}
                   className="text-sky-500 hover:underline mt-2 block"
                 >
-                  <div className="h-20 lg:h-40 overflow-hidden">
+                  <div className="relative h-40 overflow-hidden">
                     <Image
                       src={getFirstProductImage(productCategory)}
                       alt={`${productCategory.name} image`}
-                      height={200}
-                      width={300}
-                      objectFit="contain"
-                      className="w-full"
+                      fill
+                      style={{objectFit:"contain"}}
                     />
                   </div>
                 </Link>

@@ -136,7 +136,7 @@ const ProjectsPage = () => {
                     fill
                     objectFit="cover"
                     alt={`Image for ${project.title}`}
-                    className="md:h-full md:w-auto rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
+                    className="md:h-full md:w-auto rounded-sm shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105"
                   />
                 </div>
               ))}

@@ -28,7 +28,7 @@
             "name": "Cable Ties",
             "id": "cable-tie",
             "image": "/images/cable-tie.png",
-            "description": "To be updated",
+            "description": "View our catalog of cable ties.",
             "datasheet": "/datasheets/cable-tie-specification.png"
           }
         ]
@@ -45,8 +45,8 @@
           {
             "name": "Explosion Proof Lighting",
             "id": "BHD91",
-            "image": "/images/BHD91.jpg",
-            "description": "To be updated",
+            "image": "/images/BHD91.png",
+            "description": "View our catalog of explosion-proof lighting.",
             "datasheet": "/datasheets/lighting-specification.pdf"
           }
         ]
@@ -58,7 +58,7 @@
             "name": "Explosion Proof Junction Box",
             "id": "BDD95",
             "image": "/images/BDD95.png",
-            "description": "To be updated",
+            "description": "View our catalog of explosion-proof junction box.",
             "datasheet": "/datasheets/junction-box-specification.pdf"
           }
         ]
@@ -76,7 +76,7 @@
             "name": "Pipe And Cable Penetration Sealing Systems",
             "id": "sealing",
             "image": "/images/sealing.png",
-            "description": "Features: \n• Fire ratings: J-90 & H-120 class\n• Approved and certified by ABS for\nJ-90 class first post-blast of 4.2 bar\n• Approved and certified by ABS, BV,\nand DNV for H-120 class\n• Resistant to jet-fire, hydrocarbon-fire\n• Weather/seawater/shock/blast\nresistant\n• Excellent vibration durability and high\ntension tolerance\n• Abrasion/friction/corrosion resistance\nin seawater\n• Strong resistance to hydrocarbon\nsplash, liquefied gas, liquid fuel, UV\nlight, and ozone\n• Tailored designs to suit each\ninstallation and fulfill all customer\nrequirements\n• Low maintenance\n• Non-asbestos\n\nSpecifications: \n• Color: Black\r\n• Capacity: piece [each]\r\n• Service life: more than 40 years\r\n• Service temperature: -60°C to 250°C\r\n• Specific gravity: 1.5 g/cm3 to 1.7 g/cm3\r\n• Compressive strength: over 4.5 bar\r\n• Pressure strength: 0.27MPa to 0.64\r\nMPa[25%]\r\n• Elongation: 150 ~ 250%\r\n• Hardness: 44 ~ 55 shore A\r\n• Elasticity: 55%\r\n• Storage temperature: room\r\ntemperature\r\n• UV test: grade 5, (40±1)°C, 24 hours\r\n• Cold shock: no crack, (-55±1)°C, 3\r\nminutes",
+            "description": "View our catalog of sealing systems.",
             "datasheet": "/datasheets/sealing-catalog.pdf"
           }
         ]
@@ -94,7 +94,7 @@
             "name": "Product-D",
             "id": "product-d",
             "image": "/images/product-d.jpg",
-            "description": "To be updated",
+            "description": "View our catalog of generator equipment.",
             "datasheet": "/datasheets/generator-catalog.pdf"
           }
         ]
