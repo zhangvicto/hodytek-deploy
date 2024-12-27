@@ -190,7 +190,7 @@ function ProductCategorySlider() {
       };
 
       const dataArray: ProductAll[] = Object.values(data);
-      setProductData([staticCategory, ...dataArray]);
+      setProductData([...dataArray, staticCategory]);
     };
     fetchProducts();
   }, [windowWidth]); // Use windowWidth in the dependency array

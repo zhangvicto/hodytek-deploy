@@ -28,8 +28,8 @@
         "products": [
           {
             "name": "Products For Hazardous And Harsh Locations",
-            "id": "EX-products-images",
-            "image": "/images/EX-products-images.png",
+            "id": "ex-products",
+            "image": "/images/ex-products.png",
             "description": "View our catalog of products for hazardous and harsh locations.",
             "datasheet": "/datasheets/ex-products.pdf"
           }
