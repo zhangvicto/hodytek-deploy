@@ -21,15 +21,15 @@
   "Products For Hazardous And Harsh Locations": {
     "name": "Products For Hazardous And Harsh Locations",
     "slug": "products-for-hazardous-and-harsh-locations",
-    "image": "/images/EX-products.png",
+    "image": "/images/EX-products-images.png",
     "subcategories": {
       "Explosion Proof Lighting": {
         "name": "Explosion Proof Lighting",
         "products": [
           {
             "name": "Products For Hazardous And Harsh Locations",
-            "id": "EX-products",
-            "image": "/images/EX-products.png",
+            "id": "EX-products-images",
+            "image": "/images/EX-products-images.png",
             "description": "View our catalog of products for hazardous and harsh locations.",
             "datasheet": "/datasheets/ex-products.pdf"
           }
