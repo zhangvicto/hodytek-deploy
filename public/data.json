@@ -1,7 +1,64 @@
 {
-  "Cables": {
-    "name": "Cables",
-    "slug": "cables",
+  "UL and CSA-Certified Cables": {
+    "name": "UL and CSA-Certified Cables",
+    "slug": "ul-and-csa-certified-cables",
+    "image": "/images/ul-csa-cables.jpg",
+    "subcategories": {
+      "Cables": {
+        "name": "Cables",
+        "products": [
+          {
+            "name": "Ul And Csa-Certified Cables",
+            "id": "ul-csa-cables",
+            "image": "/images/ul-csa-cables.jpg",
+            "description": "We have inventory of many of our UL/CSA-certified cables, please feel free to inquiry about any. We can provide quotes at anytime.",
+            "datasheet": "/datasheets/"
+          }
+        ]
+      }
+    }
+  },
+  "Products For Hazardous And Harsh Locations": {
+    "name": "Products For Hazardous And Harsh Locations",
+    "slug": "products-for-hazardous-and-harsh-locations",
+    "image": "/images/ex-products.png",
+    "subcategories": {
+      "Explosion Proof Lighting": {
+        "name": "Explosion Proof Lighting",
+        "products": [
+          {
+            "name": "Products For Hazardous And Harsh Locations",
+            "id": "EX-products",
+            "image": "/images/EX-products.png",
+            "description": "View our catalog of products for hazardous and harsh locations.",
+            "datasheet": "/datasheets/ex-products.pdf"
+          }
+        ]
+      }
+    }
+  },
+  "Extremely Advanced Pipe and Cable Penetration Sealing Systems": {
+    "name": "Extremely Advanced Pipe and Cable Penetration Sealing Systems",
+    "slug": "extremely-advanced-pipe-and-cable-penetration-sealing-systems",
+    "image": "/images/sealing.png",
+    "subcategories": {
+      "Sealing Systens": {
+        "name": "Sealing Systens",
+        "products": [
+          {
+            "name": "Pipe And Cable Penetration Sealing Systems",
+            "id": "sealing",
+            "image": "/images/sealing.png",
+            "description": "View our catalog of sealing systems.",
+            "datasheet": "/datasheets/sealing-catalog.pdf"
+          }
+        ]
+      }
+    }
+  },
+  "Special Cables": {
+    "name": "Special Cables",
+    "slug": "special-cables",
     "image": "/images/cables.png",
     "subcategories": {
       "Cables": {
@@ -32,56 +89,6 @@
             "image": "/images/cable-tie.png",
             "description": "View our catalog of cable ties.",
             "datasheet": "/datasheets/cable-tie-specification.png"
-          }
-        ]
-      }
-    }
-  },
-  "Explosion Proof Lighting and Junction Boxes": {
-    "name": "Explosion Proof Lighting and Junction Boxes",
-    "slug": "explosion-proof-lighting-and-junction-boxes",
-    "image": "/images/lighting-junction-box.png",
-    "subcategories": {
-      "Explosion Proof Lighting": {
-        "name": "Explosion Proof Lighting",
-        "products": [
-          {
-            "name": "Explosion Proof Lighting",
-            "id": "BHD91",
-            "image": "/images/BHD91.png",
-            "description": "View our catalog of explosion-proof lighting.",
-            "datasheet": "/datasheets/lighting-specification.pdf"
-          }
-        ]
-      },
-      "Junction Box": {
-        "name": "Junction Box",
-        "products": [
-          {
-            "name": "Explosion Proof Junction Box",
-            "id": "BDD95",
-            "image": "/images/BDD95.png",
-            "description": "View our catalog of explosion-proof junction box.",
-            "datasheet": "/datasheets/junction-box-specification.pdf"
-          }
-        ]
-      }
-    }
-  },
-  "Extremely Advanced Pipe and Cable Penetration Sealing Systems": {
-    "name": "Extremely Advanced Pipe and Cable Penetration Sealing Systems",
-    "slug": "extremely-advanced-pipe-and-cable-penetration-sealing-systems",
-    "image": "/images/sealing.png",
-    "subcategories": {
-      "Sealing Systens": {
-        "name": "Sealing Systens",
-        "products": [
-          {
-            "name": "Pipe And Cable Penetration Sealing Systems",
-            "id": "sealing",
-            "image": "/images/sealing.png",
-            "description": "View our catalog of sealing systems.",
-            "datasheet": "/datasheets/sealing-catalog.pdf"
           }
         ]
       }

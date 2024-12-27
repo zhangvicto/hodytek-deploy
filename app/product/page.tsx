@@ -165,17 +165,6 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
         <h1 className="text-2xl font-bold py-2">Product Categories</h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
 
-          {/* Cable Gland Fixed */}
-          <div className="p-4 rounded shadow hover:shadow-md transition-shadow">
-            <Link href="/product/cable-glands" className="text-sky-500 hover:underline mt-2 block">
-              <div className="h-20 lg:h-40 overflow-hidden">
-                <Image src="/images/cable-glands.png" alt="cable gland" height={200} width={300} object-fit="contain" className="w-full" />
-              </div>
-            </Link>
-
-            <h3 className="mt-2 text-lg font-bold">Cable Glands and Accessories</h3>
-          </div>
-
           {/* Product Type Bars */}
           {Object.values(productData).map((productCategory) => (
             <div
@@ -198,6 +187,17 @@ function ProductPage({ productData }: { productData: ProductAll[] }) {
               <h3 className="mt-2 text-lg font-bold">{productCategory.name}</h3>
             </div>
           ))}
+
+          {/* Cable Gland Fixed */}
+          <div className="p-4 rounded shadow hover:shadow-md transition-shadow">
+            <Link href="/product/cable-glands" className="text-sky-500 hover:underline mt-2 block">
+              <div className="h-20 lg:h-40 overflow-hidden">
+                <Image src="/images/cable-glands.png" alt="cable gland" height={200} width={300} object-fit="contain" className="w-full" />
+              </div>
+            </Link>
+
+            <h3 className="mt-2 text-lg font-bold">Cable Glands and Accessories</h3>
+          </div>
         </div>
       </div>
 
