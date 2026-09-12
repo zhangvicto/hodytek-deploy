@@ -1,112 +1,176 @@
 "use client";
-
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useState, useEffect } from "react";
-import publicDataURL from './dataURL';
-
-type Product = {
-    name: string;
-    id: string;
-    image: string;
-    description: string;
-};
-
-type ProductSubcategory = {
-    name: string;
-    products: Product[];
-}
-
-type ProductAll = {
-    name: string;
-    slug: string;
-    subcategories: ProductSubcategory[];
-};
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { catalogCategories } from "./catalog";
+import { Arrow } from "./ui";
 
 export default function Menu() {
-    const [isNavOpen, setIsNavOpen] = useState(false);
-    const [productTypes, setProductTypes] = useState<ProductAll[]>([]);
-
-    useEffect(() => {
-        async function fetchProductTypes() {
-            try {
-                const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-                const response = await fetch(publicDataURL('data.json'));
-                const data = await response.json();
-                setProductTypes(data);
-            } catch (error) {
-                console.error("Error fetching product data:", error);
-            }
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const productMenu = useRef<HTMLLIElement>(null);
+  const productToggle = useRef<HTMLButtonElement>(null);
+  const menuToggle = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    setOpen(false);
+    setProductsOpen(false);
+  }, [pathname]);
+  useEffect(() => {
+    const close = (event: PointerEvent) => {
+      if (!productMenu.current?.contains(event.target as Node))
+        setProductsOpen(false);
+    };
+    document.addEventListener("pointerdown", close);
+    return () => document.removeEventListener("pointerdown", close);
+  }, []);
+  return (
+    <header
+      className="site-header"
+      onKeyDown={(event) => {
+        if (event.key === "Escape") {
+          if (productsOpen) {
+            productToggle.current?.focus();
+            setProductsOpen(false);
+          } else {
+            menuToggle.current?.focus();
+            setOpen(false);
+          }
         }
-
-        fetchProductTypes();
-    }, []);
-
-    function toggleNav() {
-        setIsNavOpen(!isNavOpen);
-    }
-
-    return (
-        <nav className="z-50 flex items-center justify-between flex-wrap bg-sky-50 lg:p-5 px-10 py-5 lg:px-40">
-            {/* Icon */}
-            <Link className="flex items-center flex-shrink-0 text-black mr-6" href='/'>
-                <Image className="mr-2" src={`/icons/hodytek-icon.svg`} alt="Icon" width="55" height="40" />
-                <Image src={`/icons/hodytek-text.svg`} alt="Icon Text" width="165" height="45" />
+      }}
+    >
+      <div className="utility-bar">
+        <div className="shell">
+          <span>Industrial expertise. Global perspective.</span>
+          <a href="mailto:inquiry@hodytek.com">
+            inquiry@hodytek.com <Arrow diagonal />
+          </a>
+        </div>
+      </div>
+      <nav className="shell navigation" aria-label="Main navigation">
+        <Link className="brand" href="/" aria-label="Hodytek home">
+          <Image src="/icons/hodytek-icon.svg" alt="" width={45} height={40} />
+          <Image
+            src="/icons/hodytek-text.svg"
+            alt="Hodytek"
+            width={150}
+            height={41}
+          />
+        </Link>
+        <button
+          ref={menuToggle}
+          className="menu-toggle"
+          aria-expanded={open}
+          aria-controls="main-navigation"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen(!open)}
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            aria-hidden="true"
+          >
+            <path
+              d={open ? "m6 6 12 12M6 18 18 6" : "M3 6h18M3 12h18M3 18h18"}
+            />
+          </svg>
+        </button>
+        <ul
+          id="main-navigation"
+          className={`nav-links ${open ? "is-open" : ""}`}
+        >
+          <li>
+            <Link href="/" aria-current={pathname === "/" ? "page" : undefined}>
+              Home
             </Link>
-
-            <div className="block lg:hidden">
-                <button onClick={toggleNav} className="flex items-center px-3 py-2 text-sky-900 hover:text-sky-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
-            </div>
-
-            <ul
-                className={`relative w-full lg:flex lg:items-center lg:w-auto transition-all duration-300 ease-in-out ${isNavOpen ? 'max-h-screen' : 'max-h-0 overflow-y-hidden lg:overflow-y-visible'
-                    } lg:max-h-full`}
+          </li>
+          <li>
+            <Link
+              href="/about"
+              aria-current={pathname === "/about" ? "page" : undefined}
             >
-                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 ">
-                    <Link href="/">Home</Link>
-                </li>
-                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 ">
-                    <Link href="/about">About</Link>
-                </li>
-                <li className="relative group block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10">
-                    <Link href="/product">Products</Link>
-                    <ul className="lg:hidden lg:absolute z-50 group-hover:block bg-sky-50 lg:pt-2 lg:w-48 lg:shadow-lg overflow-hidden lg:last:rounded-b-md">
-                        {/* Mapping Other Categories */}
-                        {productTypes &&
-                            Object.values(productTypes).map((productType) => (
-                                <li key={productType.slug} className="border-b hover:bg-sky-100">
-                                    <Link
-                                        href={`/product/${productType.slug}`}
-                                        className="block px-4 py-2 text-sm text-sky-900 hover:text-sky-500"
-                                    >
-                                        {productType.name}
-                                    </Link>
-                                </li>
-                            ))}
-                            
-                        {/* Cable Gland Fixed Link */}
-                        <li className="border-b hover:bg-sky-100">
-                            <Link
-                                href={`/product/cable-glands`}
-                                className="block px-4 py-2 text-sm text-sky-900 hover:text-sky-500"
-                            >
-                                Cable Glands
-                            </Link>
-                        </li>
-                    </ul>
-                </li>
-                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 ">
-                    <Link href="/projects">Projects</Link>
-                </li>
-                <li className="block mt-4 lg:inline-block lg:mt-0 text-sky-900 hover:text-sky-500 pr-10 ">
-                    <Link href="/contact">Contact Us</Link>
-                </li>
-            </ul>
-
-        </nav>
-    );
+              About us
+            </Link>
+          </li>
+          <li
+            className="product-nav"
+            ref={productMenu}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node))
+                setProductsOpen(false);
+            }}
+          >
+            <div className="product-nav-label">
+              <Link
+                href="/product"
+                aria-current={
+                  pathname.startsWith("/product") ? "page" : undefined
+                }
+              >
+                Products
+              </Link>
+              <button
+                ref={productToggle}
+                aria-label="Product categories"
+                aria-expanded={productsOpen}
+                aria-controls="product-navigation"
+                onClick={() => setProductsOpen(!productsOpen)}
+              >
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="m4 7 6 6 6-6" />
+                </svg>
+              </button>
+            </div>
+            {productsOpen && (
+              <ul id="product-navigation" className="product-dropdown">
+                {catalogCategories.map((category) => (
+                  <li key={category.slug}>
+                    <Link
+                      href={`/product/${category.slug}`}
+                      onClick={() => {
+                        setProductsOpen(false);
+                        setOpen(false);
+                      }}
+                    >
+                      {category.name}
+                      <Arrow diagonal />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+          <li>
+            <Link
+              href="/projects"
+              aria-current={pathname === "/projects" ? "page" : undefined}
+            >
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact"
+              className="button button-primary nav-contact"
+              aria-current={pathname === "/contact" ? "page" : undefined}
+            >
+              Contact us <Arrow />
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
 }
