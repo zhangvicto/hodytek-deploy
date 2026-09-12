@@ -1,173 +1,124 @@
-import Image from 'next/image';
-import Footer from '../../../footer';
-import Menu from '../../../menu';
-import fs from 'fs';
-import path from 'path';
-import Link from 'next/link';
-import publicPDFURL from '@/app/dataURL';
+import Image from "next/image";
+import { existsSync } from "fs";
+import path from "path";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { categories } from "../../../catalog";
+import Menu from "../../../menu";
+import Footer from "../../../footer";
+import { Arrow, ProjectCTA } from "../../../ui";
 
-type Product = {
-  name: string;
-  id: string;
-  image: string;
-  description: string;
-  datasheet: string;
-};
-
-type ProductSubcategory = {
-  name: string;
-  products: Product[];
-};
-
-type ProductAll = {
-  name: string;
-  slug: string;
-  image: string;
-  subcategories: ProductSubcategory[];
-};
-
-type GeneratedParams = {
-  product_category: string;
-  product_id: string;
-}[];
-
-export async function generateStaticParams({ params }: { params: { product_category: string } }) {
-  try {
-    // Fetch product types and flatten products to get all product IDs
-    const filePath = path.join(process.cwd(), '/public/data.json');
-    const fetchedData = fs.readFileSync(filePath, 'utf-8');
-    const data = JSON.parse(fetchedData) as Record<string, ProductAll>;
-    const productAll = Object.values(data).find(
-      (p) => p.slug === params.product_category
-    );
-
-    if (!productAll) {
-      throw new Error(`No product category found for slug: ${params.product_category}`);
-    }
-
-    const generatedParams: GeneratedParams = [];
-
-    // Iterate over all subcategories
-    for (const subcategory of Object.values(productAll.subcategories)) {
-      subcategory.products.forEach((product) => {
-        generatedParams.push({ product_category: productAll.slug, product_id: product.id });
-      });
-    }
-
-    // console.log(generatedParams)
-
-    return generatedParams;
-  } catch (error) {
-    console.error('Error fetching product data for static params:', error);
-    return [];
-  }
+export function generateStaticParams({
+  params,
+}: {
+  params: { product_category: string };
+}) {
+  const category = categories.find(
+    (item) => item.slug === params.product_category,
+  );
+  return category
+    ? Object.values(category.subcategories)
+        .flatMap((item) => item.products)
+        .map((product) => ({
+          product_category: category.slug,
+          product_id: product.id,
+        }))
+    : [];
 }
-
-export default async function ProductDetailPage({
+export default function Page({
   params,
 }: {
   params: { product_category: string; product_id: string };
 }) {
-  // Fetch all product data
-  const filePath = path.join(process.cwd(), '/public/data.json');
-  const fetchedData = fs.readFileSync(filePath, 'utf-8');
-  const data = JSON.parse(fetchedData) as Record<string, ProductAll>;
-  const productAll = Object.values(data).find(
-    (p) => p.slug === params.product_category
+  const category = categories.find(
+    (item) => item.slug === params.product_category,
   );
-
-  if (!productAll) {
-    return <div>Product category not found.</div>;
-  }
-  // Get the product object for current product
-  const product = getProductById(productAll, params.product_id);
-
-  if (!product) {
-    return <div>Product not found.</div>;
-  }
-
+  const product =
+    category &&
+    Object.values(category.subcategories)
+      .flatMap((item) => item.products)
+      .find((item) => item.id === params.product_id);
+  if (!category || !product) notFound();
+  const hasDatasheet =
+    Boolean(product.datasheet) &&
+    existsSync(path.join(process.cwd(), "public", product.datasheet));
+  const hasPDF = hasDatasheet && /\.pdf$/i.test(product.datasheet);
+  const hasImage =
+    hasDatasheet && /\.(jpg|jpeg|png|gif|svg)$/i.test(product.datasheet);
   return (
-    <div className="bg-white">
+    <>
       <Menu />
-      <div className="text-sky-900 px-10 lg:px-40">
-        <div className="grid lg:grid-cols-2 pt-10">
-          <div>
-            {/* Title */}
-            <div className="text-3xl font-bold py-2">{product.name}</div>
-            {/* Product ID */}
-            <div className="text-gray-400 mb-2">
-              Product ID: {product.id.replace('_', '/')}
-            </div>
-            {/* Back Button */}
-            <Link
-              className="hidden md:inline-flex mb-5 items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-              href={`/product/${productAll.slug}`}
-            >
-              Back to {productAll.name}
-            </Link>
-
-            <div className="relative h-80 w-full">
-              {/* Image */}
+      <main id="main-content">
+        <section className="shell section">
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <Link href="/product">All products</Link>
+            <span aria-hidden="true">/</span>
+            <Link href={`/product/${category.slug}`}>{category.name}</Link>
+            <span aria-hidden="true">/</span>
+            <span>{product.name}</span>
+          </nav>
+          <div className="detail-grid">
+            <div className="detail-image">
               <Image
-                className="object-contain rounded shadow"
                 src={product.image}
                 alt={product.name}
                 fill
+                priority
+                sizes="(max-width: 550px) 90vw, 550px"
               />
-            </div> 
+            </div>
+            <div>
+              <p className="eyebrow">PRODUCT INFORMATION</p>
+              <h1>{product.name}</h1>
+              <p>{product.description}</p>
+              {!hasPDF && !hasImage && (
+                <p>
+                  Contact our team for current technical documentation and
+                  availability.
+                </p>
+              )}
+              <div className="button-row">
+                <Link href="/contact" className="button button-primary">
+                  Request a quotation <Arrow />
+                </Link>
+                {(hasPDF || hasImage) && (
+                  <a
+                    href={product.datasheet}
+                    className="text-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View datasheet <Arrow diagonal />
+                    <span className="sr-only">(opens in a new tab)</span>
+                  </a>
+                )}
+              </div>
+            </div>
           </div>
-
-          {/* Description */}
-          <div className="text-sky-900 my-5 lg:mx-5">{product.description}</div>
-        </div>
-
-        {/* Datasheet Section */}
-        {product.datasheet && (
-          <div className="my-5">
-            <h2 className="text-2xl font-bold mb-4">Datasheet</h2>
-            {isImageFile(product.datasheet) ? (
-              <Image
-                src={product.datasheet}
-                alt="Datasheet"
-                width={500}
-                height={500}
-                className="rounded shadow"
-              />
-            ) : isPdfFile(product.datasheet) ? (
-              <iframe
-                src={product.datasheet}
-                width="100%"
-                height="600px"
-                className="rounded shadow"
-              ></iframe>
-            ) : (
-              <p>No datasheet available.</p>
-            )}
-          </div>
-        )}
-      </div>
+          {(hasPDF || hasImage) && (
+            <section className="datasheet">
+              <h2>Technical documentation</h2>
+              {hasPDF ? (
+                <iframe
+                  src={product.datasheet}
+                  title={`${product.name} datasheet`}
+                  loading="lazy"
+                />
+              ) : (
+                <Image
+                  src={product.datasheet}
+                  alt={`${product.name} specifications`}
+                  width={1000}
+                  height={1000}
+                  style={{ width: "100%", height: "auto" }}
+                />
+              )}
+            </section>
+          )}
+        </section>
+        <ProjectCTA />
+      </main>
       <Footer />
-    </div>
+    </>
   );
-}
-
-function getProductById(productAll: ProductAll, productId: string): Product | null {
-  for (const subcategory of Object.values(productAll.subcategories)) {
-    for (const product of subcategory.products) {
-      if (product.id === productId) {
-        return product;
-      }
-    }
-  }
-  return null;
-}
-
-// Helper function to check if the file is an image
-function isImageFile(filePath: string): boolean {
-  return /\.(jpg|jpeg|png|gif|svg)$/i.test(filePath);
-}
-
-// Helper function to check if the file is a PDF
-function isPdfFile(filePath: string): boolean {
-  return /\.pdf$/i.test(filePath);
 }

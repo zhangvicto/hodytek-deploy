@@ -5,10 +5,10 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "HodyTek",
-  description: "Website created and maintain by HodyTek",
+  title: "Hodytek | Industrial Products & Integrated Solutions",
+  description:
+    "Industrial products, technical expertise, and integrated solutions for oil and gas, marine, offshore engineering, and energy projects. Based in Toronto, serving clients worldwide.",
 };
-
 
 export default function RootLayout({
   children,
@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <body className={inter.className}>
-          {children}
-        </body>
+      <body className={inter.className} id="top">
+        {children}
+      </body>
     </html>
   );
 }
